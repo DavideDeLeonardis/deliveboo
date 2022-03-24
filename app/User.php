@@ -22,6 +22,8 @@ class User extends Authenticatable
         'address',
         'phone',
         'p_iva',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -43,5 +45,10 @@ class User extends Authenticatable
     public function categories()
     {
         return $this->belongsToMany('App\Model\Category');
+    }
+
+    public function dishes()
+    {
+        return $this->hasMany('App\Model\Dish');
     }
 }
