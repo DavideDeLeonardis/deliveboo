@@ -14,6 +14,7 @@ class Dish extends Model
         'price',
         'availability',
         'course',
+        'quantity',
         'created_at',
         'updated_at',
     ];

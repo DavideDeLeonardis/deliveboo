@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Model;
-
-use Faker\Guesser\Name;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
@@ -13,6 +11,7 @@ class Order extends Model
         'email',
         'address',
         'date',
+        'time',
         'price_total',
         'created_at',
         'updated_at',

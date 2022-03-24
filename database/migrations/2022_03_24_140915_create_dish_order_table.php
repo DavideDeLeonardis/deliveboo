@@ -25,7 +25,6 @@ class CreateDishOrderTable extends Migration
                 ->on('orders');
 
             $table->primary(['dish_id', 'order_id']);
-            $table->tinyInteger('quantity');
             $table->timestamps();
         });
     }

@@ -64,6 +64,7 @@ class DishSeeder extends Seeder
         //     ],
         // ];
 
+        // test seeding
         for ($i = 0; $i < 150; $i++) {
             $newDish = new Dish();
             $newDish->user_id = User::inRandomOrder()->first()->id;
@@ -73,6 +74,7 @@ class DishSeeder extends Seeder
             $newDish->price = $faker->randomFloat(2, 5, 100);
             $newDish->availability = $faker->boolean();
             $newDish->course = $faker->words(1, true);
+            $newDish->quantity = $faker->numberBetween(0, 3);
 
             $newDish-> save();
         }

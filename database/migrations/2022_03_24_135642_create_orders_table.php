@@ -19,7 +19,8 @@ class CreateOrdersTable extends Migration
             $table->string('lastname', 120);
             $table->string('email', 120);
             $table->string('address', 180);
-            $table->dateTime('date', 0);
+            $table->date('date');
+            $table->time('time', 0);
             $table->float('price_total', 6, 2);
             $table->timestamps();
         });

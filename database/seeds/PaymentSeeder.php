@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\Payment;
 
 class PaymentSeeder extends Seeder
 {
@@ -11,6 +12,17 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $payments = [
+            'Contanti alla consegna',
+            'Carta di credito',
+            'PayPal',
+        ];
+
+        foreach ($payments as $payment) {
+            $newPayment = new Payment();
+            $newPayment->type = $payment;
+
+            $newPayment->save();
+        }
     }
 }
