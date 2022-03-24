@@ -8,10 +8,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    public function categories() {
-        return $this->belongsToMany('App\Model\Category');
-    }
-
     use Notifiable;
 
     /**
@@ -20,7 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address', 'phone', 'p_iva'
+        'name',
+        'email',
+        'password',
+        'address',
+        'phone',
+        'p_iva',
     ];
 
     /**
@@ -28,9 +29,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that should be cast to native types.
@@ -40,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Model\Category');
+    }
 }

@@ -4,10 +4,10 @@
 
 <script>
 export default {
-    name: 'App',
-}
+    name: "App",
+};
 </script>
 
 <style lang="scss">
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 </style>
