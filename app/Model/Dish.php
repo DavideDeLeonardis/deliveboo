@@ -11,6 +11,7 @@ class Dish extends Model
         'name',
         'description',
         'ingredients',
+        'image',
         'price',
         'availability',
         'course',
