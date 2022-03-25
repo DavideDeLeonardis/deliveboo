@@ -22,9 +22,9 @@ class CreateDishesTable extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->text('ingredients');
-            $table->string('image');
+            $table->text('image');
             $table->float('price', 5, 2);
-            $table->boolean('availability');
+            $table->boolean('availability')->default(0);
             $table->string('course', 25);
             $table->timestamps();
         });
