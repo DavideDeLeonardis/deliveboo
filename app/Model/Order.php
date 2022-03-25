@@ -20,7 +20,8 @@ class Order extends Model
     public function dishes()
     {
         return $this->belongsToMany('App\Model\Dish')
-        ->withPivot('quantity');
+            ->withPivot('quantity')
+            ->withTimestamps();
     }
 
     public function payment()
