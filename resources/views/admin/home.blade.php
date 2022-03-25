@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        {{ __('You are logged in!') }}<br>
                         <a style="text-align: center" href="{{ route('admin.dishes.index') }}">Tutti i piatti</a>
                     </div>
                 </div>

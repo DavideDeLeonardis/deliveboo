@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        {{-- <a class="btn btn-danger my-3" href="{{ route('admin.posts.index')}}">Home</a> --}}
+        <a class="btn btn-primary my-3" href="{{ route('admin.dishes.index')}}">Home</a>
         <h1 class="">Aggiungi nuovo Piatto:</h1>
         <div class="row">
             <div class="col py-3">
@@ -69,7 +69,7 @@
                             Non Disponibile
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-danger">Save</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>
