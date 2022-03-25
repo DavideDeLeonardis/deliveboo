@@ -16,7 +16,9 @@ class DishOrderSeeder extends Seeder
         $dishes = Dish::all();
 
         foreach ($dishes as $dish) {
+            $quantity = random_int(1, 9);
             $orders = Order::inRandomOrder()->first();
+            $dish->orders()->attach(1, ['quantity' => $quantity]);
             $dish->orders()->attach($orders);
         }
     }

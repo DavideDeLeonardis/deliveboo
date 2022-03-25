@@ -19,7 +19,8 @@ class Order extends Model
 
     public function dishes()
     {
-        return $this->belongsToMany('App\Model\Dish');
+        return $this->belongsToMany('App\Model\Dish')
+        ->withPivot('quantity');
     }
 
     public function payment()
