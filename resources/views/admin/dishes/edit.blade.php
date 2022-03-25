@@ -49,7 +49,6 @@
                     <div class="mb-3">
                         <h2>Scegli Portata:</h2>
                         <select class="form-select" name="course">
-                            {{-- <option selected>Scegli poratta</option> --}}
                             @foreach ($courses as $course)
                                 <option @if (old('course', $dish->course) == $course) selected @endif value="{{ $course }}">
                                     {{ $course }}</option>
@@ -73,7 +72,6 @@
                             Non Disponibile
                         </label>
                     </div>
-                    {{-- <a href="{{ url()->previous()}}" type="submit" class="btn btn-primary">Previous</a> --}}
                     <button type="submit" class="btn btn-danger">Save</button>
 
                 </form>

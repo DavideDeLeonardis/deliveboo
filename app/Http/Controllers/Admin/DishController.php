@@ -24,7 +24,7 @@ class DishController extends Controller
 
     public function index()
     {
-        $dishes = Dish::paginate(15);
+        $dishes = Dish::where('user_id', Auth::user()->id)->paginate(15);
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -35,7 +35,15 @@ class DishController extends Controller
 
     public function create()
     {
-        return view('admin.dishes.create');
+        $courses = [
+            'Primo',
+            'Secondo',
+            'Pizza',
+            'Frutta',
+            'Dolce',
+            'Bibite',
+        ];
+        return view('admin.dishes.create', ['courses' => $courses]);
     }
 
     public function edit(Dish $dish)
@@ -53,7 +61,25 @@ class DishController extends Controller
 
     public function store(Request $request)
     {
-        $dish = Dish::all();
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+
+        if (!empty($data['image'])) {
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        }
+        if ($data['availability'] === 'on') {
+            $data['availability'] = 1;
+        } else {
+            $data['availability'] = 0;
+        }
+
+        $dish = new Dish();
+        $dish->fill($data);
+        $dish->image = $data['image'];
+        $dish->user_id = $data['user_id'];
+        $dish->save();
+
         return redirect()->route('admin.dishes.show', $dish);
     }
 
