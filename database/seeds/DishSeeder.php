@@ -75,7 +75,6 @@ class DishSeeder extends Seeder
             $newDish->price = $faker->randomFloat(2, 5, 100);
             $newDish->availability = $faker->boolean();
             $newDish->course = $faker->words(1, true);
-            $newDish->quantity = $faker->numberBetween(0, 3);
 
             $newDish-> save();
         }

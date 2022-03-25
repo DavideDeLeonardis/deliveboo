@@ -26,7 +26,6 @@ class CreateDishesTable extends Migration
             $table->float('price', 5, 2);
             $table->boolean('availability');
             $table->string('course', 25);
-            $table->tinyInteger('quantity')->default(0);
             $table->timestamps();
         });
     }
