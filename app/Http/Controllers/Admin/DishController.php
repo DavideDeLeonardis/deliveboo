@@ -63,10 +63,6 @@ class DishController extends Controller
     {
         $request->validate($this->validationParams);
         $data = $request->all();
-<<<<<<< HEAD
-        // dd($data);
-=======
->>>>>>> parent of 4e2bfa3 (pulizia codice)
         $data['user_id'] = Auth::user()->id;
 
         if (!empty($data['image'])) {
