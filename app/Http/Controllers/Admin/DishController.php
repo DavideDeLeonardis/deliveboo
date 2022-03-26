@@ -61,6 +61,7 @@ class DishController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate($this->validationParams);
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
 
