@@ -13,22 +13,22 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'Vegetariano', //
-            'Messicano', //
-            'Indiano', //
-            'Greco', //
-            'Giapponese', //
-            'Cinese', //
-            'Libanese', //
-            'Americano', //
-            'Italiano', //
-            'Thailandese', //
-            'Sushi', //
-            'Pizza', //
-            'Dolci', //
-            'Kebab', //
-            'Pasta', //
-            'Poke', //
+            'Vegetariano',
+            'Messicano',
+            'Indiano',
+            'Greco',
+            'Giapponese',
+            'Cinese',
+            'Libanese',
+            'Americano',
+            'Italiano',
+            'Thailandese',
+            'Sushi',
+            'Pizza',
+            'Dolci',
+            'Kebab',
+            'Pasta',
+            'Poke',
         ];
 
         $images = [
@@ -50,11 +50,6 @@ class CategorySeeder extends Seeder
             'https://broburger.it/wp-content/uploads/2020/02/poke-salmone.jpg', //poke
         ];
 
-        // foreach ($categories as $category) {
-        //     $newCategory = new Category();
-        //     $newCategory->name = $category;
-        //     $newCategory->save();
-        // }
         for ($i = 0; $i < 16; $i++) {
             $newCategory = new Category();
             $newCategory->name = $categories[$i];

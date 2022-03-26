@@ -1,9 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
-        {{-- <a class="btn btn-danger my-3" href="{{ route('admin.posts.index')}}">Home</a> --}}
-        <h1 class="">Aggiungi nuovo Piatto:</h1>
+        <h1 class="">Modifica Piatto:</h1>
         <div class="row">
             <div class="col py-3">
                 <form action="{{ route('admin.dishes.update', $dish) }}" method="post" enctype="multipart/form-data">
@@ -73,7 +72,6 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-danger">Save</button>
-
                 </form>
             </div>
         </div>

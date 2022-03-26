@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>Home Guest</div>
 </template>
 
 <script>

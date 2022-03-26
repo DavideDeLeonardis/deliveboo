@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
-        {{-- <a class="btn btn-danger my-3" href="{{ route('admin.posts.index')}}">Home</a> --}}
         <h1 class="">Aggiungi nuovo Piatto:</h1>
         <div class="row">
             <div class="col py-3">
@@ -47,7 +46,6 @@
                     <div class="mb-3">
                         <h2>Scegli Portata:</h2>
                         <select class="form-select" name="course">
-                            {{-- <option selected>Scegli poratta</option> --}}
                             @foreach ($courses as $course)
                                 <option value="{{ $course }}">
                                     {{ $course }}</option>

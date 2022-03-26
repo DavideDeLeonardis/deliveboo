@@ -27,8 +27,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::where('id', Auth::user()->id)->first();
-        return view('admin.users.index', compact('user'));
+        return view('admin.users.index', ['user' => User::where('id', Auth::user()->id)->first()]);
     }
 
     /**
@@ -65,7 +64,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  App\User
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -77,7 +76,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  App\User
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -105,8 +104,7 @@ class UserController extends Controller
         }
         if (!empty($data['photo'])) {
             Storage::delete($user->photo);
-            $img_path = Storage::put('uploads', $data['photo']);
-            $user->photo = $img_path;
+            $user->photo = Storage::put('uploads', $data['photo']);
         }
         $user->update();
 

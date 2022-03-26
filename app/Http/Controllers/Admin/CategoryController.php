@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
     protected $validationParams = [
         'name' => 'required|max:60',
     ];
@@ -20,8 +19,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', ['categories' => $categories]);
+        return view('admin.categories.index', [
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', ['category' => $category]);
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
