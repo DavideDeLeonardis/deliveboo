@@ -30,6 +30,8 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')
             ->name('home');
         Route::resource('dishes', 'DishController');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('users', 'UserController');
     });
 
 Route::get('{any?}', function () {

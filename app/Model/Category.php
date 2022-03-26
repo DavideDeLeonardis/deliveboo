@@ -14,6 +14,6 @@ class Category extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User')->withPivot('user_id', 'category_id');
     }
 }

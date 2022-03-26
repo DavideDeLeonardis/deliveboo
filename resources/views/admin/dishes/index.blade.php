@@ -9,6 +9,7 @@
         @endif
         <div class="row mt-3 mb-2">
             <div class="col d-flex justify-content-center">
+                <a class="btn btn-primary" href="{{ route('admin.users.index') }}">Vedi il tuo profilo</a>
                 <a class="btn btn-primary" href="{{ route('admin.dishes.create') }}">Aggiungi Nuovo Piatto</a>
             </div>
         </div>
