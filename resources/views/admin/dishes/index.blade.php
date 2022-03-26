@@ -7,6 +7,12 @@
                 {{ session('status') }}
             </div>
         @endif
+        <div class="row mt-3 mb-2">
+            <div class="col d-flex justify-content-center">
+                <a class="btn btn-primary" href="{{ route('admin.dishes.create') }}">Aggiungi Nuovo Piatto</a>
+            </div>
+        </div>
+
         <table class="table table-dark table-bordered border-white table-hover table-striped">
             <thead>
                 <tr>
