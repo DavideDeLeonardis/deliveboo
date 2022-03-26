@@ -63,6 +63,7 @@ class DishController extends Controller
     {
         $request->validate($this->validationParams);
         $data = $request->all();
+        // dd($data);
         $data['user_id'] = Auth::user()->id;
 
         if (!empty($data['image'])) {
