@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use App\Model\Dish;
-use App\Model\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Dish;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
-
     protected $validationParams = [
         'name' => 'required|max:100',
         'description' => 'required|max:2000',
@@ -22,43 +20,45 @@ class DishController extends Controller
         'course' => 'required|max:25',
     ];
 
+    public $courses = [
+        'Primo',
+        'Secondo',
+        'Pizza',
+        'Frutta',
+        'Dolce',
+        'Bibite',
+    ];
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $dishes = Dish::where('user_id', Auth::user()->id)->paginate(15);
+
         return view('admin.dishes.index', compact('dishes'));
     }
 
-    public function show(Dish $dish)
-    {
-        return view('admin.dishes.show', ['dish' => $dish]);
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        $courses = [
-            'Primo',
-            'Secondo',
-            'Pizza',
-            'Frutta',
-            'Dolce',
-            'Bibite',
-        ];
-        return view('admin.dishes.create', ['courses' => $courses]);
+        $courses = $this->courses;
+
+        return view('admin.dishes.create', compact('courses'));
     }
 
-    public function edit(Dish $dish)
-    {
-        $courses = [
-            'Primo',
-            'Secondo',
-            'Pizza',
-            'Frutta',
-            'Dolce',
-            'Bibite',
-        ];
-        return view('admin.dishes.edit', ['dish' => $dish, 'courses' => $courses]);
-    }
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $request->validate($this->validationParams);
@@ -67,27 +67,63 @@ class DishController extends Controller
         $data['user_id'] = Auth::user()->id;
 
         if (!empty($data['image'])) {
-            $img_path = Storage::put('uploads', $data['image']);
-            $data['image'] = $img_path;
+            $data['image'] = Storage::put('uploads', $data['image']);
         }
-        if ($data['availability'] === 'on') {
-            $data['availability'] = 1;
-        } else {
-            $data['availability'] = 0;
+        if (isset($data['availability'])) {
+            if ($data['availability'] === 'on') {
+                $data['availability'] = 1;
+            } else {
+                $data['availability'] = 0;
+            }
         }
 
         $dish = new Dish();
         $dish->fill($data);
-        $dish->image = $data['image'];
-        $dish->user_id = $data['user_id'];
+        $dish->image = $data['image']; // ????
+        $dish->user_id = Auth::user()->id;
         $dish->save();
 
         return redirect()->route('admin.dishes.show', $dish);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Model\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Dish $dish)
+    {
+        return view('admin.dishes.show', compact('dish'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Model\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Dish $dish)
+    {
+        $data = [
+            'dish' => $dish,
+            'courses' => $this->courses,
+        ];
+
+        return view('admin.dishes.edit', $data);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Model\Category  $category
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, Dish $dish)
     {
         $request->validate($this->validationParams);
+
         $data = $request->all();
         if (Auth::user()->id != $dish->user_id) {
             abort('403');
@@ -117,14 +153,19 @@ class DishController extends Controller
         }
         if (!empty($data['image'])) {
             Storage::delete($dish->image);
-            $img_path = Storage::put('uploads', $data['image']);
-            $dish->image = $img_path;
+            $dish->image = Storage::put('uploads', $data['image']);
         }
         $dish->update();
 
         return redirect()->route('admin.dishes.show', $dish);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Model\Category  $category
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(Dish $dish)
     {
         $dish->orders()->detach();
