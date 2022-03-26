@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h1 class="">Modifica Piatto:</h1>
+        {{-- <a class="btn btn-danger my-3" href="{{ route('admin.posts.index')}}">Home</a> --}}
+        <h1 class="">Aggiungi nuovo Piatto:</h1>
         <div class="row">
             <div class="col py-3">
                 <form action="{{ route('admin.dishes.update', $dish) }}" method="post" enctype="multipart/form-data">
@@ -26,7 +27,6 @@
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
                         <input class="form-control" type="file" id="image" name='image' value="{{ $dish->image }}">
-                            {{-- input senza value --}}
                         @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -72,7 +72,8 @@
                             Non Disponibile
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-danger">Save</button>
+
                 </form>
             </div>
         </div>

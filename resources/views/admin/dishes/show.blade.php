@@ -8,11 +8,7 @@
                     <li>{{ $dish->name }}</li>
                     <li>{{ $dish->description }}</li>
                     <li>{{ $dish->ingredients }}</li>
-                    <li>
-                        <img class="img-fluid"
-                            src="{{ !empty($post->image) ? asset('storage/' . $dish->image) : asset('storage/uploads/default.png') }}"
-                            alt="{{ $dish->name }}"
-                            style="width: 300px">
+                    <li><img class="img-fluid" src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
                     </li>
                     <li>{{ $dish->price }} &euro;</li>
                     <li>{{ $dish->availability === 1 ? 'Disponibile' : 'Non Disponibile' }}</li>
