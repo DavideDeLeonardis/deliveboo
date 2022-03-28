@@ -50,14 +50,25 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = [
+            'name.required' => 'Il nome è richiesto',
+            'email.required' => 'L\'email è richiesta',
+            'phone.numeric' => 'Il numero di telefono deve contenere solo numeri',
+            'phone.unique' => 'Il numero di telefono è già registrato',
+            'email.unique' => 'L\'email è già registrata',
+            'p_iva.unique' => 'La partita iva è già registrata',
+            'phone.digits_between' => 'Il numero di telefono deve contenere fra i :min e i :max caratteri',
+            'p_iva.digits_between' => 'La partita iva deve contenere :max caratteri',
+
+        ];
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['required', 'string'],
-            'phone' => ['required', 'string'],
-            'p_iva' => ['required', 'string'],
-        ]);
+            'phone' => ['required', 'numeric', 'digits_between:10,11', 'unique:users'],
+            'p_iva' => ['required', 'numeric', 'digits_between:11,11', 'unique:users'],
+        ], $messages);
     }
 
     /**
@@ -83,6 +94,10 @@ class RegisterController extends Controller
             }
 
             return (empty($newSlug)) ? $slug : $newSlug;
+        }
+
+        if (!is_numeric($data['phone'])) {
+            $data['phone'] = "";
         }
 
         return User::create([

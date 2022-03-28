@@ -10,7 +10,8 @@
                     @method('POST')
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}">
+                        <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}"
+                            data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
