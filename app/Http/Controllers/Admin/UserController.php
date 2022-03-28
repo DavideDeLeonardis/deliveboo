@@ -83,9 +83,9 @@ class UserController extends Controller
     {
         $request->validate($this->validationParams);
         $data = $request->all();
-        // if (Auth::user()->id != $user->user_id) {
-        //     abort('403');
-        // }
+        if (Auth::user()->id != $user->id) {
+            abort('403');
+        }
         if ($data['name'] != $user->name) {
             $user->name = $data['name'];
         }
