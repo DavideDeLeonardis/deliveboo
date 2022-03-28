@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\User;
 use App\Model\Dish;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class DishSeeder extends Seeder
 {
@@ -69,6 +70,7 @@ class DishSeeder extends Seeder
             $newDish = new Dish();
             $newDish->user_id = User::inRandomOrder()->first()->id;
             $newDish->name = $faker->words(2, true);
+            $newDish->slug = Str::slug("$newDish->name-$i", '-');
             $newDish->description = $faker->paragraphs(5, true);
             $newDish->ingredients = $faker->words(4, true);
             $newDish->image = 'https://www.ansa.it/crop/crop.php?file=https://www.ansa.it/webimages/cl_1100x/2020/8/5/7f6450dc6002a319e35f1ad411ebdcab.jpg&w=1100&h=600&face=Detection&c=1FCZxBx9yEHvx04rW0JVlQ';

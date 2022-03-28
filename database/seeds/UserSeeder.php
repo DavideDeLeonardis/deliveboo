@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaUYJ5R8sBhMHSpKFrIO428Os3gxTC1vGJk4AvVTm7OcMw7_vrb5SflnOoT45kzbGOuA4&usqp=CAU',
+                'photo' => '',
                 'name' => 'Ristorante da Davide',
                 'email' => 'davidedeleonardis1711@gmail.com',
                 'password' => '12345678',
@@ -24,7 +25,7 @@ class UserSeeder extends Seeder
                 'p_iva' => '12345678911',
             ],
             [
-                'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaUYJ5R8sBhMHSpKFrIO428Os3gxTC1vGJk4AvVTm7OcMw7_vrb5SflnOoT45kzbGOuA4&usqp=CAU',
+                'photo' => '',
                 'name' => 'Ristorante da Manuel',
                 'email' => 'manuelcappello7@gmail.com',
                 'password' => '12345678',
@@ -33,7 +34,7 @@ class UserSeeder extends Seeder
                 'p_iva' => '12345898911',
             ],
             [
-                'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaUYJ5R8sBhMHSpKFrIO428Os3gxTC1vGJk4AvVTm7OcMw7_vrb5SflnOoT45kzbGOuA4&usqp=CAU',
+                'photo' => '',
                 'name' => 'Ristorante da Christian',
                 'email' => 'christian@gmail.com',
                 'password' => '12345678',
@@ -42,7 +43,7 @@ class UserSeeder extends Seeder
                 'p_iva' => '12367678911',
             ],
             [
-                'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaUYJ5R8sBhMHSpKFrIO428Os3gxTC1vGJk4AvVTm7OcMw7_vrb5SflnOoT45kzbGOuA4&usqp=CAU',
+                'photo' => '',
                 'name' => 'Ristorante da Semola',
                 'email' => 'semola@gmail.com',
                 'password' => '12345678',
@@ -51,7 +52,7 @@ class UserSeeder extends Seeder
                 'p_iva' => '12455678911',
             ],
             [
-                'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaUYJ5R8sBhMHSpKFrIO428Os3gxTC1vGJk4AvVTm7OcMw7_vrb5SflnOoT45kzbGOuA4&usqp=CAU',
+                'photo' => '',
                 'name' => 'Ristorante da Dario',
                 'email' => 'dario@gmail.com',
                 'password' => '12345678',
@@ -65,6 +66,7 @@ class UserSeeder extends Seeder
             $newUser = new User();
             $newUser->photo = $user['photo'];
             $newUser->name = $user['name'];
+            $newUser->slug = Str::slug("$newUser->name", '-');
             $newUser->email = $user['email'];
             $newUser->password = Hash::make($user['password']);
             $newUser->address = $user['address'];

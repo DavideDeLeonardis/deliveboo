@@ -20,9 +20,10 @@ class CreateDishesTable extends Migration
                 ->references('id')
                 ->on('users');
             $table->string('name', 100);
+            $table->string('slug')->unique();
             $table->text('description');
             $table->text('ingredients');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->float('price', 5, 2);
             $table->boolean('availability')->default(0);
             $table->string('course', 25);

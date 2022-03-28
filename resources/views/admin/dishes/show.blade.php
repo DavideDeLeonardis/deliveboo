@@ -14,6 +14,7 @@
                     <li>{{ $dish->availability === 1 ? 'Disponibile' : 'Non Disponibile' }}</li>
                     <li>{{ $dish->course }}</li>
                 </ul>
+                <a class="btn btn-primary" href="{{ route('admin.dishes.edit', $dish->slug) }}">Modifica piatto</a>
             </div>
         </div>
     </div>

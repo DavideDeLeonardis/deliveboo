@@ -72,7 +72,7 @@ class UserController extends Controller
         if (Auth::user()->id != $user->id) {
             abort('403');
         }
-        
+
         return view('admin.users.edit', ['user' => $user]);
     }
 

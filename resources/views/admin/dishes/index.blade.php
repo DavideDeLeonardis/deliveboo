@@ -26,10 +26,10 @@
                         <td>{{ $dish->price }} &euro;</td>
                         <td>{{ $dish->course }}</td>
                         <td>{{ $dish->availability }}</td>
-                        <td><a class="btn btn-success" href="{{ route('admin.dishes.show', $dish) }}">Show</a></td>
-                        <td><a class="btn btn-info" href="{{ route('admin.dishes.edit', $dish) }}">Edit</a></td>
+                        <td><a class="btn btn-success" href="{{ route('admin.dishes.show', $dish->slug) }}">Show</a></td>
+                        <td><a class="btn btn-info" href="{{ route('admin.dishes.edit', $dish->slug) }}">Edit</a></td>
                         <td>
-                            <form action="{{ route('admin.dishes.destroy', $dish) }}" method="post">
+                            <form action="{{ route('admin.dishes.destroy', $dish->slug) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger" type="submit" value="Delete">

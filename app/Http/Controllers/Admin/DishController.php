@@ -74,11 +74,12 @@ class DishController extends Controller
 
         $dish = new Dish();
         $dish->fill($data);
-        $dish->image = $data['image'];
+        // $dish->image = $data['image'];
         $dish->user_id = Auth::user()->id;
+        $dish->slug = $dish->createSlug($data['name']);
         $dish->save();
 
-        return redirect()->route('admin.dishes.show', $dish);
+        return redirect()->route('admin.dishes.show', $dish->slug);
     }
 
     /**
