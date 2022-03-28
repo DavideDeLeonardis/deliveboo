@@ -98,10 +98,6 @@ class RegisterController extends Controller
             return (empty($newSlug)) ? $slug : $newSlug;
         }
 
-        if (!is_numeric($data['phone'])) {
-            $data['phone'] = "";
-        }
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
