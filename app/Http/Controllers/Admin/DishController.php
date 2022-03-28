@@ -61,13 +61,9 @@ class DishController extends Controller
     {
         $request->validate($this->validationParams);
         $data = $request->all();
+        // dd($data);
         if (!empty($data['image'])) {
             $data['image'] = Storage::put('uploads', $data['image']);
-        }
-        if ($data['availability'] === 'on') { // da rifare, sarà sempre on
-            $data['availability'] = 1;
-        } else {
-            $data['availability'] = 0;
         }
 
         $dish = new Dish();
@@ -133,12 +129,7 @@ class DishController extends Controller
         if ($data['price'] != $dish->price) {
             $dish->price = $data['price'];
         }
-        if ($data['availability'] != $dish->availability) { // da rifare
-            if ($data['availability'] === 'on') {
-                $data['availability'] = 1;
-            } else {
-                $data['availability'] = 0;
-            }
+        if ($data['availability'] != $dish->availability) {
             $dish->availability = $data['availability'];
         }
         if ($data['course'] != $dish->course) {

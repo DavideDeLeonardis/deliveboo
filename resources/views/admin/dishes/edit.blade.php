@@ -57,19 +57,15 @@
                             @enderror
                         </select>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="availability" id="availability"
-                            {{ $dish->availability == 1 ? 'checked' : '' }}>
-                        <label class="form-check-label" for="availability">
-                            Disponibile
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="availability" id="availability"
-                            {{ $dish->availability == 0 ? 'checked' : '' }}>
-                        <label class="form-check-label" for="availability">
-                            Non Disponibile
-                        </label>
+                    <div class="mb-3">
+                        <h2>Disponibilità:</h2>
+                        <select class="form-select" name="availability">
+                            <option value="0" @if ($dish->availability == 0) selected @endif>Non Disponibile</option>
+                            <option value="1" @if ($dish->availability == 1) selected @endif>Disponibile</option>
+                            @error('availability')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-danger">Save</button>
                 </form>

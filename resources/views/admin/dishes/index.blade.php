@@ -25,7 +25,7 @@
                         <td>{{ $dish->name }}</td>
                         <td>{{ $dish->price }} &euro;</td>
                         <td>{{ $dish->course }}</td>
-                        <td>{{ $dish->availability }}</td>
+                        <td>{{ $dish->availability === 1 ? 'Disponibile' : 'Non Disponibile' }}</td>
                         <td><a class="btn btn-success" href="{{ route('admin.dishes.show', $dish->slug) }}">Show</a></td>
                         <td><a class="btn btn-info" href="{{ route('admin.dishes.edit', $dish->slug) }}">Edit</a></td>
                         <td>

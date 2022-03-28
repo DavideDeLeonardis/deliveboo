@@ -10,14 +10,15 @@
                     @method('POST')
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea type="text" class="form-control" id="description" name="description" rows="3"></textarea>
+                        <textarea type="text" class="form-control" id="description" name="description"
+                            rows="3">{{ old('description') }}</textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -31,14 +32,16 @@
                     </div>
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Ingredients</label>
-                        <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="3"></textarea>
+                        <textarea type="text" class="form-control" id="ingredients" name="ingredients"
+                            rows="3">{{ old('ingredients') }}</textarea>
                         @error('ingredients')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" required>
+                        <input type="text" class="form-control" id="price" name="price" required
+                            value="{{ old('price') }}">
                         @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -47,7 +50,7 @@
                         <h2>Scegli Portata:</h2>
                         <select class="form-select" name="course">
                             @foreach ($courses as $course)
-                                <option value="{{ $course }}">
+                                <option value="{{ $course }}" @if (old('course')) selected @endif>
                                     {{ $course }}</option>
                             @endforeach
                             @error('course')
@@ -55,17 +58,15 @@
                             @enderror
                         </select>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="availability" id="availability">
-                        <label class="form-check-label" for="availability">
-                            Disponibile
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="availability" id="availability">
-                        <label class="form-check-label" for="availability">
-                            Non Disponibile
-                        </label>
+                    <div class="mb-3">
+                        <h2>Disponibilità:</h2>
+                        <select class="form-select" name="availability">
+                            <option value="0" @if (old('availability')) selected @endif>Non Disponibile</option>
+                            <option value="1" @if (old('availability')) selected @endif>Disponibile</option>
+                            @error('availability')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-danger">Save</button>
                 </form>
