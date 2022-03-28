@@ -50,6 +50,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $parameters = [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required', 'string'],
+            'phone' => ['required', 'numeric', 'digits_between:10,11', 'unique:users'],
+            'p_iva' => ['required', 'numeric', 'digits_between:11,11', 'unique:users'],
+        ];
+
         $messages = [
             'name.required' => 'Il nome è richiesto',
             'email.required' => 'L\'email è richiesta',
@@ -59,16 +68,9 @@ class RegisterController extends Controller
             'p_iva.unique' => 'La partita iva è già registrata',
             'phone.digits_between' => 'Il numero di telefono deve contenere fra i :min e i :max caratteri',
             'p_iva.digits_between' => 'La partita iva deve contenere :max caratteri',
-
         ];
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['required', 'string'],
-            'phone' => ['required', 'numeric', 'digits_between:10,11', 'unique:users'],
-            'p_iva' => ['required', 'numeric', 'digits_between:11,11', 'unique:users'],
-        ], $messages);
+
+        return Validator::make($data, $parameters, $messages);
     }
 
     /**
