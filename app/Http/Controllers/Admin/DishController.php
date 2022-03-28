@@ -5,20 +5,48 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Dish;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
+    // public function myValidator(array $data)
+    // {
+    //     $parameters = [
+    //         'name' => ['required', 'max:100'],
+    //         'description' => ['nullable', 'max:2000'],
+    //         'ingredients' => ['nullable'],
+    //         'image' => ['nullable', 'image'],
+    //         'price' => ['required', 'numeric', 'min:0.01', 'max:999'],
+    //         'availability' => ['required'],
+    //         'course' => ['required'],
+    //     ];
+
+    //     $messages = [
+    //         'name.required' => 'Il nome è richiesto',
+    //         'description.max' => 'La descrizione può contenere massimo :max caratteri',
+    //         'price.required' => 'Il prezzo è richiesto',
+    //         'price.numeric' => 'Il prezzo deve essere un numero',
+    //         'price.min.max' => 'Il prezzo può essere di massimo :max euro',
+    //         'availability.required' => 'La disponibilità è richiesta',
+    //         'course.required' => 'Il tipo di piatto è richiesto',
+    //     ];
+
+    //     return Validator::make($data, $parameters, $messages);
+    // }
+
     protected $validationParams = [
         'name' => 'required|max:100',
-        'description' => 'required|max:2000',
-        'ingredients' => 'required',
+        'description' => 'nullable|max:2000',
+        'ingredients' => 'nullable',
         'image' => 'nullable|image',
         'price' => 'required|numeric|min:0.01|max:999',
         'availability' => 'required',
-        'course' => 'required|max:25',
+        'course' => 'required',
     ];
+
+
 
     public $courses = [
         'Primo',

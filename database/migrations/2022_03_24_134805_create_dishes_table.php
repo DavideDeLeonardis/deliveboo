@@ -21,8 +21,8 @@ class CreateDishesTable extends Migration
                 ->on('users');
             $table->string('name', 100);
             $table->string('slug')->unique();
-            $table->text('description');
-            $table->text('ingredients');
+            $table->text('description')->nullable();
+            $table->text('ingredients')->nullable();
             $table->text('image')->nullable();
             $table->float('price', 5, 2);
             $table->boolean('availability')->default(0);
