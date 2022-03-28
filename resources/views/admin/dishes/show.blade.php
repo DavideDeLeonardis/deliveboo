@@ -6,8 +6,12 @@
             <div class="col">
                 <ul>
                     <li>{{ $dish->name }}</li>
-                    <li>{{ $dish->description }}</li>
-                    <li>{{ $dish->ingredients }}</li>
+                    @if ($dish->description)
+                        <li>{{ $dish->description }}</li>
+                    @endif
+                    @if ($dish->ingredients)
+                        <li>{{ $dish->ingredients }}</li>
+                    @endif
                     @if ($dish->image)
                         <li><img class="img-fluid" src="{{ asset('storage/' . $dish->image) }}"
                                 alt="{{ $dish->name }}">

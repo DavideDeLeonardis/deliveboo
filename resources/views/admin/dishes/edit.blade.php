@@ -17,8 +17,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea type="text" class="form-control" id="description" name="description"
-                            rows="3">{{ $dish->description }}</textarea>
+                        <textarea type="text" class="form-control" id="description" name="description" rows="3"
+                            placeholder="Opzionale..">{{ $dish->description }}</textarea>
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -32,8 +32,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Ingredients</label>
-                        <textarea type="text" class="form-control" id="ingredients" name="ingredients"
-                            rows="3">{{ $dish->ingredients }}</textarea>
+                        <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="3"
+                            placeholder="Opzionale..">{{ $dish->ingredients }}</textarea>
                         @error('ingredients')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
