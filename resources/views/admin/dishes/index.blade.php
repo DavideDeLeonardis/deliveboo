@@ -32,7 +32,7 @@
                             <form action="{{ route('admin.dishes.destroy', $dish->slug) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <input class="btn btn-danger" type="submit" value="Delete">
+                                <input onclick="return confirm('Sei sicuro di volerlo eliminare?')" class="btn btn-danger" type="submit" value="Delete">
                             </form>
                         </td>
                     </tr>
