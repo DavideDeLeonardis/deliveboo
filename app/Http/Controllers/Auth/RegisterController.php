@@ -68,6 +68,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        function createSlug($name)
+        {
+            $slug = Str::slug($name, '-');
+
+            $oldUser = User::where('slug', $slug)->first();
+
+            $counter = 0;
+            while ($oldUser) {
+                $newSlug = $slug . '-' . $counter;
+                $oldUser = User::where('slug', $newSlug)->first();
+                $counter++;
+            }
+
+            return (empty($newSlug)) ? $slug : $newSlug;
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -75,7 +92,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'phone' => $data['phone'],
             'p_iva' => $data['p_iva'],
-            'slug' => Str::slug($data['name'], '-'),
+            'slug' => createSlug($data['name']),
         ]);
     }
 }

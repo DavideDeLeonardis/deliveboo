@@ -8,8 +8,11 @@
                     <li>{{ $dish->name }}</li>
                     <li>{{ $dish->description }}</li>
                     <li>{{ $dish->ingredients }}</li>
-                    <li><img class="img-fluid" src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
-                    </li>
+                    @if ($dish->image)
+                        <li><img class="img-fluid" src="{{ asset('storage/' . $dish->image) }}"
+                                alt="{{ $dish->name }}">
+                        </li>
+                    @endif
                     <li>{{ $dish->price }} &euro;</li>
                     <li>{{ $dish->availability === 1 ? 'Disponibile' : 'Non Disponibile' }}</li>
                     <li>{{ $dish->course }}</li>

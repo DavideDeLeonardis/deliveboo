@@ -15,7 +15,7 @@ class DishController extends Controller
         'description' => 'required|max:2000',
         'ingredients' => 'required',
         'image' => 'nullable|image',
-        'price' => 'required|numeric',
+        'price' => 'required|numeric|min:0.01|max:999',
         'availability' => 'required',
         'course' => 'required|max:25',
     ];
@@ -63,8 +63,6 @@ class DishController extends Controller
         $data = $request->all();
         if (!empty($data['image'])) {
             $data['image'] = Storage::put('uploads', $data['image']);
-        } else {
-            $data['image'] = 'uploads/default.png';
         }
         if ($data['availability'] === 'on') { // da rifare, sarà sempre on
             $data['availability'] = 1;
