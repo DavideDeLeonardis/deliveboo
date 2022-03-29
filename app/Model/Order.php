@@ -2,6 +2,7 @@
 
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
+use App\Model\Dish;
 
 class Order extends Model
 {
