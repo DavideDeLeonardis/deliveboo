@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Order;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class OrderController extends Controller
 {
@@ -13,8 +18,23 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $user = DB::table('orders')
+            ->join('dish_order', 'dish_order.order_id', '=', 'orders.id')
+            ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
+            ->join('users', 'dishes.user_id', '=', 'users.id')
+            ->select('users.*')
+            ->where('users.id', Auth::user()->id)
+            ->get();
+        return view('admin.orders.index', [
+            // 'orders' => Order::whereHas('dishes', function (Builder $query) {
+            //     $query->where('id', Auth::user()->id);
+            // })->get(), 
+            
+            //-->DA RIVEDERE<--//
+            
+            'user' => $user
+        ]);
     }
 
     /**

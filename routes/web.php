@@ -19,6 +19,7 @@ Route::middleware('auth')
         Route::resource('dishes', 'DishController');
         Route::resource('categories', 'CategoryController');
         Route::resource('users', 'UserController');
+        Route::resource('orders', 'OrderController');
     });
 
 Route::get('{any?}', function () {
