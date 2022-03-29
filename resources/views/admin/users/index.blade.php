@@ -12,6 +12,7 @@
                     <li>{{ $user->address }}</li>
                     <li>{{ $user->phone }}</li>
                     <li>{{ $user->p_iva }}</li>
+                    {{-- <li>{{ $user->categories()->get() }}</li> --}}
                 </ul>
                 <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->slug) }}">Modifica profilo</a>
             </div>

@@ -91,6 +91,25 @@
                                 </div>
                             </div>
 
+                            {{-- @error('categories.*')
+                                <div class="alert alert-danger mt-3">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <fieldset class="mb-3">
+                                <legend>Scegli una o più categorie</legend>
+                                <?php // use App\Model\Category; $categories = Category::all(); ?>
+                                @foreach ($categories as $category)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
+                                            name="categories[]" @if (in_array($category->id, old('categories', []))) checked @endif>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            {{ $category->name }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </fieldset> --}}
+
                             <div class="form-group row">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

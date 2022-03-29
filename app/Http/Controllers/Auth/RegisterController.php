@@ -68,6 +68,9 @@ class RegisterController extends Controller
             'p_iva.unique' => 'La partita iva è già registrata',
             'phone.digits_between' => 'Il numero di telefono deve contenere fra i :min e i :max caratteri',
             'p_iva.digits_between' => 'La partita iva deve contenere :max caratteri',
+            'password.required' => 'La password è richiesta',
+            'password.confirmed' => 'Le due password non corrispondono',
+            'password.min' => 'La password deve contenere minimo :min caratteri',
         ];
 
         return Validator::make($data, $parameters, $messages);

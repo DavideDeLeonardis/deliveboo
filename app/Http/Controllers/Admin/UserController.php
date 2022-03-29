@@ -18,6 +18,7 @@ class UserController extends Controller
         'address' => 'required|max:150',
         'phone' => 'required|max:15',
         'p_iva' => 'required|max:11',
+        'categories.*' => 'nullable|exists:App\Model\Category,id',
     ];
 
     /**
