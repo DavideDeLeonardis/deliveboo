@@ -10,6 +10,7 @@
 
     <title>{{ config('app.name', 'Deliverboo') }}</title>
     <script src="{{ asset('js/front.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

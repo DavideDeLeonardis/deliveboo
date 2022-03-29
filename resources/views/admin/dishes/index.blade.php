@@ -32,11 +32,12 @@
                             <form action="{{ route('admin.dishes.destroy', $dish->slug) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <input onclick="return confirm('Sei sicuro di volerlo eliminare?')" class="btn btn-danger"
-                                    type="submit" value="Delete">
+                                <input class="btn btn-xs btn-danger btn-flat show_confirm" type="submit" value="Delete"
+                                    data-toggle="tooltip" title='Delete'>
                             </form>
                         </td>
                     </tr>
+
                 @endforeach
             </tbody>
         </table>
@@ -46,4 +47,25 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" defer>
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                    // title: `Sei sicuro di voler eliminare <?= $dish->name ?>?`,
+                    title: `Sei sicuro di voler eliminare questo piatto?`,
+                    text: "Se lo cancelli, l'azione sarà irreversibile.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
 @endsection
