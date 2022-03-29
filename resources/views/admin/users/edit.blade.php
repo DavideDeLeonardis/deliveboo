@@ -9,6 +9,7 @@
                     @csrf
                     @method('PUT')
 
+                    {{-- nome --}}
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
@@ -17,6 +18,7 @@
                         @enderror
                     </div>
 
+                    {{-- email --}}
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
@@ -25,6 +27,7 @@
                         @enderror
                     </div>
 
+                    {{-- immagine --}}
                     <div class="mb-3">
                         <label for="photo" class="form-label">Photo</label>
                         <input class="form-control" type="file" id="photo" name='photo' value="{{ $user->photo }}">
@@ -33,6 +36,7 @@
                         @enderror
                     </div>
 
+                    {{-- indirizzo --}}
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control" id="address" name="address"
@@ -42,6 +46,7 @@
                         @enderror
                     </div>
 
+                    {{-- telefono --}}
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
                         <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}">
@@ -50,6 +55,7 @@
                         @enderror
                     </div>
 
+                    {{-- p. iva --}}
                     <div class="mb-3">
                         <label for="p_iva" class="form-label">Partita Iva</label>
                         <input type="text" class="form-control" id="p_iva" name="p_iva" value="{{ $user->p_iva }}">
@@ -58,6 +64,7 @@
                         @enderror
                     </div>
 
+                    {{-- categorie --}}
                     <fieldset class="mb-3">
                         <legend>Categories</legend>
                         @if ($errors->any())
