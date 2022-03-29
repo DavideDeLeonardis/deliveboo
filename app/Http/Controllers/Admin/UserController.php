@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Model\Category;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,13 +13,13 @@ class UserController extends Controller
 {
 
     protected $validationParams = [
-        'photo' => 'required|image',
+        'photo' => 'nullable|image',
         'name' => 'required',
         'email' => 'required',
         'address' => 'required|max:150',
         'phone' => 'required|max:15',
         'p_iva' => 'required|max:11',
-        'categories.*' => 'nullable|exists:App\Model\Category,id',
+        'categories.*' => 'required|exists:App\Model\Category,id',
     ];
 
     /**
@@ -74,7 +75,12 @@ class UserController extends Controller
             abort('403');
         }
 
-        return view('admin.users.edit', ['user' => $user]);
+        $data = [
+            'categories' => Category::all(),
+            'user' => $user,
+        ];
+
+        return view('admin.users.edit', $data);
     }
 
     /**
@@ -103,7 +109,6 @@ class UserController extends Controller
         if ($data['phone'] != $user->phone) {
             $user->phone = $data['phone'];
         }
-
         if ($data['p_iva'] != $user->p_iva) {
             $user->p_iva = $data['p_iva'];
         }
@@ -112,6 +117,13 @@ class UserController extends Controller
             $user->photo = Storage::put('uploads', $data['photo']);
         }
         $user->update();
+
+        if (!empty($data['categories'])) {
+            $user->categories()->sync($data['categories']);
+        } else {
+            $user->categories()->detach();
+            // return redirect()->route('admin.users.edit', $user);
+        }
 
         return redirect()->route('admin.users.index', $user);
     }

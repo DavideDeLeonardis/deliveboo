@@ -12,7 +12,18 @@
                     <li>{{ $user->address }}</li>
                     <li>{{ $user->phone }}</li>
                     <li>{{ $user->p_iva }}</li>
-                    {{-- <li>{{ $user->categories()->get() }}</li> --}}
+                    @if ($user->categories()->first() != [])
+                        <ul>
+                            <h3>Categorie</h3>
+                            @foreach ($user->categories()->get() as $category)
+                                <li>{{ $category->name }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <div class="alert alert-danger">
+                            Inserisci una o più categorie in seguito per ottenere più visibilità.
+                        </div>
+                    @endif
                 </ul>
                 <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->slug) }}">Modifica profilo</a>
             </div>

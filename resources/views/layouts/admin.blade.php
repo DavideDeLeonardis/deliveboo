@@ -46,6 +46,7 @@
                             </li>
                         @endif
                     @else
+                        <li class="nav-item dropdown mx-4" style="margin-top: 7px;">Name: {{ Auth::user()->name }}</li>
                         <li class="nav-item dropdown">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf

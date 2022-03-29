@@ -8,6 +8,7 @@
                 <form action="{{ route('admin.dishes.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
+                    
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}"
@@ -16,6 +17,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea type="text" class="form-control" id="description" name="description" rows="3"
@@ -24,6 +26,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
                         <input class="form-control" type="file" id="image" name='image'>
@@ -31,6 +34,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Ingredients</label>
                         <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="3"
@@ -39,6 +43,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
                         <input type="text" class="form-control" id="price" name="price" required
@@ -47,6 +52,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    
                     <div class="mb-3">
                         <h2>Scegli Portata:</h2>
                         <select class="form-select" name="course">
@@ -59,6 +65,7 @@
                             @enderror
                         </select>
                     </div>
+                    
                     <div class="mb-3">
                         <h2>Disponibilità:</h2>
                         <select class="form-select" name="availability">
@@ -69,6 +76,7 @@
                             @enderror
                         </select>
                     </div>
+                    
                     <button type="submit" class="btn btn-danger">Save</button>
                 </form>
             </div>

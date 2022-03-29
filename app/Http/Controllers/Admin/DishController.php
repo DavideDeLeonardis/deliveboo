@@ -46,8 +46,6 @@ class DishController extends Controller
         'course' => 'required',
     ];
 
-
-
     public $courses = [
         'Primo',
         'Secondo',
@@ -89,14 +87,12 @@ class DishController extends Controller
     {
         $request->validate($this->validationParams);
         $data = $request->all();
-        // dd($data);
         if (!empty($data['image'])) {
             $data['image'] = Storage::put('uploads', $data['image']);
         }
 
         $dish = new Dish();
         $dish->fill($data);
-        // $dish->image = $data['image'];
         $dish->user_id = Auth::user()->id;
         $dish->slug = $dish->createSlug($data['name']);
         $dish->save();

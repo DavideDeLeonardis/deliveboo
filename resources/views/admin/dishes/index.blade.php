@@ -54,7 +54,6 @@
             var name = $(this).data("name");
             event.preventDefault();
             swal({
-                    // title: `Sei sicuro di voler eliminare <?= $dish->name ?>?`,
                     title: `Sei sicuro di voler eliminare questo piatto?`,
                     text: "Se lo cancelli, l'azione sarà irreversibile.",
                     icon: "warning",
