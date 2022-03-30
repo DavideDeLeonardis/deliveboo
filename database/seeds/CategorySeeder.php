@@ -12,58 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories = [
-            [
-                'name' => 'Carne',
-            ],
-            [
-                'name' => 'Cinese',
-            ],
-            [
-                'name' => 'Dessert',
-            ],
-            [
-                'name' => 'Fast-food',
-            ],
-            [
-                'name' => 'Giapponese',
-            ],
-            [
-                'name' => 'Indiano',
-            ],
-            [
-                'name' => 'Italiano',
-            ],
-            [
-                'name' => 'Kebab',
-            ],
-            [
-                'name' => 'Panini',
-            ],
-            [
-                'name' => 'Pasta',
-            ],
-            [
-                'name' => 'Pizza',
-            ],
-            [
-                'name' => 'Poke',
-            ],
-            [
-                'name' => 'Sushi',
-            ],
-            [
-                'name' => 'Snack',
-            ],
-            [
-                'name' => 'Insalate',
-            ],
-            [
-                'name' => 'Mediterraneo',
-            ],
-        ];
-
-        foreach ($categories as $category) {
+        foreach (config('categories') as $category) {
             $newCategory = new Category();
             $newCategory->name = $category['name'];
             $newCategory->image = null;
