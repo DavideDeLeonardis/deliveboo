@@ -66,6 +66,7 @@ class CategorySeeder extends Seeder
         foreach ($categories as $category) {
             $newCategory = new Category();
             $newCategory->name = $category['name'];
+            $newCategory->image = null;
             $newCategory->save();
         }
     }

@@ -10,6 +10,7 @@ class CategoryController extends Controller
 {
     protected $validationParams = [
         'name' => 'required|max:60',
+        'image' => 'nullable|image',
     ];
 
     /**
