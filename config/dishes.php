@@ -1065,13 +1065,7 @@ return [
         'name' => 'Spaghetti alla Carbonara',
         'description' =>
         'La pasta alla carbonara è un piatto caratteristico del Lazio, e più in particolare di Roma, preparato con ingredienti popolari e dal gusto intenso',
-        'ingredients' => [
-            'spaghetti',
-            'guanciale',
-            'uova',
-            'pecorino',
-            'pepe',
-        ],
+        'ingredients' => 'spaghetti, guanciale, uova, pecorino, pepe',
         'price' => 10.0,
         'availability' => true,
         'course' => 'Primi',
@@ -1080,7 +1074,7 @@ return [
         'name' => 'Spaghetti Cacio e Pepe',
         'description' =>
         'Il cacio e pepe è un piatto caratteristico del Lazio. Come suggerisce il nome, gli ingredienti sono molto semplici e includono solo pepe nero, formaggio pecorino romano e pasta',
-        'ingredients' => ['spaghetti', 'pepe', 'pecorino'],
+        'ingredients' => 'spaghetti, pepe, pecorino',
         'price' => 10.0,
         'availability' => true,
         'course' => 'Primi',
@@ -1089,19 +1083,7 @@ return [
         'name' => 'Spaghetti allo Scoglio',
         'description' =>
         'Gli spaghetti allo scoglio sono un primo piatto di mare profumato e gustoso che racchiude i veri sapori e aromi del mediterraneo.',
-        'ingredients' => [
-            'Spaghetti',
-            'Cozze',
-            'Vongole',
-            'Calamari',
-            'Scampi',
-            'Pomodorini ciliegino',
-            "Olio extravergine d'oliva",
-            'Aglio',
-            'Prezzemolo',
-            'Vino bianco',
-            'Pepe nero',
-        ],
+        'ingredients' => 'Spaghetti, Cozze, Vongole',
         'price' => 15.0,
         'availability' => true,
         'course' => 'Primi',
@@ -1110,15 +1092,7 @@ return [
         'name' => 'Ravioli Ricotta e Spinaci',
         'description' =>
         "I ravioli ricotta e spinaci sono una delle preparazioni più conosciute a base di pasta fresca all'uovo, perfetti per feste e giorni di magro!",
-        'ingredients' => [
-            'Uova',
-            'Semola',
-            'Spinaci',
-            'Ricotta Vaccina',
-            'Parmigiano Reggiano DOP',
-            'Noce moscata',
-            'Pepe nero'
-        ],
+        'ingredients' => 'Uova, Semola, Spinaci, Ricotta Vaccina, Parmigiano Reggiano DOP, Noce moscata, Pepe nero',
         'price' => 12.0,
         'availability' => true,
         'course' => 'Primi',
@@ -1127,7 +1101,7 @@ return [
         'name' => 'Margherita',
         'description' =>
         'La pizza Margherita è la tipica pizza napoletana, condita con pomodoro, mozzarella (tradizionalmente è usato il fior di latte, non quella di bufala), basilico fresco, sale e olio; è, assieme alla pizza marinara, la più popolare pizza italiana.',
-        'ingredients' => ['pomodoro', 'mozzarella'],
+        'ingredients' => 'pomodoro, mozzarella',
         'price' => 6.0,
         'availability' => true,
         'course' => 'Pizza',
@@ -1136,12 +1110,7 @@ return [
         'name' => 'Diavola',
         'description' =>
         'Tipica in diverse cucine regionali italiane, è divenuta famosa come specialità della cucina napoletana. La città di Napoli ha svolto infatti un ruolo importantissimo nella storia della pizza, creando ed esportando questa specialità che è ora la più diffusa nel mondo',
-        'ingredients' => [
-            'pomodoro',
-            'mozzarella',
-            'salame piccante',
-            'origano',
-        ],
+        'ingredients' => 'pomodoro, mozzarella, salame piccante, origano',
         'price' => 8.0,
         'availability' => true,
         'course' => 'Pizza',
@@ -1150,11 +1119,7 @@ return [
         'name' => 'Boscaiola',
         'description' =>
         'La pizza boscaiola è davvero gustosa caratterizzata da funghi champignon accompagnati da gustosi pezzetti di salsiccia e ricoperta infine da mozzarella.',
-        'ingredients' => [
-            'funghi champignon',
-            'salsiccia',
-            'mozzarella',
-        ],
+        'ingredients' => 'funghi champignon, salsiccia, mozzarella',
         'price' => 9.0,
         'availability' => true,
         'course' => 'Pizza',
@@ -1163,12 +1128,7 @@ return [
         'name' => 'Napoli',
         'description' =>
         'La pizza Napoli viene realizzata stendendo la pasta per la pizza, aggiungendo il pomodoro, i capperi ed i filetti di acciughe cuocendo infine la pizza in forno.',
-        'ingredients' => [
-            'pomodoro',
-            'acciughe',
-            'pepe',
-            'capperi',
-        ],
+        'ingredients' => 'pomodoro, acciughe, pepe, capperi',
         'price' => 7.0,
         'availability' => true,
         'course' => 'Pizza',
@@ -1176,17 +1136,7 @@ return [
     [
         'name' => 'Poke Bowl',
         'description' => "La Poke Bowl Hawaii è un cibo hawaiano, un piatto unico fresco e genuino, che, con gli anni, ha conquistato tutti ed è diventato simbolo di cucina salutista e di cibo healty.",
-        'ingredients' => [
-            'riso',
-            'salmone affumicato',
-            'ravanelli',
-            'mango',
-            'salsa di soia',
-            'edamame',
-            'avocado',
-            'rucola',
-            'semi di sesamo',
-        ],
+        'ingredients' => 'riso, salmone affumicato, ravanelli, mango, salsa di soia, edamame, avocado, rucola, semi di sesamo',
         'price' => 10.00,
         'availability' => true,
         'course' => 'Primi',
