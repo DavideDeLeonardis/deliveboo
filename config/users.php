@@ -181,4 +181,22 @@ return [
         'phone' => '33326527766',
         'p_iva' => '12345329775',
     ],
+    [
+        'photo' => 'https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/Stores/bguxrsyjb0dhgupcwlcn',
+        'name' => 'Le Specialita di Donato',
+        'email' => 'dadonato@gmail.com',
+        'password' => '12345678',
+        'address' => 'Via Andrea da Bari 126',
+        'phone' => '33326123676',
+        'p_iva' => '12345345775',
+    ],
+    [
+        'photo' => 'https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/Stores/ywjt7cw9elpjy41pidyb)',
+        'name' => 'Annarè',
+        'email' => 'annare@gmail.com',
+        'password' => '12345678',
+        'address' => 'Via Roberto da Bari 38',
+        'phone' => '33326522676',
+        'p_iva' => '12345176775',
+    ],
 ];
