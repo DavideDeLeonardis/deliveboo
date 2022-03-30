@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
         foreach (config('users') as $user) {
             $newUser = new User();
             $newUser->photo = $user['photo'];
