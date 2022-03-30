@@ -34,7 +34,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto w-100 justify-content-between">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -83,6 +83,11 @@
                                 <a class="nav-link" href="{{ route('admin.dishes.create') }}">
                                     <i class="bi bi-files"></i>
                                     Aggiungi piatto
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.orders.index') }}">
+                                    Vedi i tuoi ordini
                                 </a>
                             </li>
                             <li class="nav-item">

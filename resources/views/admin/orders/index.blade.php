@@ -13,6 +13,7 @@
             <li>{{ $order->price_total }} &euro;</li>
             <li>{{ $order->date }}</li>
             <li>{{ $order->time}}</li>
+            <li><a class="btn btn-primary" href="{{ route('admin.orders.show', $order)}}">Visualizza ordine</a></li>
             <?php $i++ ?>
         @endforeach
     </ul>
