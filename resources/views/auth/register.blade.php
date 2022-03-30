@@ -91,14 +91,13 @@
                                 </div>
                             </div>
 
-                            {{-- @error('categories.*')
+                            @error('categories.*')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
                                 </div>
                             @enderror
                             <fieldset class="mb-3">
                                 <legend>Scegli una o più categorie</legend>
-                                <?php // use App\Model\Category; $categories = Category::all(); ?>
                                 @foreach ($categories as $category)
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
@@ -108,7 +107,7 @@
                                         </label>
                                     </div>
                                 @endforeach
-                            </fieldset> --}}
+                            </fieldset>
 
                             <div class="form-group row">
                                 <label for="password"

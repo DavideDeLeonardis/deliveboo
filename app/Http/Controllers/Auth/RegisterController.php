@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Model\Category;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -82,6 +83,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    public function showRegistrationForm()
+    {
+        $categories = Category::all();
+        return view('auth.register', ['categories' => $categories]);
+    }
+    
     protected function create(array $data)
     {
 
