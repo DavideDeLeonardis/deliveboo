@@ -88,7 +88,7 @@ class RegisterController extends Controller
         $categories = Category::all();
         return view('auth.register', ['categories' => $categories]);
     }
-    
+
     protected function create(array $data)
     {
 
@@ -108,7 +108,7 @@ class RegisterController extends Controller
             return (empty($newSlug)) ? $slug : $newSlug;
         }
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -117,5 +117,7 @@ class RegisterController extends Controller
             'p_iva' => $data['p_iva'],
             'slug' => createSlug($data['name']),
         ]);
+        $user->categories()->sync($data['categories']);
+        return $user;
     }
 }
