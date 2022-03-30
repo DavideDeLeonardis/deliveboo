@@ -77,18 +77,18 @@ class RegisterController extends Controller
         return Validator::make($data, $parameters, $messages);
     }
 
+    public function showRegistrationForm()
+    {
+        $categories = Category::all();
+        return view('auth.register', ['categories' => $categories]);
+    }
+    
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-    public function showRegistrationForm()
-    {
-        $categories = Category::all();
-        return view('auth.register', ['categories' => $categories]);
-    }
-
     protected function create(array $data)
     {
 
@@ -118,6 +118,7 @@ class RegisterController extends Controller
             'slug' => createSlug($data['name']),
         ]);
         $user->categories()->sync($data['categories']);
+
         return $user;
     }
 }
