@@ -14,75 +14,58 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Vegetariano',
-                'image' => 'https://www.develey.it/wp-content/uploads/2018/12/shutterstock_623007527.jpg',
-            ],
-            [
-                'name' => 'Messicano',
-                'image' => 'https://www.viaggiaregratis.eu/wp-content/uploads/2020/11/Cucina-Messicana.jpg',
-            ],
-            [
-                'name' => 'Indiano',
-                'image' => 'https://cdn.diredonna.it/app/uploads/2019/05/07154549/B7uRFjcw20190507014547_5e36131ae5e9d4975687d40c6e9818ae20190507014548_0d2edec7a1ea7e5f5e06f87338b42af1-980x480.jpeg',
-            ],
-            [
-                'name' => 'Greco',
-                'image' => 'https://www.archetravel.com/wp-content/uploads/2020/03/grecia-cucina_inside-620x245.jpg',
-            ],
-            [
-                'name' => 'Giapponese',
-                'image' => 'https://hhwt-images-upload.s3.ap-southeast-1.amazonaws.com/lg_1615649648105_halal_japanese_in_kl.jpg',
+                'name' => 'Carne',
             ],
             [
                 'name' => 'Cinese',
-                'image' => 'https://hhwt-images-upload.s3.ap-southeast-1.amazonaws.com/lg_1615649648105_halal_japanese_in_kl.jpg',
             ],
             [
-                'name' => 'Libanese',
-                'image' => 'https://hhwt-images-upload.s3.ap-southeast-1.amazonaws.com/lg_1615649648105_halal_japanese_in_kl.jpg',
+                'name' => 'Dessert',
             ],
             [
-                'name' => 'Americano',
-                'image' => 'https://www.eatthis.com/wp-content/uploads/sites/4/media/images/ext/798104191/uno-pizzeria-whole-hog-burger.jpg?quality=82&strip=1',
+                'name' => 'Fast-food',
+            ],
+            [
+                'name' => 'Giapponese',
+            ],
+            [
+                'name' => 'Indiano',
             ],
             [
                 'name' => 'Italiano',
-                'image' => 'https://www.gazzettadelgusto.it/wp-content/uploads/2020/12/Cucina-italiana-all-estero-amata-ma-sconosciuta-e-contraffatta.jpg',
-            ],
-            [
-                'name' => 'Thailandese',
-                'image' => 'https://www.viaggiaregratis.eu/wp-content/uploads/2020/12/Cibo-cucina-thailandese.jpg',
-            ],
-            [
-                'name' => 'Sushi',
-                'image' => 'https://static.gamberorosso.it/2022/01/sushi-scaled.jpeg',
-            ],
-            [
-                'name' => 'Pizza',
-                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeih7Ti6BTQPEmpQdIZjxnnuDIBWpikU_uEQ&usqp=CAU',
-            ],
-            [
-                'name' => 'Dolci',
-                'image' => 'https://www.aiafood.com/sites/default/files/styles/scale_1920/public/articles/ricette-dolci-25-aprile.jpg?itok=L1QU8D9x',
             ],
             [
                 'name' => 'Kebab',
-                'image' => 'https://d2lxis1uiqe6st.cloudfront.net/wp-content/uploads/2019/06/segerti_0002_kebab-napoli.jpg.png',
+            ],
+            [
+                'name' => 'Panini',
             ],
             [
                 'name' => 'Pasta',
-                'image' => 'https://www.giallozafferano.it/images/244-24489/Spaghetti-alla-Carbonara_600x500.jpg',
+            ],
+            [
+                'name' => 'Pizza',
             ],
             [
                 'name' => 'Poke',
-                'image' => 'https://broburger.it/wp-content/uploads/2020/02/poke-salmone.jpg',
+            ],
+            [
+                'name' => 'Sushi',
+            ],
+            [
+                'name' => 'Snack',
+            ],
+            [
+                'name' => 'Insalate',
+            ],
+            [
+                'name' => 'Mediterraneo',
             ],
         ];
 
         foreach ($categories as $category) {
             $newCategory = new Category();
             $newCategory->name = $category['name'];
-            $newCategory->image = $category['image'];
             $newCategory->save();
         }
     }
