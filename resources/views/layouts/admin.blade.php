@@ -73,12 +73,12 @@
                                     Tutti i piatti
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.categories.index') }}">
                                     <i class="bi bi-files"></i>
                                     Tutte le categorie
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.dishes.create') }}">
                                     <i class="bi bi-files"></i>
