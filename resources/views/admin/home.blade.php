@@ -23,10 +23,13 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
 
-        {!! $chart->container() !!}
+                {!! $chart->container() !!}
 
-        {!! $chart->script() !!}
-
+                {!! $chart->script() !!}
+            </div>
+        </div>
     </div>
 @endsection

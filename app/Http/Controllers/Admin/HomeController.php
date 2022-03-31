@@ -17,18 +17,26 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $orders = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
-            ->select('orders.date', Order::raw('dishes.price * dish_order.quantity'))
+        $orders_date = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
+            ->select('orders.date')
+            ->orderBy('orders.date')
             ->distinct()
             ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
             ->join('users', 'dishes.user_id', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
-            ->get();
+            ->pluck('orders.date');
+        $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
+            ->select(Order::raw('dishes.price * dish_order.quantity as total_price'))
+            ->distinct()
+            ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
+            ->join('users', 'dishes.user_id', '=', 'users.id')
+            ->where('users.id', Auth::user()->id)
+            ->pluck('total_price');
 
         $chart = new OrderChart;
-        $chart->labels(['One', 'Two', 'Three']);
-        $chart->dataset('My dataset', 'line', [1, 2, 3, 4]);
+        $chart->labels($orders_date->values());
+        $chart->dataset('Riepilogo Ordini', 'bar', $orders_price->values());
 
-        return view('admin.home', ['orders' => $orders, 'chart' => $chart]);
+        return view('admin.home', ['chart' => $chart]);
     }
 }
