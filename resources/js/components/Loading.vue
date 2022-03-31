@@ -1,6 +1,7 @@
 <template>
-    <div class="d-flex justify-content-center">
-        <font-awesome-icon icon="fa-solid fa-spinner" spin size="2xl" />
+    <div class="d-flex align-items-center justify-content-center text-white">
+        <h4 class="d-inline-block">Finding restaurants near you...</h4>
+        <font-awesome-icon icon="fa-solid fa-spinner" spin size="2xl" class="ms-3"/>
     </div>
 </template>
 
