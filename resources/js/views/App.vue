@@ -1,5 +1,5 @@
 <template>
-    <div>Home Guest</div>
+    <router-view></router-view>
 </template>
 
 <script>
