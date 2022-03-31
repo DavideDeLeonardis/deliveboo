@@ -6,9 +6,9 @@ import App from './views/App';
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-// library.add(faSpinner);
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+library.add(faSpinner);
 
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
