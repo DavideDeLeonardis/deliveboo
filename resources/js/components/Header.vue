@@ -7,10 +7,10 @@
                 </div>
             </div>
             <div class="col-4 p-2 d-flex align-items-center flex-row-reverse my_bg-dark">
-                <div class="p-2">
+                <!-- <div class="p-2">
                     <a class="btn btn-success">Log In</a>
                     <a class="btn btn-warning">Sign Up</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
