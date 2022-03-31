@@ -1,27 +1,29 @@
 <template>
+<main class="my_bg-dark">
     <div class="container">
         <div class="row">
             <div class="col my-3">
-                <h3>Home - Ristoranti</h3>
+                <h3 class="text-white">Home - Ristoranti</h3>
             </div>
         </div>
 
-        <!-- <Loading v-if="loading"/> -->
+        <Loading v-if="loading"/>
 
         <Main :restaurants="restaurants" />
     </div>
+</main>
 </template>
 
 <script>
 import Axios from "axios";
 
-// import Loading from "../components/Loading.vue";
+import Loading from "../components/Loading.vue";
 import Main from "../components/Main.vue";
 
 export default {
     name: "Home",
     components: {
-        // Loading,
+        Loading,
         Main,
     },
     data() {
@@ -32,15 +34,17 @@ export default {
         };
     },
     created() {
-        this.getRestaurants(`${this.url}restaurants`);
+        setTimeout(() => {
+            this.getRestaurants(`${this.url}restaurants`);
+        }, 1000);
     },
     methods: {
         getRestaurants(url) {
-            // this.loading = true;
+            this.loading = true;
             Axios.get(url)
                 .then(result => {
                     this.restaurants = result.data.results;
-                    // this.loading = false;
+                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);
