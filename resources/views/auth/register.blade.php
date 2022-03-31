@@ -65,7 +65,8 @@
 
                                 <div class="col-md-6">
                                     <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror"
-                                        name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                                        name="phone" value="{{ old('phone') }}" required autocomplete="phone" min="10"
+                                        max="11">
 
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
@@ -81,7 +82,8 @@
 
                                 <div class="col-md-6">
                                     <input id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror"
-                                        name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva">
+                                        name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva" min="11"
+                                        min="11">
 
                                     @error('p_iva')
                                         <span class="invalid-feedback" role="alert">
@@ -91,12 +93,12 @@
                                 </div>
                             </div>
 
-                            @error('categories.*')
+                            {{-- @error('categories.*')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
                                 </div>
-                            @enderror
-                            <fieldset class="mb-3">
+                            @enderror --}}
+                            <fieldset class="form-group mb-3">
                                 <legend>Scegli una o più categorie</legend>
                                 @foreach ($categories as $category)
                                     <div class="form-check">
@@ -108,6 +110,7 @@
                                     </div>
                                 @endforeach
                             </fieldset>
+                                <div class="message"></div>
 
                             <div class="form-group row">
                                 <label for="password"
@@ -138,7 +141,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary btn-register">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -149,4 +152,31 @@
             </div>
         </div>
     </div>
+
+    {{-- <script>
+            window.onload = () => {
+                let checkboxes = document.querySelectorAll('input[type=checkbox]');
+                let message = document.getElementById('message');
+                let register = document.getElementById('btn-register');
+
+                checkboxes.forEach(function (checkbox){
+                    checkbox.addEventListener('click', function(){
+                        message.innerHTML = ''; 
+                    });
+                });
+
+                register.addEventListener('click', function (){
+                    let atLeastOneChecked = false; 
+                    checkboxes.forEach(checkbox => {
+                        if(checkbox.checked){
+                            atLeastOneChecked = true;
+                        }
+                    })
+                    if(!atLeastOneChecked){
+                        event.preventDefault();
+                        return message.innerHTML = <div class="alert alert-danger mt-3" role="alert"> Scelgi almeno una categoria </div>;
+                    }
+                });
+            }
+    </script> --}}
 @endsection

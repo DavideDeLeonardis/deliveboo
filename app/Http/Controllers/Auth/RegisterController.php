@@ -58,6 +58,7 @@ class RegisterController extends Controller
             'address' => ['required', 'string'],
             'phone' => ['required', 'numeric', 'digits_between:10,11', 'unique:users'],
             'p_iva' => ['required', 'numeric', 'digits_between:11,11', 'unique:users'],
+            'categories' => ['required'],
         ];
 
         $messages = [
@@ -72,6 +73,7 @@ class RegisterController extends Controller
             'password.required' => 'La password è richiesta',
             'password.confirmed' => 'Le due password non corrispondono',
             'password.min' => 'La password deve contenere minimo :min caratteri',
+            'categories.required' => 'Inserire almeno una categoria',
         ];
 
         return Validator::make($data, $parameters, $messages);
@@ -82,7 +84,7 @@ class RegisterController extends Controller
         $categories = Category::all();
         return view('auth.register', ['categories' => $categories]);
     }
-    
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -118,7 +120,8 @@ class RegisterController extends Controller
             'slug' => createSlug($data['name']),
         ]);
         $user->categories()->sync($data['categories']);
-
+        
         return $user;
+        
     }
 }
