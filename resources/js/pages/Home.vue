@@ -1,8 +1,9 @@
 <template>
+<main class="my_bg-dark">
     <div class="container">
         <div class="row">
             <div class="col my-3">
-                <h3>Home - Ristoranti</h3>
+                <h3 class="text-white">Home - Ristoranti</h3>
             </div>
         </div>
 
@@ -10,6 +11,7 @@
 
         <Main :restaurants="restaurants" />
     </div>
+</main>
 </template>
 
 <script>
@@ -32,7 +34,9 @@ export default {
         };
     },
     created() {
-        this.getRestaurants(`${this.url}restaurants`);
+        setTimeout(() => {
+            this.getRestaurants(`${this.url}restaurants`);
+        }, 1000);
     },
     methods: {
         getRestaurants(url) {

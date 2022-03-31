@@ -13,6 +13,9 @@ library.add(faSpinner);
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 const router = new VueRouter({
     mode: "history",
     routes: [
