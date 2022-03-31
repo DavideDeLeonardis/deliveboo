@@ -23,10 +23,17 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    
+    <div id="app">
+        <main>
+            @yield('content')
+        </main>
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-light my_bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+            <a class="navbar-brand text-white" href="{{ url('/') }}">
+                {{ config('app.name', 'DeliveBoo') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,15 +47,15 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto col-4 p-2 d-flex align-items-center flex-row-reverse my_bg-dark">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ 'Login' }}</a>
+                        <li class="nav-item px-2">
+                            <a class="nav-link btn btn-success" href="{{ route('login') }}">{{ 'Login' }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ 'Register' }}</a>
+                                <a class="nav-link btn btn-warning" href="{{ route('register') }}">{{ 'Register' }}</a>
                             </li>
                         @endif
                     @else
@@ -56,7 +63,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input type="submit" value="Logout" class="btn btn-default">
+                                <input type="submit" value="Logout" class="btn btn-warning">
                             </form>
                         </li>
                     @endguest
@@ -64,12 +71,17 @@
             </div>
         </div>
     </nav>
-
-    <div id="app">
-        <main>
-            @yield('content')
-        </main>
-    </div>
 </body>
 
 </html>
+
+<style>
+    /* Backgrounds */
+.my_bg-dark {
+    background-color: #121212;
+}
+
+.my_bg-orange{
+    background-color: #d6833a;
+}
+</style>
