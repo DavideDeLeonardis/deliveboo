@@ -54,7 +54,7 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown mx-4" style="margin-top: 7px;">Name: {{ Auth::user()->name }}</li>
+                        <li class="nav-item dropdown mx-4" style="margin-top: 7px;">{{ Auth::user()->name }}</li>
                         <li class="nav-item dropdown">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -68,14 +68,15 @@
         </div>
     </nav>
 
-    <main class="bg-dark">
+    <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3 border-end border-light border-4">
-                    <div style="height: 100vh" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
+                <div class="col-3 p-0 border-end border-light border-4">
+                    <div style="min-height: 100%; min-height: 100vh"
+                        class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
                         <a href="{{ route('admin.users.index') }}"
-                            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <img class="bi me-2 w-50 align-center" src="{{ asset('img/logo.jpeg') }}" alt="Logo"
+                            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-around">
+                            <img class="bi me-2 w-50" src="{{ asset('images/logo.jpeg') }}" alt="Logo"
                                 class="rounded-circle me-2">
                         </a>
                         <hr>
@@ -124,7 +125,7 @@
                             </li>
                             <li>
                                 <a href="#"
-                                    class="{{ 'admin.users.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                    class="{{ 'admin.bo.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
                                     <lord-icon src="https://cdn.lordicon.com/gqdnbnwt.json" trigger="loop" delay="13000"
                                         stroke="60" colors="primary:#e8b730,secondary:#08a88a"
                                         style="width:50px;height:50px">
