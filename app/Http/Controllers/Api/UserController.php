@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Dish;
 use App\User;
 
 class UserController extends Controller
@@ -48,9 +49,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $user = User::where('slug', '=', $slug)->first();
+        $dishes = Dish::where('user_id', '=', $user->id)->get();
+        return response()->json([
+            'response' => true,
+            'count' => $user ? 1 : 0,
+            'results' => [
+                'user' => $user,
+                'dishes' => $dishes
+            ]
+        ]);
     }
 
     /**
