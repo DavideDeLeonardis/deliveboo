@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col my-3">
-                <img class="img-fluid" src="../../../public/images/home-background-hero-scaled.jpg" alt="">
+                <img class="img-fluid" src="../../resources/images/home-background-hero-scaled.jpg" alt="">
             </div>
         </div>
 
