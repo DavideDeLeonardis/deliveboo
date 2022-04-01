@@ -7,16 +7,16 @@
             <li class="list-inline-item">
                 <button
                     v-if="pages.prev_page_url"
-                    class="btn btn-primary text-white"
+                    class="btn my_bg-green text-white"
                     @click="changePage('prev_page_url')"
                 >
                     Prev
                 </button>
             </li>
-            <li class="list-inline-item">
+            <li class="list-inline-item d-flex justify-content-end">
                 <button
                     v-if="pages.next_page_url"
-                    class="btn btn-primary text-white"
+                    class="btn my_bg-green text-white"
                     @click="changePage('next_page_url')"
                 >
                     Next
@@ -45,4 +45,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ .my_bg-green  {
+     background-color: #198754;
+ }
+</style>

@@ -8,3 +8,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('v1/restaurants', 'Api\UserController@index');
+Route::get('v1/restaurants/search', 'Api\UserController@search');
+Route::get('v1/restaurants/{slug}', 'Api\UserController@show');
+
+Route::get('v1/categories', 'Api\CategoryController@index');

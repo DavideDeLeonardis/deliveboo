@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Deliverboo') }}</title>
+    <title>{{ config('app.name', 'DeliveBoo') }}</title>
 
     <!-- Scripts -->
     <script src="https://cdn.lordicon.com/lusqsztk.js" defer></script>
@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Deliverboo') }}
+                {{ config('app.name', 'DeliveBoo') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@
                 <div class="col-3 p-0 border-end border-light border-4">
                     <div style="min-height: 100%; min-height: 100vh"
                         class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
-                        <a href="{{ route('admin.users.index') }}"
+                        <a href="{{ route('admin.home') }}"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-around">
                             <img class="bi me-2 w-50" src="{{ asset('images/logo.jpeg') }}" alt="Logo"
                                 class="rounded-circle me-2">

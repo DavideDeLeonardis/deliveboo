@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-2">
         <ChangePage :pages="pages" @changePage="changePage($event)" />
 
         <div v-if="restaurants" class="row row-cols-1 row-cols-md-3 g-4">

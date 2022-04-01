@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'DeliveBoo') }}</title>
 
     <!-- Scripts -->
     @yield('script')
@@ -51,11 +51,11 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item px-2">
-                            <a class="nav-link btn btn-success" href="{{ route('login') }}">{{ 'Login' }}</a>
+                            <a class="nav-link btn btn-success text-white" href="{{ route('login') }}">{{ 'Login' }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link btn btn-warning" href="{{ route('register') }}">{{ 'Register' }}</a>
+                                <a class="nav-link btn btn-warning text-white" href="{{ route('register') }}">{{ 'Register' }}</a>
                             </li>
                         @endif
                     @else
