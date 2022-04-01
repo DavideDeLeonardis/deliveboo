@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <ChangePage :pages="pages" @changePage="changePage($event)" />
+
         <div v-if="restaurants" class="row row-cols-1 row-cols-md-3 g-4">
             <div
                 v-for="(restaurant, index) in restaurants"
@@ -25,12 +27,19 @@
                 </div>
             </div>
         </div>
+
+        <ChangePage :pages="pages" @changePage="changePage($event)" />
     </div>
 </template>
 
 <script>
+import ChangePage from "./ChangePage.vue";
+
 export default {
     name: "Main",
+    components: {
+        ChangePage,
+    },
     props: {
         restaurants: {
             type: Array,
@@ -38,6 +47,17 @@ export default {
                 return [];
             },
         },
+        pages: {
+            type: Object,
+            default() {
+                return {};
+            },
+        }
+    },
+    methods: {
+        changePage(varChangePage) {
+            this.$emit("changePage", varChangePage);
+        }
     },
 };
 </script>
