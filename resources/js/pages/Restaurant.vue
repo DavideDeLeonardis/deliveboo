@@ -1,15 +1,36 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-9 bg-warning">
+            <div class="col bg-warning">
                 <h1>{{ user.name }}</h1>
-                <ul>
-                    <li v-for="(dish, index) in dishes" :key="index">
-                        {{ dish.name }}
-                    </li>
-                </ul>
+                <div
+                    class="card my_bg-dark"
+                    v-for="(dish, index) in dishes"
+                    :key="index"
+                >
+                    <div class="card-body my_bg-orange rounded mt-1">
+                        <ul class="list-unstyled">     
+                            <li><h5 class="card-title text-center">{{ dish.name }}</h5></li>
+                            <li>Description:
+                                <br>
+                                {{ dish.description }}</li>
+                            <li>Ingredients:
+                                <br>
+                                {{ dish.ingredients }}</li>
+                            <li>Prezzo:
+                                <br>
+                                {{ dish.price }}</li>
+                            <li>Disponibilità:
+                                <br>
+                                {{ dish.availability }}</li>
+                        </ul>
+                    </div>
+                    <button class="btn my_bg-green mt-2">Aggiungi</button>
+                </div>
             </div>
-            <div class="col-3 bg-dark">ciaooooo</div>
+            <div class="col-3 bg-dark text-white">
+                carrello
+            </div>
         </div>
     </div>
 </template>
@@ -41,4 +62,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.my_bg-orange  {
+    background-color: #d6833a;
+}
+
+.my_bg-green  {
+    background-color: #198754;
+}
+</style>
