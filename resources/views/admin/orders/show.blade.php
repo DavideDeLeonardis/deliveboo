@@ -24,9 +24,9 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <br>
-                            <li class="list-group-item">Prezzo singolo: {{ $dish->price }} &euro;</li>
-                            <br>
                             <li class="list-group-item">Quantità: {{ $dish->pivot->quantity }}</li>
+                            <br>
+                            <li class="list-group-item">Prezzo singolo: {{ $dish->price }} &euro;</li>
                             <br>
                             <li class="list-group-item">Somma piatti: {{ $dish->price * $dish->pivot->quantity }} &euro;
                             </li>
