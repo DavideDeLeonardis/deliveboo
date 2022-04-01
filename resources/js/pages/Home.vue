@@ -1,18 +1,9 @@
 <template>
-<<<<<<< HEAD
-    <main class="my_bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col my-3">
-                    <h3 class="text-white">Home - Ristoranti</h3>
-                </div>
-=======
 <main class="my_bg-dark">
     <div class="container">
         <div class="row">
             <div class="col my-3">
                 <img class="img-fluid" src="../../../public/images/home-background-hero-scaled.jpg" alt="">
->>>>>>> a6f4ea6d2b989f81b528a31000ba1dbe49fa123e
             </div>
 
             <Loading v-if="loading" />
