@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use App\Model\Dish;
+use App\User;
 use App\Model\Order;
+use Faker\Generator as Faker;
 
 class DishOrderSeeder extends Seeder
 {
@@ -11,14 +13,23 @@ class DishOrderSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $dishes = Dish::all();
 
-        foreach ($dishes as $dish) {
-            $orders = Order::inRandomOrder()->first();
-            $dish->orders()->attach(1, ['quantity' => random_int(1, 9)]);
-            $dish->orders()->attach($orders);
+        $orders = Order::all();
+        $users = User::all();
+
+        foreach ($orders as $order) {
+            $rand_id = random_int(1, count($users));
+            $dishes = Dish::join('users', 'dishes.user_id', '=', 'users.id')
+                ->select('dishes.id', 'users.name', 'dishes.user_id')
+                ->where('users.id', $rand_id)
+                ->limit(5)
+                ->get();
+            foreach ($dishes as $dish) {
+                $quantity = $faker->numberBetween(1, 4);
+                $order->dishes()->attach($dish, ['quantity' => $quantity]);
+            }
         }
     }
 }
