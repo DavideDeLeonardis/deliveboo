@@ -3,11 +3,15 @@
         <div class="row">
             <div class="col-8 text-white my_bg-dark">
                 <div class="w-25 p-2">
+<<<<<<< HEAD
                     <img
                         class="img-fluid"
                         src="../../resources/images/20220322_170706.png"
                         alt="DeliveBoo"
                     />
+=======
+                    <img class="img-fluid" src="../../images/20220322_170706.png" alt="DeliveBoo">
+>>>>>>> dd93269b1cbaf82b6638f4bd2f647af3aa5ebc21
                 </div>
             </div>
             <div
