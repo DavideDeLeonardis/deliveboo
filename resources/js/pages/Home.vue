@@ -10,7 +10,7 @@
                     />
                 </div>
 
-                <div class="col-12 mt-2">
+                <div class="col-12 my-3">
                     <h4 class="text-white">Filtra per categorie</h4>
                     <div class="row">
                         <div
@@ -20,7 +20,7 @@
                             <div
                                 v-for="(category, index) in categories"
                                 :key="`category-${index}`"
-                                class="mx-4 my-3 checkbox-category"
+                                class="d-flex align-items-center justify-content-center mx-4 my-3 checkbox-category"
                             >
                                 <input
                                     type="checkbox"
@@ -36,7 +36,7 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-2 d-flex">
                             <input
                                 class="btn btn-danger"
@@ -135,9 +135,9 @@ export default {
 <style scoped>
 .checkbox-category {
     width: 150px;
-    height: 35px;
+    height: 50px;
+    font-size: 1.2em;
     background-color: #ffc108;
-    padding: 5px;
     border-radius: 10px;
 }
 </style>
