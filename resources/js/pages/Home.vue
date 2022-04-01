@@ -1,19 +1,24 @@
 <template>
-<main class="my_bg-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col my-3">
-                <img class="img-fluid" src="../../../public/images/home-background-hero-scaled.jpg" alt="">
+    <main class="my_bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col my-3">
+                    <img
+                        class="img-fluid"
+                        src="../../resources/images/home-background-hero-scaled.jpg"
+                        alt=""
+                    />
+                </div>
+
+                <Loading v-if="loading" />
+
+                <Main
+                    v-else
+                    :restaurants="restaurants"
+                    :pages="pages"
+                    @changePage="changePage($event)"
+                />
             </div>
-
-            <Loading v-if="loading" />
-
-            <Main
-                v-else
-                :restaurants="restaurants"
-                :pages="pages"
-                @changePage="changePage($event)"
-            />
         </div>
     </main>
 </template>
@@ -53,8 +58,10 @@ export default {
             Axios.get(url)
                 .then((result) => {
                     this.restaurants = result.data.results.data;
-                    this.pages.next_page_url = result.data.results.next_page_url;
-                    this.pages.prev_page_url = result.data.results.prev_page_url;
+                    this.pages.next_page_url =
+                        result.data.results.next_page_url;
+                    this.pages.prev_page_url =
+                        result.data.results.prev_page_url;
                     this.loading = false;
                 })
                 .catch((error) => {
