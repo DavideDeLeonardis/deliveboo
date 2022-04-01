@@ -124,13 +124,8 @@
                                 </a>
                             </li>
                             <li>
-<<<<<<< HEAD
-                                <a href="{{ route('admin.home') }}"
-                                    class="{{ 'admin.home' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
-=======
                                 <a href="#"
                                     class="{{ 'admin.bo.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
->>>>>>> develop
                                     <lord-icon src="https://cdn.lordicon.com/gqdnbnwt.json" trigger="loop" delay="13000"
                                         stroke="60" colors="primary:#e8b730,secondary:#08a88a"
                                         style="width:50px;height:50px">
