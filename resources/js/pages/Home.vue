@@ -1,5 +1,5 @@
 <template>
-    <!-- <main class="my_bg-dark"> -->
+    <main class="my_bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col my-3">
@@ -20,7 +20,7 @@
                 />
             </div>
         </div>
-    <!-- </main> -->
+    </main>
 </template>
 
 <script>
