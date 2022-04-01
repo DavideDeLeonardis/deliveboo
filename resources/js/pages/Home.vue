@@ -14,7 +14,7 @@
                 <div class="col my-3">
                     <img
                         class="img-fluid"
-                        src="../../resources/images/home-background-hero-scaled.jpg"
+                        src="../../images/home-background-hero-scaled.jpg"
                         alt=""
                     />
                 </div>
@@ -30,7 +30,7 @@
                 />
             </div>
         </div>
-    <!-- </main> -->
+    </main>
 </template>
 
 <script>
