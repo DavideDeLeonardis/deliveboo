@@ -23,9 +23,9 @@
                             <div class="btn-group btn-group-index align-items-center" role="group"
                                 aria-label="Basic mixed styles example">
                                 <a href="{{ route('admin.dishes.show', $dish->slug) }}"
-                                    class="btn-card btn rounded-2">Visualizza</a>
+                                    class="btn-card btn rounded-2 text-white">Visualizza</a>
                                 <a href="{{ route('admin.dishes.edit', $dish->slug) }}"
-                                    class="btn-card btn mx-3 rounded-2">Modifica</a>
+                                    class="btn-card btn mx-3 rounded-2 text-white">Modifica</a>
                                 <form action="{{ route('admin.dishes.destroy', $dish->slug) }}" method="post">
                                     @csrf
                                     @method('DELETE')

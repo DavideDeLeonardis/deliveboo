@@ -1,5 +1,6 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import "dishes/index";
 
 // Variables
@@ -10,4 +11,8 @@
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
 
 // Fontawesome
-@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
