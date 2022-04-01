@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col d-flex justify-content-around">
+            <div class="col d-flex justify-content-start">
                 <div class="card m-3">
                     <div class="card-body">
                         <p class="card-text"><strong>Nome Piatto:</strong> {{ $dish->name }}</p>
@@ -14,9 +14,8 @@
                             <p class="card-text"><strong>Ingredienti:</strong> {{ $dish->ingredients }}</p>
                         @endif
                         @if ($dish->image)
-                            <p class="card-text"><img class="img-fluid"
-                                    src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
-                            </p>
+                            <img class="img-fluid" style="max-width: 20rem"
+                                src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
                         @endif
                         <p class="card-text"><strong>Prezzo:</strong> {{ $dish->price }} &euro;</p>
                         <p class="card-text"><strong>Disponibilità:</strong>
