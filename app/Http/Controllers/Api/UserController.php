@@ -17,8 +17,7 @@ class UserController extends Controller
     {
         return response()->json([
             'response' => true,
-            // 'results' => User::orderBy('created_at', 'desc')->with(['tags', 'category'])->paginate(12),
-            'results' => User::all(),
+            'results' => User::simplePaginate(18),
         ]);
     }
 
