@@ -1,14 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container bg-dark">
+    <div class="container">
         <?php $i = 1; ?>
         <div class="row d-flex justify-content-around">
             @foreach ($orders as $order)
                 <div class="col m-2">
                     <div class="card" style="width: 18rem;">
+                        <div style="background-color: #e8b730">
+                            <h5 class="card-title text-light p-3">Ordine {{ $i }}</h5>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title text-success">Ordine {{ $i }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Nome: {{ $order->name }} {{ $order->lastname }}
                             </h6>
                             <p class="card-text">Email: {{ $order->email }}</p>
