@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         $user = User::where('slug', '=', $slug)->first();
         $dishes = Dish::where('user_id', '=', $user->id)->get();
-        
+
         return response()->json([
             'response' => true,
             'count' => $user ? 1 : 0,
