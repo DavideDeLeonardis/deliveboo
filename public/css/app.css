@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);/*!
  * Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  * Copyright 2022 Fonticons, Inc.
@@ -26723,5 +26723,9 @@ fieldset:disabled .btn {
 
 .bi-filetype-xlsx::before {
   content: "\F793";
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
