@@ -117,9 +117,16 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Boolean\PROGETTO\deliveboo\node_modules\popper.js\dist\popper.js */"./node_modules/popper.js/dist/popper.js");
 =======
 module.exports = __webpack_require__(/*! /Users/manuelcappello/boolean/deliveboo/node_modules/popper.js/dist/popper.js */"./node_modules/popper.js/dist/popper.js");
+>>>>>>> develop
+=======
+module.exports = __webpack_require__(/*! /Users/manuelcappello/boolean/deliveboo/node_modules/popper.js/dist/popper.js */"./node_modules/popper.js/dist/popper.js");
+=======
+module.exports = __webpack_require__(/*! C:\boolean\classe49\deliveboo\node_modules\popper.js\dist\popper.js */"./node_modules/popper.js/dist/popper.js");
+>>>>>>> Christian
 >>>>>>> develop
 
 
