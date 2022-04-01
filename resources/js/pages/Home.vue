@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col my-3">
-                <h3 class="text-white">Home - Ristoranti</h3>
+                <img class="img-fluid" src="../../../public/images/home-background-hero-scaled.jpg" alt="">
             </div>
         </div>
 
