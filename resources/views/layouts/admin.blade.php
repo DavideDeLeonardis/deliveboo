@@ -11,6 +11,8 @@
     <title>{{ config('app.name', 'Deliverboo') }}</title>
 
     <!-- Scripts -->
+    <script src="https://cdn.lordicon.com/lusqsztk.js" defer></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="{{ asset('js/front.js') }}"></script>
 
@@ -69,7 +71,7 @@
     <main class="bg-dark">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3 border-end border-warning border-4">
+                <div class="col-3 border-end border-light border-4">
                     <div style="height: 100vh" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
                         <a href="{{ route('admin.users.index') }}"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -94,8 +96,8 @@
                                 <a href="{{ route('admin.dishes.create') }}"
                                     class="{{ 'admin.dishes.create' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
                                     <lord-icon src="https://cdn.lordicon.com/mecwbjnp.json" trigger="loop"
-                                        colors="primary:#e8b730,secondary:#08a88a" stroke="75"
-                                        style="width:50px;height:50px" delay="5000">
+                                        colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="7000">
                                     </lord-icon>
                                     Aggiungi piatto
                                 </a>
@@ -104,8 +106,8 @@
                                 <a href="{{ route('admin.orders.index') }}"
                                     class="{{ 'admin.orders.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
                                     <lord-icon src="https://cdn.lordicon.com/cjieiyzp.json" trigger="loop"
-                                        colors="primary:#e8b730,secondary:#08a88a" style="width:50px;height:50px"
-                                        delay="5000">
+                                        colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="9000">
                                     </lord-icon>
                                     Vedi i tuoi ordini
                                 </a>
@@ -114,14 +116,24 @@
                                 <a href="{{ route('admin.users.index') }}"
                                     class="{{ 'admin.users.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
                                     <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop"
-                                        colors="primary:#e8b730,secondary:#08a88a" style="width:50px;height:50px"
-                                        delay="5000">
+                                        colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="11000">
                                     </lord-icon>
                                     Vedi il tuo profilo
                                 </a>
                             </li>
+                            <li>
+                                <a href="#"
+                                    class="{{ 'admin.users.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                    <lord-icon src="https://cdn.lordicon.com/gqdnbnwt.json" trigger="loop" delay="13000"
+                                        stroke="60" colors="primary:#e8b730,secondary:#08a88a"
+                                        style="width:50px;height:50px">
+                                    </lord-icon>
+                                    Visualizza statistiche
+                                </a>
+                            </li>
                         </ul>
-                        <hr>
+                        {{-- <hr> --}}
                         {{-- <div class="dropdown">
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
@@ -151,6 +163,5 @@
         </div>
     </main>
 </body>
-<script src="https://cdn.lordicon.com/lusqsztk.js"></script>
 
 </html>

@@ -34,9 +34,10 @@ export default {
         };
     },
     created() {
+        this.loading = true;
         setTimeout(() => {
             this.getRestaurants(`${this.url}restaurants`);
-        }, 1000);
+        }, 200);
     },
     methods: {
         getRestaurants(url) {

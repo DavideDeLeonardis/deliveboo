@@ -1,0 +1,18 @@
+.btn-card:hover {
+    opacity: 0.7;
+    transition: all 0.2;
+    a {
+        color: white !important;
+    }
+}
+
+.btn-group-index a.btn-card {
+    &:first-child {
+        background-color: #38c172;
+        // background-color: blue;
+    }
+    &:not(:first-child) {
+        background-color: #ffc245;
+        // background-color: red;
+    }
+}
