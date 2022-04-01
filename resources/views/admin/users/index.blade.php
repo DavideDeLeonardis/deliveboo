@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="card m-3" style="max-width: 540px;">
+            <div class="col d-flex justify-content-around">
+                <div class="card m-3">
                     @if (str_contains($user->photo, 'https://'))
                         <img class="card-img-top" width="300px" src="{{ $user->photo }}" alt="{{ $user->name }}">
                     @else
