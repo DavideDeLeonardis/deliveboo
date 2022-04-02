@@ -72,7 +72,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3 p-0 border-end border-light border-4">
-                    <div style="min-height: 100%; min-height: 100vh"
+                    <div style="min-height: 100%;"
                         class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
                         <a href="{{ route('admin.home') }}"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-around">

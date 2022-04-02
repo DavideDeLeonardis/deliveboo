@@ -2,91 +2,119 @@
 
 @section('content')
     <div class="container">
-        <h1 class="">Aggiungi nuovo Piatto:</h1>
-        <div class="row">
-            <div class="col py-3">
-                <form action="{{ route('admin.dishes.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method('POST')
+        <div class="row ">
+            <div class="col m-5">
+                <div class="card p-3">
+                    <h1 class="" style="color: #08a88a !important">
+                        <lord-icon src="https://cdn.lordicon.com/jpdtnwas.json" trigger="loop"
+                            colors="primary:#e8b730,secondary:#08a88a" style="width:80px;height:50px">
+                        </lord-icon>Aggiungi un nuovo Piatto:
+                    </h1>
+                    <div class="row">
+                        <div class="col py-3">
+                            <form action="{{ route('admin.dishes.store') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('POST')
 
-                    {{-- nome --}}
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}"
-                            data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
-                        @error('name')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                                {{-- nome --}}
+                                <div class="mb-3">
+                                    <label for="name" class="form-label ">
+                                        <h4>Nome del Piatto:</h4>
+                                    </label>
+                                    <input type="text" class="form-control"
+                                        style="background-color: rgb(56, 193, 114, 0.2)" id="name" name="name" required
+                                        value="{{ old('name') }}" data-bs-toggle="tooltip" data-bs-placement="right"
+                                        title="Tooltip on right">
+                                    @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                {{-- descrizione --}}
+                                <div class="mb-3">
+                                    <label for="description" class="form-label ">Descrizione:</label>
+                                    <textarea type="text" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)" id="description"
+                                        name="description" rows="3"
+                                        placeholder="Opzionale..">{{ old('description') }}</textarea>
+                                    @error('description')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                {{-- immagine --}}
+                                <div class="mb-3">
+                                    <label for="image" class="form-label ">Immagine:</label>
+                                    <input class="form-control" style="background-color: rgb(56, 193, 114, 0.2)"
+                                        type="file" id="image" name='image'>
+                                    @error('image')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                {{-- ingredienti --}}
+                                <div class="mb-3">
+                                    <label for="ingredients" class="form-label ">Ingredienti:</label>
+                                    <textarea type="text" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)" id="ingredients"
+                                        name="ingredients" rows="3"
+                                        placeholder="Opzionale..">{{ old('ingredients') }}</textarea>
+                                    @error('ingredients')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                {{-- prezzo --}}
+                                <div class="mb-3">
+                                    <label for="price" class="form-label ">Prezzo:</label>
+                                    <input type="text" class="form-control"
+                                        style="background-color: rgb(56, 193, 114, 0.2)" id="price" name="price" required
+                                        value="{{ old('price') }}">
+                                    @error('price')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                {{-- portata --}}
+                                <div class="mb-3">
+                                    <h4 class="">Scegli Portata:</h4>
+                                    <select class="form-select" style="background-color: rgb(56, 193, 114, 0.2)"
+                                        name="course">
+                                        @foreach ($courses as $course)
+                                            <option value="{{ $course }}"
+                                                @if (old('course')) selected @endif>
+                                                {{ $course }}</option>
+                                        @endforeach
+                                        @error('course')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </select>
+                                </div>
+
+                                {{-- disponibilità --}}
+                                <div class="mb-3">
+                                    <h4 class="">Disponibilità:</h4>
+                                    <select class="form-select" style="background-color: rgb(56, 193, 114, 0.2)"
+                                        name="availability">
+                                        <option value="0" @if (old('availability')) selected @endif>Non Disponibile
+                                        </option>
+                                        <option value="1" @if (old('availability')) selected @endif>Disponibile
+                                        </option>
+                                        @error('availability')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </select>
+                                </div>
+                                <lord-icon src="https://cdn.lordicon.com/rjzlnunf.json" trigger="loop" delay="5000"
+                                    colors="primary:#121331,secondary:#08a88a" axis-y="60" style="width:50px;height:50px">
+                                </lord-icon>
+                                <button type="submit" class="btn btn-success text-light p-2 mt-3"
+                                    style="background-color: #38c172">Salva il
+                                    Piatto</button>
+                            </form>
+                        </div>
                     </div>
-
-                    {{-- descrizione --}}
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea type="text" class="form-control" id="description" name="description" rows="3"
-                            placeholder="Opzionale..">{{ old('description') }}</textarea>
-                        @error('description')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- immagine --}}
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Image</label>
-                        <input class="form-control" type="file" id="image" name='image'>
-                        @error('image')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- ingredienti --}}
-                    <div class="mb-3">
-                        <label for="ingredients" class="form-label">Ingredients</label>
-                        <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="3"
-                            placeholder="Opzionale..">{{ old('ingredients') }}</textarea>
-                        @error('ingredients')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- prezzo  --}}
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" required
-                            value="{{ old('price') }}">
-                        @error('price')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    {{-- portata --}}
-                    <div class="mb-3">
-                        <h2>Scegli Portata:</h2>
-                        <select class="form-select" name="course">
-                            @foreach ($courses as $course)
-                                <option value="{{ $course }}" @if (old('course')) selected @endif>
-                                    {{ $course }}</option>
-                            @endforeach
-                            @error('course')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </select>
-                    </div>
-
-                    {{-- disponibilità --}}
-                    <div class="mb-3">
-                        <h2>Disponibilità:</h2>
-                        <select class="form-select" name="availability">
-                            <option value="0" @if (old('availability')) selected @endif>Non Disponibile</option>
-                            <option value="1" @if (old('availability')) selected @endif>Disponibile</option>
-                            @error('availability')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-danger">Save</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
 @endsection
