@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-around">
-                <div class="card m-3">
+                <div class="card m-3 mt-5">
                     @if (str_contains($user->photo, 'https://'))
                         <img class="card-img-top" width="300px" src="{{ $user->photo }}" alt="{{ $user->name }}">
                     @else

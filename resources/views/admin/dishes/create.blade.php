@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row ">
-            <div class="col m-5">
+        <div class="row">
+            <div class="col mt-5 mb-5">
                 <div class="card p-3">
                     <h1 class="" style="color: #08a88a !important">
                         <lord-icon src="https://cdn.lordicon.com/jpdtnwas.json" trigger="loop"

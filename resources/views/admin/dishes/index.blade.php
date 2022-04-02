@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col d-flex flex-wrap">
                 @foreach ($dishes as $dish)
-                    <div class="card m-3" style="width: 18rem;">
+                    <div class="card m-2" style="width: 18rem;">
                         <div class="card-body" @if (!$dish->description) style="height: 150px" @endif
                             style="height: 260px">
                             <h5 class="card-title text-uppercase">{{ $dish->name }}</h5>

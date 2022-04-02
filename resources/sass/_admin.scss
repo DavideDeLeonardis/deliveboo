@@ -1,0 +1,35 @@
+.main{
+    margin-left: 25%;
+}
+
+.bar-left {
+    width: 25% !important;
+}
+
+@media all and (max-width: 917px) {
+    .bar-left{
+        width: 15% !important;
+        .text-side{
+            display: none;
+        }
+    }
+
+    .main{
+        margin-left: 15% !important;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .bar-left {
+        width: 15% !important;
+        min-width: 110px !important;
+
+        .text-side {
+            display: none;
+        }
+    }
+
+    .main {
+        margin-left: 75px !important;
+    }
+}

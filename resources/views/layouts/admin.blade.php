@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Deliverboo') }}
@@ -69,10 +69,10 @@
     </nav>
 
     <main>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-3 p-0 border-end border-light border-4">
-                    <div style="min-height: 100%;"
+        <div class="container-fluid" style="margin-top: 3rem">
+            <div class="row" style="width: ">
+                <div class="col-3 p-0 border-end border-light border-4 position-fixed bar-left" id="sticky-sidebar">
+                    <div style="min-height: 100vh;"
                         class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
                         <a href="{{ route('admin.users.index') }}"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-around">
@@ -89,7 +89,7 @@
                                         colors="primary:#e8b730,secondary:#08a88a" stroke="60"
                                         style="width:50px;height:50px" delay="5000">
                                     </lord-icon>
-                                    Visualizza tutti i piatti
+                                    <span class="text-side">Visualizza tutti i piatti</span>
                                 </a>
                             </li>
                             {{-- @dd(Route::currentRouteName()) --}}
@@ -100,7 +100,7 @@
                                         colors="primary:#e8b730,secondary:#08a88a" stroke="60"
                                         style="width:50px;height:50px" delay="7000">
                                     </lord-icon>
-                                    Aggiungi piatto
+                                    <span class="text-side">Aggiungi piatto</span>
                                 </a>
                             </li>
                             <li>
@@ -110,7 +110,7 @@
                                         colors="primary:#e8b730,secondary:#08a88a" stroke="60"
                                         style="width:50px;height:50px" delay="9000">
                                     </lord-icon>
-                                    Vedi i tuoi ordini
+                                    <span class="text-side">Vedi i tuoi ordini</span>
                                 </a>
                             </li>
                             <li>
@@ -120,7 +120,7 @@
                                         colors="primary:#e8b730,secondary:#08a88a" stroke="60"
                                         style="width:50px;height:50px" delay="11000">
                                     </lord-icon>
-                                    Vedi il tuo profilo
+                                    <span class="text-side">Vedi il tuo profilo</span>
                                 </a>
                             </li>
                             <li>
@@ -130,7 +130,7 @@
                                         stroke="60" colors="primary:#e8b730,secondary:#08a88a"
                                         style="width:50px;height:50px">
                                     </lord-icon>
-                                    Visualizza statistiche
+                                    <span class="text-side">Visualizza statistiche</span>
                                 </a>
                             </li>
                         </ul>
@@ -157,7 +157,7 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col main">
                     @yield('content')
                 </div>
             </div>
