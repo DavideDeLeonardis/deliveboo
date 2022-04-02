@@ -92,12 +92,9 @@ export default {
             sessionStorage.setItem("cart", JSON.stringify(this.cart));
         },
         removeItem(value) {
-            var index = this.cart.indexOf(value);
+            let index = this.cart.indexOf(value);
             if (index > -1) {
                 this.cart.splice(index, 1);
-                // this.cart.forEach((dish) => {
-                //     sessionStorage.removeItem(dish);
-                // });
             }
             return this.cart;
         },
@@ -119,7 +116,6 @@ export default {
                 sessionStorage.clear();
             }
         }
-        // sessionStorage.removeItem("cart"); // pulisci carrello
     },
 };
 </script>
