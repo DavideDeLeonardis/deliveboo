@@ -17,6 +17,13 @@ export default {
             },
         },
     },
+    created() {
+        // localStorage.setItem('cart', this.cart);
+        // console.log(localStorage);
+
+        // let myObj_serialized = JSON.stringify(this.cart);
+        // console.log(myObj_serialized);
+    }
 };
 </script>
 
