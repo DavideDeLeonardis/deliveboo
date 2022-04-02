@@ -52,7 +52,11 @@
                         </div>
                     </div>
                 </div>
-                <Cart :cart="cart" @removeItem="removeItem($event)" />
+                <Cart
+                    :cart="cart"
+                    @removeItem="removeItem($event)"
+                    @clearCart="clearCart()"
+                />
             </div>
         </div>
     </div>
@@ -97,6 +101,10 @@ export default {
                 this.cart.splice(index, 1);
             }
             return this.cart;
+        },
+        clearCart() {
+            this.cart = [];
+            sessionStorage.removeItem("cart");
         },
     },
     created() {

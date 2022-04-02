@@ -3,9 +3,14 @@
         <div v-if="cart && cart.length != 0">
             <div v-for="(dish, index) in cart" :key="index">
                 {{ dish.name }}
-                <button @click="$emit('removeItem', dish)">Rimuovi</button>
+                <button @click="$emit('removeItem', dish)">
+                    Rimuovi
+                </button>
             </div>
         </div>
+        <button class="mt-4" @click="$emit('clearCart')">
+            Svuota carrello
+        </button>
     </div>
 </template>
 
