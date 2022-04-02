@@ -78,8 +78,7 @@ export default {
     },
     methods: {
         getUser(url) {
-            Axios
-                .get(url)
+            Axios.get(url)
                 .then((result) => {
                     this.user = result.data.results.user;
                     this.dishes = result.data.results.dishes;
@@ -90,15 +89,15 @@ export default {
         },
         getCart(value) {
             this.cart.push(value);
-            let myObj_serialized = JSON.stringify(this.cart);
-            sessionStorage.setItem("cart", myObj_serialized);
+            sessionStorage.setItem("cart", JSON.stringify(this.cart));
         },
         removeItem(value) {
             var index = this.cart.indexOf(value);
             if (index > -1) {
                 this.cart.splice(index, 1);
-                // sessionStorage['value'] = JSON.stringify(value);
-                sessionStorage.removeItem("value");
+                // this.cart.forEach((dish) => {
+                //     sessionStorage.removeItem(dish);
+                // });
             }
             return this.cart;
         },
@@ -110,6 +109,17 @@ export default {
         if (myObj_deserialized) {
             this.cart = myObj_deserialized;
         }
+
+        let doc = window.document;
+        let document_serialized = JSON.stringify(doc);
+        sessionStorage.setItem("doc", document_serialized);
+        let document_deserialized = JSON.parse(sessionStorage.getItem("doc"));
+        if (document_deserialized) {
+            if (document_deserialized != window.document) {
+                sessionStorage.clear();
+            }
+        }
+        // sessionStorage.removeItem("cart"); // pulisci carrello
     },
 };
 </script>
