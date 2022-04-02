@@ -1,7 +1,10 @@
 <template>
     <div class="container mt-2">
-        <div v-if="inputText != ''">
-            <h4 class="text-white text-center">I risultati della tua ricerca per {{ inputText }}</h4>
+        <div v-if="inputText != '' && restaurants.length != 0">
+            <h4 class="text-white text-center mb-2">I risultati della tua ricerca per {{ inputText }}</h4>
+        </div>
+        <div v-if="restaurants.length == 0">
+            <h4 class="text-white text-center mb-4">Non ci sono risultati corrispondenti alla tua ricarca</h4>
         </div>
 
         <ChangePage :pages="pages" @changePage="changePage($event)" />

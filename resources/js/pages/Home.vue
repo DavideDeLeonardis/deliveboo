@@ -111,6 +111,19 @@ export default {
             this.getRestaurants(`${this.url}restaurants`, null);
         }, 200);
     },
+    computed: {
+        searchProducts() {
+            if (this.inputText != "") {
+                return this.restaurants.filter((restaurant) => {
+                    return (
+                        restaurant.name.toLowerCase().indexOf(this.inputText.toLowerCase()) != -1
+                    );
+                });
+            } else {
+                return this.restaurants;
+            }
+        },
+    },
     methods: {
         getCategories(url) {
             Axios.get(url)
@@ -144,19 +157,6 @@ export default {
         resetFilters() {
             this.form.categories = [];
             this.getRestaurants(`${this.url}restaurants`, null);
-        },
-    },
-    computed: {
-        searchProducts() {
-            if (this.inputText != "") {
-                return this.restaurants.filter((restaurant) => {
-                    return (
-                        restaurant.name.toLowerCase().indexOf(this.inputText.toLowerCase()) != -1
-                    );
-                });
-            } else {
-                return this.restaurants;
-            }
         },
     },
 };
