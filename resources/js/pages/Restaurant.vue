@@ -1,13 +1,11 @@
 <template>
+<div class="my_bg-dark">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col bg-warning">
-                <h1>{{ user.name }}</h1>
-                <div
-                    class="card my_bg-dark"
-                    v-for="(dish, index) in dishes"
-                    :key="index"
-                >
+        <h1 class="bg-warning rounded">{{ user.name }}</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div v-for="(dish, index) in dishes"
+                    :key="index" class="col">
+                <div class="card my_bg-dark">
                     <div class="card-body my_bg-orange rounded mt-1">
                         <ul class="list-unstyled">     
                             <li><h5 class="card-title text-center">{{ dish.name }}</h5></li>
@@ -33,6 +31,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -69,5 +68,9 @@ export default {
 
 .my_bg-green  {
     background-color: #198754;
+}
+
+.my_bg-dark {
+    background-color: #121212;
 }
 </style>
