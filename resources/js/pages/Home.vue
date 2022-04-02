@@ -10,6 +10,16 @@
                     />
                 </div>
 
+                <div class="col-12">
+                    <input
+                        v-model="inputText"
+                        type="text"
+                        name="search-bar"
+                        id="search-bar"
+                        placeholder="Cerca ristorante"
+                    />
+                </div>
+
                 <div class="col-12 my-3">
                     <h4 class="text-white">Filtra per categorie</h4>
                     <div class="row">
@@ -27,7 +37,12 @@
                                     name="categories[]"
                                     :value="category.name"
                                     v-model="form.categories"
-                                    @change.prevent="getRestaurants(`${url}restaurants/search`, form)"
+                                    @change.prevent="
+                                        getRestaurants(
+                                            `${url}restaurants/search`,
+                                            form
+                                        )
+                                    "
                                 />
                                 <label :for="category.name">{{
                                     category.name
@@ -52,8 +67,9 @@
 
                 <Main
                     v-else
-                    :restaurants="restaurants"
+                    :restaurants="searchProducts"
                     :pages="pages"
+                    :inputText="inputText"
                     @changePage="changePage($event)"
                 />
             </div>
@@ -86,6 +102,7 @@ export default {
             form: {
                 categories: [],
             },
+            inputText: "",
         };
     },
     created() {
@@ -129,10 +146,31 @@ export default {
             this.getRestaurants(`${this.url}restaurants`, null);
         },
     },
+    computed: {
+        searchProducts() {
+            if (this.inputText != "") {
+                return this.restaurants.filter((restaurant) => {
+                    return (
+                        restaurant.name.toLowerCase().indexOf(this.inputText.toLowerCase()) != -1
+                    );
+                });
+            } else {
+                return this.restaurants;
+            }
+        },
+    },
 };
 </script>
 
 <style scoped>
+#search-bar {
+    width: 100%;
+    height: 30px;
+    margin: 15px 0;
+    padding-left: 5px;
+    outline: none;
+}
+
 .checkbox-category {
     width: 150px;
     height: 50px;

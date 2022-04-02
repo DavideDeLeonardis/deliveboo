@@ -1,5 +1,9 @@
 <template>
     <div class="container mt-2">
+        <div v-if="inputText != ''">
+            <h4 class="text-white text-center">I risultati della tua ricerca per {{ inputText }}</h4>
+        </div>
+
         <ChangePage :pages="pages" @changePage="changePage($event)" />
 
         <div v-if="restaurants" class="row row-cols-1 row-cols-md-3 g-4">
@@ -52,7 +56,11 @@ export default {
             default() {
                 return {};
             },
-        }
+        },
+        inputText: {
+            type: String,
+            default: "",
+        },
     },
     methods: {
         changePage(varChangePage) {
