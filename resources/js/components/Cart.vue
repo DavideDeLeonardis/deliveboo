@@ -8,13 +8,16 @@
 
 <script>
 export default {
-    name: 'Cart',
-    props: [
-        'cart',
-    ]
-}
+    name: "Cart",
+    props: {
+        cart: {
+            type: Object,
+            default() {
+                return {};
+            },
+        },
+    },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
