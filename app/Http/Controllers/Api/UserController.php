@@ -30,11 +30,10 @@ class UserController extends Controller
         $users = User::where('id', '>=', 1);
 
         if (array_key_exists('categories', $data)) {
-            foreach ($data['categories'] as $category) {
-                $users->whereHas('categories', function (Builder $query) use ($category) {
-                    $query->where('name', '=', $category);
+                $users->whereHas('categories', function (Builder $query) use ($data) {
+                    $query->whereIn('name', $data['categories']);
                 });
-            }
+            
         }
 
         $users = $users->with(['categories'])->get();
