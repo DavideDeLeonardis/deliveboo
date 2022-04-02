@@ -1,6 +1,6 @@
 <template>
     <div class="my_bg-dark">
-        <div class="container-fluid">
+        <div v-if="user" class="container-fluid">
             <h1 class="bg-warning rounded">{{ user.name }}</h1>
             <div class="row">
                 <div class="col-9">
@@ -52,13 +52,15 @@
                         </div>
                     </div>
                 </div>
-                <Cart :cart="cart" />
+                <Cart :cart="cart" @removeItem="removeItem($event)" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Axios from "axios";
+
 import Cart from "../components/Cart";
 
 export default {
@@ -76,22 +78,36 @@ export default {
     },
     methods: {
         getUser(url) {
-            axios.get(url).then((result) => {
-                this.user = result.data.results.user;
-                this.dishes = result.data.results.dishes;
-            });
+            Axios
+                .get(url)
+                .then((result) => {
+                    this.user = result.data.results.user;
+                    this.dishes = result.data.results.dishes;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
         getCart(value) {
             this.cart.push(value);
             let myObj_serialized = JSON.stringify(this.cart);
-            localStorage.setItem("cart", myObj_serialized);
+            sessionStorage.setItem("cart", myObj_serialized);
+        },
+        removeItem(value) {
+            var index = this.cart.indexOf(value);
+            if (index > -1) {
+                this.cart.splice(index, 1);
+                // sessionStorage['value'] = JSON.stringify(value);
+                sessionStorage.removeItem("value");
+            }
+            return this.cart;
         },
     },
     created() {
         this.getUser("http://127.0.0.1:8000/api/v1/restaurants/" + this.slug);
 
-        let myObj_deserialized = JSON.parse(localStorage.getItem("cart"));
-        if (myObj_deserialized != []) {
+        let myObj_deserialized = JSON.parse(sessionStorage.getItem("cart"));
+        if (myObj_deserialized) {
             this.cart = myObj_deserialized;
         }
     },
