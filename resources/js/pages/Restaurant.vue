@@ -56,7 +56,31 @@ export default {
             cart: [],
         };
     },
+    beforeMount() {
+    window.addEventListener("beforeunload", event => {
+        if (this.cart == []) 
+        return event.preventDefault()
+            // Chrome requires returnValue to be set.
+        event.returnValue = ""
+        })
+    },
+    beforeRouteLeave(to, from, next) {
+    if (this.cart != []) {
+      if (!window.confirm("Attenzione! Se lasci la pagina, il carrello verrà svuotato!")) {
+        return;
+      }
+    }
+        next();
+    },
+    beforeDestroy() {
+        window.removeEventListener("beforeunload", this.preventNav);
+    },
     methods: {
+        preventNav(event) {
+            if (this.cart == []) return
+            event.preventDefault()
+            event.returnValue = ""
+        },
         getUser(url) {
             Axios.get(url)
                 .then((result) => {
@@ -68,6 +92,7 @@ export default {
                 });
         },
         getCart(value) {
+            this.isEditing = true;
             this.cart.push(value);
             sessionStorage.setItem("cart", JSON.stringify(this.cart));
         },
@@ -98,6 +123,19 @@ export default {
                 sessionStorage.clear();
             }
         }
+        // sessionStorage.setItem("location", JSON.stringify(window.location));
+        // let location_deserialized = JSON.parse(sessionStorage.getItem("location"));
+
+
+        // console.log(window.history);
+        // // window.onpopstate = function(event) {
+        // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        // // prompt('Stai lasciando la pagina')
+        // // };
+        window.onbeforeunload = function(){
+             alert('prova');
+         };
+        
     },
 };
 </script>
