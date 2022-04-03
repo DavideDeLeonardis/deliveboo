@@ -150,8 +150,8 @@ export default {
         button {
             background-color: rgb(0, 160, 130);
             border-style: none;
-            height: 40px;
-            width: 40px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
             position: absolute;
             bottom: 20px;
