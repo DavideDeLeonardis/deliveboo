@@ -20,7 +20,9 @@ Route::middleware('auth')
             ->name('stats');
         Route::resource('dishes', 'DishController');
         Route::resource('categories', 'CategoryController');
-        Route::resource('users', 'UserController');
+        Route::resource('user', 'UserController');
+        Route::get('/edit', 'UserController@my_edit')
+            ->name('my_edit');
         Route::resource('orders', 'OrderController');
     });
 

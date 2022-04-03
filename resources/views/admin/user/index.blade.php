@@ -31,7 +31,7 @@
                         @endif
                     </div>
                     <a class="btn btn-light text-light m-3" style="background-color: #38c172 !important"
-                        href="{{ route('admin.users.edit', $user->slug) }}">Modifica profilo</a>
+                        href="{{ route('admin.my_edit') }}">Modifica profilo</a>
                 </div>
             </div>
         </div>

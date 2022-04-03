@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+{{-- @dd($data['user']) --}}
     <div class="container">
         <div class="row">
             <div class="col m-5">
@@ -10,7 +11,7 @@
                             colors="primary:#08a88a" scale="45" axis-y="45" state="hover" style="width:50px;height:50px">
                         </lord-icon>Modifica il tuo Profilo
                     </h1>
-                    <form action="{{ route('admin.users.update', $user) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.user.update', $user) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
