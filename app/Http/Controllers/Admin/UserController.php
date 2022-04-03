@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index', ['user' => User::where('id', Auth::user()->id)->first()]);
+        return view('admin.user.index', ['user' => User::where('id', Auth::user()->id)->first()]);
     }
 
     /**
@@ -70,7 +70,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
-    {
+    {   
         if (Auth::user()->id != $user->id) {
             abort('403');
         }
@@ -80,7 +80,15 @@ class UserController extends Controller
             'user' => $user,
         ];
 
-        return view('admin.users.edit', $data);
+        return view('admin.user.edit', $data);
+    }
+
+    public function my_edit()
+    {   
+        $user = Auth::user();
+        $categories = Category::all();
+
+        return view('admin.my_edit',[ 'user' => $user, 'categories' => $categories]);
     }
 
     /**
@@ -125,7 +133,7 @@ class UserController extends Controller
             // return redirect()->route('admin.users.edit', $user);
         }
 
-        return redirect()->route('admin.users.index', $user);
+        return redirect()->route('admin.user.index');
     }
 
     /**

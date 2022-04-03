@@ -67,7 +67,34 @@ export default {
             cart: [],
         };
     },
+    beforeMount() {
+        window.addEventListener("beforeunload", (event) => {
+            if (this.cart == []) return event.preventDefault();
+            // Chrome requires returnValue to be set.
+            event.returnValue = "";
+        });
+    },
+    beforeRouteLeave(to, from, next) {
+        if (this.cart != []) {
+            if (
+                !window.confirm(
+                    "Attenzione! Se lasci la pagina, il carrello verrà svuotato!"
+                )
+            ) {
+                return;
+            }
+        }
+        next();
+    },
+    beforeDestroy() {
+        window.removeEventListener("beforeunload", this.preventNav);
+    },
     methods: {
+        preventNav(event) {
+            if (this.cart == []) return;
+            event.preventDefault();
+            event.returnValue = "";
+        },
         getUser(url) {
             Axios.get(url)
                 .then((result) => {
@@ -103,15 +130,24 @@ export default {
             this.cart = myObj_deserialized;
         }
 
-        let doc = window.document;
-        let document_serialized = JSON.stringify(doc);
-        sessionStorage.setItem("doc", document_serialized);
+        sessionStorage.setItem("doc", JSON.stringify(window.document));
         let document_deserialized = JSON.parse(sessionStorage.getItem("doc"));
         if (document_deserialized) {
             if (document_deserialized != window.document) {
                 sessionStorage.clear();
             }
         }
+        // sessionStorage.setItem("location", JSON.stringify(window.location));
+        // let location_deserialized = JSON.parse(sessionStorage.getItem("location"));
+
+        // console.log(window.history);
+        // // window.onpopstate = function(event) {
+        // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        // // prompt('Stai lasciando la pagina')
+        // // };
+        window.onbeforeunload = function () {
+            alert("prova");
+        };
     },
 };
 </script>

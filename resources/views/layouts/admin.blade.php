@@ -114,8 +114,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.users.index') }}"
-                                    class="{{ 'admin.users.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                <a href="{{ route('admin.user.index') }}"
+                                    class="{{ 'admin.user.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
                                     <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop"
                                         colors="primary:#e8b730,secondary:#08a88a" stroke="60"
                                         style="width:50px;height:50px" delay="11000">
