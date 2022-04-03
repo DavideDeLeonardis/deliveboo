@@ -91,9 +91,7 @@ export default {
             this.cart = myObj_deserialized;
         }
 
-        let doc = window.document;
-        let document_serialized = JSON.stringify(doc);
-        sessionStorage.setItem("doc", document_serialized);
+        sessionStorage.setItem("doc", JSON.stringify(window.document));
         let document_deserialized = JSON.parse(sessionStorage.getItem("doc"));
         if (document_deserialized) {
             if (document_deserialized != window.document) {
