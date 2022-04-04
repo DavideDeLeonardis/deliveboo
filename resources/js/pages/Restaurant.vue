@@ -110,13 +110,6 @@ export default {
             console.log(localStorage)
             console.log(this.$store.state)
         },
-        // removeItem(value) {
-        //     let index = this.cart.indexOf(value);
-        //     if (index > -1) {
-        //         this.cart.splice(index, 1);
-        //     }
-        //     return this.cart;
-        // },
         clearCart() {
             this.cart = [];
             localStorage.removeItem("cart");
