@@ -19,7 +19,7 @@ let store = {
             } else {
                 state.cart.push(dish);
 
-                dish.quantity = 1
+                Vue.set(dish, 'quantity', 1);
             }
         },
         SUBTRACT_DISH(state, dish){
