@@ -1,5 +1,9 @@
 <template>
     <div class="my_bg-dark">
+        <div class="bg-info col-6 p-5">
+            
+                                {{$store.state.count}}
+        </div>
         <div v-if="user" class="container-fluid">
             <h1 class="bg-warning rounded">{{ user.name }}</h1>
             <div class="row">
@@ -20,7 +24,7 @@
                                 </div>
                                 <button
                                     class="d-flex justify-content-center align-items-center button is-success"
-                                    @click="getCart(dish)"
+                                    @click="addItem(dish)"
                                 >
                                     <i class="fas fa-plus"></i>
                                 </button>
@@ -86,41 +90,52 @@ export default {
                 .then((result) => {
                     this.user = result.data.results.user;
                     this.dishes = result.data.results.dishes;
+                    this.$store.state['dishes'] = this.dishes;
                 })
                 .catch((error) => {
                     console.log(error);
                 });
         },
-        getCart(value) {
-            this.isEditing = true;
-            this.cart.push(value);
-            sessionStorage.setItem("cart", JSON.stringify(this.cart));
+        addItem(dish) {
+            this.$store.dispatch('addItem', dish)
+            this.cart = this.$store.state['cart']
+            localStorage.setItem("cart", JSON.stringify(this.cart))
+            console.log(localStorage)
+            console.log(this.$store.state)
         },
-        removeItem(value) {
-            let index = this.cart.indexOf(value);
-            if (index > -1) {
-                this.cart.splice(index, 1);
-            }
-            return this.cart;
+        removeItem(dish) {
+            this.$store.dispatch('removeItem', dish)
+            this.cart = this.$store.state['cart']
+            localStorage.setItem("cart", JSON.stringify(this.cart))
+            console.log(localStorage)
+            console.log(this.$store.state)
         },
+        // removeItem(value) {
+        //     let index = this.cart.indexOf(value);
+        //     if (index > -1) {
+        //         this.cart.splice(index, 1);
+        //     }
+        //     return this.cart;
+        // },
         clearCart() {
             this.cart = [];
-            sessionStorage.removeItem("cart");
+            localStorage.removeItem("cart");
         },
     },
     created() {
+        console.log(this.$store.state)
         this.getUser("http://127.0.0.1:8000/api/v1/restaurants/" + this.slug);
 
-        let myObj_deserialized = JSON.parse(sessionStorage.getItem("cart"));
+        let myObj_deserialized = JSON.parse(localStorage.getItem("cart"));
         if (myObj_deserialized) {
             this.cart = myObj_deserialized;
         }
 
-        sessionStorage.setItem("doc", JSON.stringify(window.document));
-        let document_deserialized = JSON.parse(sessionStorage.getItem("doc"));
+        localStorage.setItem("doc", JSON.stringify(window.document));
+        let document_deserialized = JSON.parse(localStorage.getItem("doc"));
         if (document_deserialized) {
             if (document_deserialized != window.document) {
-                sessionStorage.clear();
+                localStorage.clear();
             }
         }
         // sessionStorage.setItem("location", JSON.stringify(window.location));
