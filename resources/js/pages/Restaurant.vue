@@ -1,9 +1,5 @@
 <template>
     <div class="my_bg-dark">
-        <div class="bg-info col-6 p-5">
-            
-                                {{$store.state.count}}
-        </div>
         <div v-if="user" class="container-fluid">
             <h1 class="bg-warning rounded">{{ user.name }}</h1>
             <div class="row">
@@ -35,6 +31,8 @@
                 <Cart
                     :cart="cart"
                     @removeItem="removeItem($event)"
+                    @subtractItem="subtractItem($event)"
+                    @addItem="addItem($event)"
                     @clearCart="clearCart()"
                 />
             </div>
@@ -100,8 +98,17 @@ export default {
             this.$store.dispatch('addItem', dish)
             this.cart = this.$store.state['cart']
             localStorage.setItem("cart", JSON.stringify(this.cart))
-            console.log(localStorage)
-            console.log(this.$store.state)
+            // console.log(localStorage)
+            // console.log(this.$store.state)
+            console.log(dish.quantity)
+        },
+        subtractItem(dish) {
+            this.$store.dispatch('subtractItem', dish)
+            this.cart = this.$store.state['cart']
+            localStorage.setItem("cart", JSON.stringify(this.cart))
+            // console.log(localStorage)
+            // console.log(this.$store.state)
+            // console.log(dish.quantity)
         },
         removeItem(dish) {
             this.$store.dispatch('removeItem', dish)
@@ -111,8 +118,9 @@ export default {
             console.log(this.$store.state)
         },
         clearCart() {
-            this.cart = [];
-            localStorage.removeItem("cart");
+            this.$store.dispatch('clearCart')
+            this.cart = this.$store.state['cart'];
+            localStorage.clear;
         },
     },
     created() {
@@ -131,18 +139,6 @@ export default {
                 localStorage.clear();
             }
         }
-        // sessionStorage.setItem("location", JSON.stringify(window.location));
-        // let location_deserialized = JSON.parse(sessionStorage.getItem("location"));
-
-
-        // console.log(window.history);
-        // // window.onpopstate = function(event) {
-        // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-        // // prompt('Stai lasciando la pagina')
-        // // };
-        window.onbeforeunload = function(){
-             alert('prova');
-         };
         
     },
 };
