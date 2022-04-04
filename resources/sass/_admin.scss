@@ -6,6 +6,12 @@
     width: 25% !important;
 }
 
+@media all and (max-width: 1100px) {
+    .text-side-admin {
+        font-size: x-small !important;
+    }
+}
+
 @media all and (max-width: 917px) {
     .bar-left{
         width: 15% !important;

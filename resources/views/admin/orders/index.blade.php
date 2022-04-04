@@ -5,8 +5,8 @@
         <?php $i = 1; ?>
         <div class="row d-flex justify-content-around">
             @foreach ($orders as $order)
-                <div class="col m-2 mt-5">
-                    <div class="card" style="width: 18rem;">
+                <div class="col m-2 mt-5 container-card-order">
+                    <div class="card card-order-index">
                         <div style="background-color: #e8b730">
                             <h5 class="card-title text-light p-3">Ordine {{ $i }}</h5>
                         </div>

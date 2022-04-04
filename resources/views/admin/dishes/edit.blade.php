@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row ">
-            <div class="col m-5">
-                <div class="card p-3">
-                    <h1 class="" style="color: #08a88a !important">
+            <div class="col mt-5 mb-5">
+                <div class="card card-edit-dishes p-3">
+                    <h1 class="title-edit-dishes" style="color: #08a88a !important">
                         <lord-icon src="https://cdn.lordicon.com/xvkrsjya.json" trigger="loop" delay="3000" axis-y="40"
                             style="width:50px;height:50px">
                         </lord-icon>Modifica il tuo Piatto:
@@ -20,7 +20,7 @@
                                 {{-- nome --}}
                                 <div class="mb-3">
                                     <label for="name" class="form-label">
-                                        <h5>Nome del Piatto:</h5>
+                                        <h5 class="h5-edit-dishes">Nome del Piatto:</h5>
                                     </label>
                                     <input type="text" class="form-control"
                                         style="background-color: rgb(56, 193, 114, 0.2)" id="name" name="name"
@@ -33,7 +33,7 @@
                                 {{-- descrizione --}}
                                 <div class="mb-3">
                                     <label for="description" class="form-label">
-                                        <h5>Descrizione:</h5>
+                                        <h5 class="h5-edit-dishes">Descrizione:</h5>
                                     </label>
                                     <textarea type="text" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)" id="description"
                                         name="description" rows="3"
@@ -46,7 +46,7 @@
                                 {{-- immagine --}}
                                 <div class="mb-3">
                                     <label for="image" class="form-label">
-                                        <h5>Immagine:</h5>
+                                        <h5 class="h5-edit-dishes">Immagine:</h5>
                                     </label>
                                     <input class="form-control" style="background-color: rgb(56, 193, 114, 0.2)"
                                         type="file" id="image" name='image' value="{{ $dish->image }}">
@@ -59,7 +59,7 @@
                                 <div class="mb-3">
                                     <label for="ingredients" class="form-label">
                                         <h5>
-                                            <h5>Ingredienti:</h5>
+                                            <h5 class="h5-edit-dishes">Ingredienti:</h5>
                                     </label>
                                     <textarea type="text" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)" id="ingredients"
                                         name="ingredients" rows="3"
@@ -72,7 +72,7 @@
                                 {{-- prezzo --}}
                                 <div class="mb-3">
                                     <label for="price" class="form-label">
-                                        <h5>Prezzo:</h5>
+                                        <h5 class="h5-edit-dishes">Prezzo:</h5>
                                     </label>
                                     <input type="text" class="form-control"
                                         style="background-color: rgb(56, 193, 114, 0.2)" id="price" name="price"
@@ -84,7 +84,7 @@
 
                                 {{-- portata --}}
                                 <div class="mb-3">
-                                    <h5>Scegli Portata:</h5>
+                                    <h5 class="h5-edit-dishes">Scegli Portata:</h5>
                                     <select class="form-select" style="background-color: rgb(56, 193, 114, 0.2)"
                                         name="course">
                                         @foreach ($courses as $course)
@@ -100,7 +100,7 @@
 
                                 {{-- disponibilità --}}
                                 <div class="mb-3">
-                                    <h5>Disponibilità:</h5>
+                                    <h5 class="h5-edit-dishes">Disponibilità:</h5>
                                     <select class="form-select" style="background-color: rgb(56, 193, 114, 0.2)"
                                         name="availability">
                                         <option value="0" @if ($dish->availability == 0) selected @endif>Non Disponibile
@@ -113,10 +113,11 @@
                                     </select>
                                 </div>
 
-                                <lord-icon src="https://cdn.lordicon.com/rjzlnunf.json" trigger="loop" delay="5000"
-                                    colors="primary:#121331,secondary:#08a88a" axis-y="60" style="width:50px;height:50px">
+                                <lord-icon class="heart" src="https://cdn.lordicon.com/rjzlnunf.json"
+                                    trigger="loop" delay="5000" colors="primary:#121331,secondary:#08a88a" axis-y="60"
+                                    style="width:50px;height:50px">
                                 </lord-icon>
-                                <button type="submit" class="btn btn-success text-light p-2 mt-3"
+                                <button type="submit" class="btn btn-success text-light p-2 mt-3 btn-edit-dishes"
                                     style="background-color: #38c172">Salva le Modifiche</button>
                             </form>
                         </div>

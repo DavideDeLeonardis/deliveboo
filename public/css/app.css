@@ -7778,6 +7778,110 @@ readers do not read off random characters that represent icons */
   unicode-range: U+F041,U+F047,U+F065-F066,U+F07D-F07E,U+F080,U+F08B,U+F08E,U+F090,U+F09A,U+F0AC,U+F0AE,U+F0B2,U+F0D0,U+F0D6,U+F0E4,U+F0EC,U+F10A-F10B,U+F123,U+F13E,U+F148-F149,U+F14C,U+F156,U+F15E,U+F160-F161,U+F163,U+F175-F178,U+F195,U+F1F8,U+F219,U+F250,U+F252,U+F27A; }
 @charset "UTF-8";
 
+@media all and (max-width: 767px) {
+  .title-create-dishes {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .card-create-dishes .heart {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  .card-create-dishes .btn-create-dishes {
+    font-size: x-small;
+  }
+
+  .card-create-dishes .title-create-dishes {
+    font-size: 1rem;
+  }
+
+  .card-create-dishes .title-create-dishes lord-icon {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  .card-create-dishes .h5-create-dishes {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 460px) {
+  .card-create-dishes .title-create-dishes {
+    font-size: 1rem;
+  }
+
+  .card-create-dishes .title-create-dishes lord-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .card-create-dishes .h5-create-dishes {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .title-edit-dishes {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 579px) {
+  .card-edit-dishes .heart {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  .card-edit-dishes .btn-edit-dishes {
+    font-size: x-small;
+  }
+
+  .card-edit-dishes .title-edit-dishes {
+    font-size: 1rem;
+  }
+
+  .card-edit-dishes .title-edit-dishes lord-icon {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  .card-edit-dishes .h5-edit-dishes {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 460px) {
+  .card-edit-dishes .title-edit-dishes {
+    font-size: 1rem;
+  }
+
+  .card-edit-dishes .title-edit-dishes lord-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .card-edit-dishes .h5-edit-dishes {
+    font-size: 0.8rem;
+  }
+}
+
+.card-dish-index {
+  width: 18rem;
+  height: 20rem;
+}
+
+.card-dish-index .btn-group-dishes {
+  position: absolute;
+  bottom: 0;
+}
+
+.card-dish-index .btn-group-dishes button {
+  padding-left: 0;
+}
+
 .btn-card:hover {
   opacity: 0.7;
   transition: all 0.2;
@@ -7795,12 +7899,140 @@ readers do not read off random characters that represent icons */
   background-color: #ffc245;
 }
 
+@media all and (max-width: 799px) {
+  .container-card-dishes {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-card-dishes .card-dish-index {
+    width: 25rem !important;
+  }
+}
+
+@media all and (max-width: 570px) {
+  .container-card-dishes {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-card-dishes .card-dish-index {
+    width: 20rem !important;
+  }
+}
+
+@media all and (max-width: 455px) {
+  .container-card-dishes {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-card-dishes .card-dish-index {
+    width: 14rem !important;
+    height: 16rem !important;
+  }
+
+  .container-card-dishes .card-dish-index .card-title-dishes {
+    font-size: small;
+  }
+
+  .container-card-dishes .card-dish-index .card-subtitle-dishes {
+    font-size: x-small;
+  }
+
+  .container-card-dishes .card-dish-index .card-text-dishes {
+    font-size: x-small;
+  }
+
+  .container-card-dishes .card-dish-index .btn-group-dishes a {
+    font-size: xx-small;
+  }
+
+  .container-card-dishes .card-dish-index .btn-group-dishes lord-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+.card-order-index {
+  width: 18rem;
+}
+
+@media all and (max-width: 943px) {
+  .container-card-order {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-card-order .card-order-index {
+    width: 22rem;
+  }
+}
+
+@media all and (max-width: 490px) {
+  .card-order-index {
+    width: 15rem !important;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .title-edit-user {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 579px) {
+  .card-edit-user .btn-edit-user {
+    font-size: x-small;
+  }
+
+  .card-edit-user .title-edit-user {
+    font-size: 1rem;
+  }
+
+  .card-edit-user .title-edit-user lord-icon {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  .card-edit-user .h5-edit-user {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 460px) {
+  .card-edit-user .title-edit-user {
+    font-size: 1rem;
+  }
+
+  .card-edit-user .title-edit-user lord-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .card-edit-user .h5-edit-user {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 410px) {
+  .card-user-index {
+    width: 15rem;
+  }
+}
+
 .main {
   margin-left: 25%;
 }
 
 .bar-left {
   width: 25% !important;
+}
+
+@media all and (max-width: 1100px) {
+  .text-side-admin {
+    font-size: x-small !important;
+  }
 }
 
 @media all and (max-width: 917px) {
@@ -7829,6 +8061,46 @@ readers do not read off random characters that represent icons */
 
   .main {
     margin-left: 75px !important;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .title-myedit-user {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 579px) {
+  .card-myedit-user .btn-myedit-user {
+    font-size: x-small;
+  }
+
+  .card-myedit-user .title-myedit-user {
+    font-size: 1rem;
+  }
+
+  .card-myedit-user .title-myedit-user lord-icon {
+    width: 70px !important;
+    height: 30px !important;
+  }
+
+  .card-myedit-user .h5-myedit-user {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 460px) {
+  .card-myedit-user .title-myedit-user {
+    font-size: 1rem;
+  }
+
+  .card-myedit-user .title-myedit-user lord-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .card-myedit-user .h5-myedit-user {
+    font-size: 0.8rem;
   }
 }
 

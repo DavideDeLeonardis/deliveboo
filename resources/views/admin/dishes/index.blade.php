@@ -8,19 +8,19 @@
             </div>
         @endif
         <div class="row">
-            <div class="col d-flex flex-wrap">
+            <div class="col d-flex flex-wrap container-card-dishes">
                 @foreach ($dishes as $dish)
-                    <div class="card m-2" style="width: 18rem;">
+                    <div class="card m-2 card-dish-index">
                         <div class="card-body" @if (!$dish->description) style="height: 150px" @endif
                             style="height: 260px">
-                            <h5 class="card-title text-uppercase">{{ $dish->name }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $dish->course }}</h6>
+                            <h5 class="card-title text-uppercase card-title-dishes">{{ $dish->name }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted card-subtitle-dishes">{{ $dish->course }}</h6>
                             @if ($dish->description)
-                                <p class="card-text p-3 overflow-auto bg-success text-dark bg-opacity-25"
+                                <p class="card-text p-3 overflow-auto bg-success text-dark bg-opacity-25 card-text-dishes"
                                     style="height: 50%; max-height: 150px">
                                     {{ $dish->description }}</p>
                             @endif
-                            <div class="btn-group btn-group-index align-items-center" role="group"
+                            <div class="btn-group btn-group-index align-items-center btn-group-dishes" role="group"
                                 aria-label="Basic mixed styles example">
                                 <a href="{{ route('admin.dishes.show', $dish->slug) }}"
                                     class="btn-card btn rounded-2 text-white">Visualizza</a>
@@ -33,7 +33,7 @@
                                     <button type="submit" class="btn btn-xs btn-flat show_confirm" data-toggle="tooltip"
                                         title='Delete'>
                                         <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="hover"
-                                            colors="primary:#e83a30,secondary:#c71f16" stroke="65"
+                                            colors="primary:#e83a30,secondary:#c71f16" axis-x="40" stroke="65"
                                             style="width:40px;height:40px">
                                         </lord-icon>
                                     </button>
