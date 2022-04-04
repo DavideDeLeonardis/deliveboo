@@ -1,3 +1,16 @@
+.card-dish-index{
+    width: 18rem;
+    height: 20rem;
+
+    .btn-group-dishes{
+        position: absolute;
+        bottom: 0;
+        button{
+            padding-left: 0;
+        }
+    }
+}
+
 .btn-card:hover {
     opacity: 0.7;
     transition: all 0.2;
@@ -14,5 +27,54 @@
     &:not(:first-child) {
         background-color: #ffc245;
         // background-color: red;
+    }
+}
+
+@media all and (max-width: 799px) {
+    .container-card-dishes{
+        display: flex;
+        justify-content: center;
+        .card-dish-index{
+                width: 25rem !important;
+            }
+    }
+}
+
+@media all and (max-width: 570px) {
+    .container-card-dishes {
+        display: flex;
+        justify-content: center;
+        .card-dish-index {
+            width: 20rem !important;
+        }
+    }
+}
+
+@media all and (max-width: 455px) {
+    .container-card-dishes {
+        display: flex;
+        justify-content: center;
+        .card-dish-index {
+            width: 14rem !important;
+            height: 16rem !important;
+            .card-title-dishes{
+                font-size: small;
+            }
+            .card-subtitle-dishes{
+                font-size: x-small;
+            }
+            .card-text-dishes{
+                font-size: x-small;
+            }
+            .btn-group-dishes{
+                a{
+                    font-size: xx-small;
+                }
+                lord-icon{
+                    width:30px !important;
+                    height:30px !important;
+                }
+            }
+        }
     }
 }

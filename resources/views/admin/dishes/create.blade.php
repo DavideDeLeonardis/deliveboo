@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <div class="row ">
-            <div class="col m-5">
-                <div class="card p-3">
-                    <h1 class="" style="color: #08a88a !important">
+        <div class="row">
+            <div class="col mt-5 mb-5">
+                <div class="card card-create-dishes p-3">
+                    <h1 class="title-create-dishes" style="color: #08a88a !important">
                         <lord-icon src="https://cdn.lordicon.com/jpdtnwas.json" trigger="loop"
                             colors="primary:#e8b730,secondary:#08a88a" style="width:80px;height:50px">
                         </lord-icon>Aggiungi un nuovo Piatto:
@@ -19,7 +19,7 @@
                                 {{-- nome --}}
                                 <div class="mb-3">
                                     <label for="name" class="form-label ">
-                                        <h4>Nome del Piatto:</h4>
+                                        <h5 class="h5-create-dishes">Nome del Piatto:</h5>
                                     </label>
                                     <input type="text" class="form-control"
                                         style="background-color: rgb(56, 193, 114, 0.2)" id="name" name="name" required
@@ -32,7 +32,9 @@
 
                                 {{-- descrizione --}}
                                 <div class="mb-3">
-                                    <label for="description" class="form-label ">Descrizione:</label>
+                                    <label for="description" class="form-label ">
+                                        <h5 class="h5-create-dishes">Descrizione:</h5>
+                                    </label>
                                     <textarea type="text" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)" id="description"
                                         name="description" rows="3"
                                         placeholder="Opzionale..">{{ old('description') }}</textarea>
@@ -43,7 +45,9 @@
 
                                 {{-- immagine --}}
                                 <div class="mb-3">
-                                    <label for="image" class="form-label ">Immagine:</label>
+                                    <label for="image" class="form-label ">
+                                        <h5 class="h5-create-dishes">Immagine:</h5>
+                                    </label>
                                     <input class="form-control" style="background-color: rgb(56, 193, 114, 0.2)"
                                         type="file" id="image" name='image'>
                                     @error('image')
@@ -53,7 +57,9 @@
 
                                 {{-- ingredienti --}}
                                 <div class="mb-3">
-                                    <label for="ingredients" class="form-label ">Ingredienti:</label>
+                                    <label for="ingredients" class="form-label ">
+                                        <h5 class="h5-create-dishes">Ingredienti:</h5>
+                                    </label>
                                     <textarea type="text" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)" id="ingredients"
                                         name="ingredients" rows="3"
                                         placeholder="Opzionale..">{{ old('ingredients') }}</textarea>
@@ -64,7 +70,9 @@
 
                                 {{-- prezzo --}}
                                 <div class="mb-3">
-                                    <label for="price" class="form-label ">Prezzo:</label>
+                                    <label for="price" class="form-label ">
+                                        <h5 class="h5-create-dishes">Prezzo:</h5>
+                                    </label>
                                     <input type="text" class="form-control"
                                         style="background-color: rgb(56, 193, 114, 0.2)" id="price" name="price" required
                                         value="{{ old('price') }}">
@@ -75,7 +83,7 @@
 
                                 {{-- portata --}}
                                 <div class="mb-3">
-                                    <h4 class="">Scegli Portata:</h4>
+                                    <h5 class="h5-create-dishes">Scegli Portata:</h5>
                                     <select class="form-select" style="background-color: rgb(56, 193, 114, 0.2)"
                                         name="course">
                                         @foreach ($courses as $course)
@@ -91,7 +99,7 @@
 
                                 {{-- disponibilità --}}
                                 <div class="mb-3">
-                                    <h4 class="">Disponibilità:</h4>
+                                    <h5 class="h5-create-dishes">Disponibilità:</h5>
                                     <select class="form-select" style="background-color: rgb(56, 193, 114, 0.2)"
                                         name="availability">
                                         <option value="0" @if (old('availability')) selected @endif>Non Disponibile
@@ -103,10 +111,11 @@
                                         @enderror
                                     </select>
                                 </div>
-                                <lord-icon src="https://cdn.lordicon.com/rjzlnunf.json" trigger="loop" delay="5000"
-                                    colors="primary:#121331,secondary:#08a88a" axis-y="60" style="width:50px;height:50px">
+                                <lord-icon class="heart" src="https://cdn.lordicon.com/rjzlnunf.json"
+                                    trigger="loop" delay="5000" colors="primary:#121331,secondary:#08a88a" axis-y="60"
+                                    style="width:50px;height:50px">
                                 </lord-icon>
-                                <button type="submit" class="btn btn-success text-light p-2 mt-3"
+                                <button type="submit" class="btn btn-success text-light p-2 mt-3 btn-create-dishes"
                                     style="background-color: #38c172">Salva il
                                     Piatto</button>
                             </form>

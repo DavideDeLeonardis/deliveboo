@@ -1,0 +1,44 @@
+@media all and (max-width: 767px) {
+    .title-myedit-user {
+        font-size: 1.5rem;
+    }
+}
+
+@media all and (max-width: 579px) {
+    .card-myedit-user {
+
+        .btn-myedit-user {
+            font-size: x-small;
+        }
+
+        .title-myedit-user {
+            font-size: 1rem;
+
+            lord-icon {
+                width: 70px !important;
+                height: 30px !important;
+            }
+        }
+
+        .h5-myedit-user {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@media all and (max-width: 460px) {
+    .card-myedit-user {
+        .title-myedit-user {
+            font-size: 1rem;
+
+            lord-icon {
+                width: 30px !important;
+                height: 30px !important;
+            }
+        }
+
+        .h5-myedit-user {
+            font-size: 0.8rem;
+        }
+    }
+}

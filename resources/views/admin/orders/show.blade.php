@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col mt-5 mb-5">
                 <div class="card" style="background-color: rgb(56, 193, 114, 0.2)">
                     <div class="card-body">
                         <p class="card-text"><strong>Nome:</strong> {{ $order->name }}</p>

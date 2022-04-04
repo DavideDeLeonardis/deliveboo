@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    
+
     <div id="app">
         <main>
             @yield('content')
@@ -51,11 +51,13 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item px-2">
-                            <a class="nav-link btn btn-success text-white" href="{{ route('login') }}">{{ 'Login' }}</a>
+                            <a class="nav-link btn btn-success text-white"
+                                href="{{ route('login') }}">{{ 'Login' }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link btn btn-warning text-white" href="{{ route('register') }}">{{ 'Register' }}</a>
+                                <a class="nav-link btn btn-warning text-white"
+                                    href="{{ route('register') }}">{{ 'Register' }}</a>
                             </li>
                         @endif
                     @else
@@ -77,11 +79,12 @@
 
 <style>
     /* Backgrounds */
-.my_bg-dark {
-    background-color: #121212;
-}
+    .my_bg-dark {
+        background-color: #121212;
+    }
 
-.my_bg-orange{
-    background-color: #d6833a;
-}
+    .my_bg-orange {
+        background-color: #d6833a;
+    }
+
 </style>

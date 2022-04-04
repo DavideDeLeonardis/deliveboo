@@ -2,26 +2,11 @@
     <div class="col-3 bg-white text-dark">
         <div v-if="cart && cart.length != 0">
             <div v-for="(dish, index) in cart" :key="index">
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-between">
-                        <span>x{{ dish["quantity"] }}</span>
-                        <p class="fw-bold text-dark">{{ dish.name }}</p>
-                        <span>{{ dish.price * dish["quantity"] }} &euro;</span>
-                    </div>
-                    <div class="col d-flex justify-content-between">
-                        <i
-                            class="fa-solid fa-minus text-danger bg-warning p-2 rounded-circle"
-                            @click="removeQuantity(dish)"
-                        ></i>
-                        <i
-                            class="fas fa-plus text-success bg-warning p-2 rounded-circle"
-                            @click="addQuantity(dish)"
-                        ></i>
-                    </div>
-                </div>
-                <button class="m-3" @click="$emit('removeItem', dish)">
-                    Rimuovi
-                </button>
+                {{ dish.name }} X{{ dish.quantity }} TOTALE:
+                {{ dish.price * dish.quantity }}&euro;
+                <button @click="$emit('removeItem', dish)">Rimuovi</button>
+                <button @click="$emit('subtractItem', dish)">-1</button>
+                <button @click="$emit('addItem', dish)">+1</button>
             </div>
             <button class="btn btn-warning w-75">
                 Paga

@@ -1,0 +1,48 @@
+@media all and (max-width: 767px) {
+    .title-edit-dishes {
+        font-size: 1.5rem;
+    }
+}
+
+@media all and (max-width: 579px) {
+    .card-edit-dishes {
+        .heart {
+            width: 70px !important;
+            height: 30px !important;
+        }
+
+        .btn-edit-dishes {
+            font-size: x-small;
+        }
+
+        .title-edit-dishes {
+            font-size: 1rem;
+
+            lord-icon {
+                width: 70px !important;
+                height: 30px !important;
+            }
+        }
+
+        .h5-edit-dishes {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@media all and (max-width: 460px) {
+    .card-edit-dishes {
+        .title-edit-dishes {
+            font-size: 1rem;
+
+            lord-icon {
+                width: 30px !important;
+                height: 30px !important;
+            }
+        }
+
+        .h5-edit-dishes {
+            font-size: 0.8rem;
+        }
+    }
+}
