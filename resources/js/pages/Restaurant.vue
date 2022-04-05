@@ -117,7 +117,7 @@ export default {
             this.$store.dispatch("subtractItem", dish);
             this.cart = this.$store.state["cart"];
             localStorage.setItem("cart", JSON.stringify(this.cart));
-            // console.log(localStorage)
+            console.log(localStorage);
             // console.log(this.$store.state)
             // console.log(dish.quantity)
         },
@@ -126,7 +126,7 @@ export default {
             this.cart = this.$store.state["cart"];
             localStorage.setItem("cart", JSON.stringify(this.cart));
             console.log(localStorage);
-            console.log(this.$store.state);
+            // console.log(this.$store.state)
         },
         clearCart() {
             this.$store.dispatch("clearCart");
@@ -136,20 +136,35 @@ export default {
     },
     created() {
         console.log(this.$store.state);
+
         this.getUser("http://127.0.0.1:8000/api/v1/restaurants/" + this.slug);
+        console.log(window.location);
+        // localStorage.setItem("location", JSON.stringify(window.location));
+        // let location_deserialized = JSON.parse(localStorage.getItem("location"));
+        // console.log(location_deserialized)
+        // if (location_deserialized) {
+        //     if (location_deserialized != window.location) {
+        //         console.log(window.location)
+        //         localStorage.clear();
+        //         console.log(localStorage)
+        //     }
+        // }
 
         let myObj_deserialized = JSON.parse(localStorage.getItem("cart"));
         if (myObj_deserialized) {
             this.cart = myObj_deserialized;
         }
 
-        localStorage.setItem("doc", JSON.stringify(window.document));
-        let document_deserialized = JSON.parse(localStorage.getItem("doc"));
-        if (document_deserialized) {
-            if (document_deserialized != window.document) {
-                localStorage.clear();
-            }
-        }
+        // console.log(localStorage)
+        // console.log(window.location)
+        // localStorage.setItem("location", JSON.stringify(window.location));
+        // let location_deserialized = JSON.parse(localStorage.getItem("location"));
+        // if (location_deserialized) {
+        //     if (location_deserialized != window.location) {
+        //         localStorage.clear();
+        //         console.log(localStorage)
+        //     }
+        // }
     },
 };
 </script>

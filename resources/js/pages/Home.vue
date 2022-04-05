@@ -110,6 +110,10 @@ export default {
         setTimeout(() => {
             this.getRestaurants(`${this.url}restaurants`, null);
         }, 200);
+
+        //clear localStorage when back to the home
+        this.$store.state['cart'] = []
+        localStorage.clear();
     },
     computed: {
         searchProducts() {
