@@ -241,7 +241,6 @@ export default {
             place-items: center;
         }
     }
-}
 
 #dish_info_pop_up {
     position: fixed;
