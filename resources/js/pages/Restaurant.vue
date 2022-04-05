@@ -1,11 +1,10 @@
 <template>
-    <div class="my_bg-dark">
+    <div>
         <div v-if="user" class="container-fluid">
-            <h1 class="bg-warning rounded">{{ user.name }}</h1>
+            <h1 class="bg-warning rounded user-name-restaurant">{{ user.name }}</h1>
             <div class="row">
-                <div class="col-9">
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div v-for="(dish, index) in dishes" :key="index" class="col">
+                <div class="col-9 container-dishes-restaurant">
+                        <div v-for="(dish, index) in dishes" :key="index" class="col-4">
                             <div class="dish_card">
                                 <div>
                                     <img src="../../images/1647950091675.png" alt="image" />
@@ -26,7 +25,6 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
                 </div>
                 <Cart
                     :cart="cart"
@@ -142,6 +140,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container-dishes-restaurant{
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-name-restaurant{
+    padding: 0.5rem;
+    border-radius: 5px 5px 20px 20px !important;
+}
+
 .my_bg-orange {
     background-color: #d6833a;
 }
@@ -155,7 +162,7 @@ export default {
 }
 
 .dish_card {
-        margin: 15px;
+        margin-top: 15px;
         min-height: 230px;
         width: 360px;
         z-index: 9;
