@@ -32,7 +32,7 @@
                             <label for="email" class="form-label">
                                 <h5 class="h5-myedit-user">Email:</h5>
                             </label>
-                            <input type="email" class="form-control" style="background-color: rgb(56, 193, 114, 0.2)"
+                            <input type="email" class="form-control" style="background-color: rgba(56, 193, 114, 0.2)"
                                 id="email" name="email" value="{{ $user->email }}">
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
