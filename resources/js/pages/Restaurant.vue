@@ -1,25 +1,26 @@
 <template>
-    <div>
+    <div class="my_bg-dark">
         <div v-if="user" class="container-fluid">
-            <h1 class="bg-warning rounded user-name-restaurant">
-                {{ user.name }}
-            </h1>
+            <h1 class="bg-warning rounded">{{ user.name }}</h1>
             <div class="row">
-                <div class="col-9 container-dishes-restaurant">
-                    <div
-                        v-for="(dish, index) in dishes"
-                        :key="index"
-                        class="col-4"
-                    >
-                        <div class="dish_card">
-                            <div>
-                                <img
-                                    src="../../images/1647950091675.png"
-                                    alt="image"
-                                />
-                                <h4 class="">{{ dish.name }}</h4>
-                                <span class="prezzo">
-                                    &euro; {{ dish.price.toFixed(2) }}</span
+                <div class="col-9">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div v-for="(dish, index) in dishes" :key="index" class="col">
+                            <div class="dish_card">
+                                <div>
+                                    <img src="../../images/1647950091675.png" alt="image" />
+                                    <h4 class="">{{ dish.name }}</h4>
+                                    <span class="prezzo">
+                                        &euro; {{ dish.price.toFixed(2) }}</span>
+                                    <div class="info">
+                                        <dd class="show_plate_info_logo" @click="ShowInfo(dish)">
+                                            <i class="fas fa-info-circle"></i>
+                                        </dd>
+                                    </div>
+                                </div>
+                                <button
+                                    class="d-flex justify-content-center align-items-center button is-success"
+                                    @click="addItem(dish)"
                                 >
                                 <div class="info">
                                     <dd
@@ -166,15 +167,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-dishes-restaurant {
-    display: flex;
-    flex-wrap: wrap;
-}
-.user-name-restaurant {
-    padding: 0.5rem;
-    border-radius: 5px 5px 20px 20px !important;
-}
-
 .my_bg-orange {
     background-color: #d6833a;
 }
@@ -187,40 +179,20 @@ export default {
 }
 
 .dish_card {
-    margin-top: 15px;
-    min-height: 230px;
-    width: 360px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    object-fit: cover;
-
-    h4 {
-        color: #d6833a;
-        border: px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
-        margin-top: 15px;
-        font-weight: 700;
-        padding: 15px 10px 0;
-    }
-    .prezzo {
-        color: #198754;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 15px 10px 0;
-    }
-    button {
-        background-color: rgb(0, 160, 130);
-        border-style: none;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        i {
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
+        margin: 15px;
+        min-height: 230px;
+        width: 360px;
+        z-index: 9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #dddddd;
+        border-color: transparent;
+        position: relative;
+        img {
+            height: 120px;
+            width: 360px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            object-fit: cover;
         }
     }
     button:hover {
@@ -242,7 +214,6 @@ export default {
             place-items: center;
         }
     }
-}
 
 #dish_info_pop_up {
     position: fixed;
