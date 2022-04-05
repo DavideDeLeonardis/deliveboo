@@ -1,37 +1,43 @@
 <template>
     <div>
         <div v-if="user" class="container-fluid">
-            <h1 class="bg-warning rounded user-name-restaurant">{{ user.name }}</h1>
+            <h1 class="bg-warning rounded user-name-restaurant">
+                {{ user.name }}
+            </h1>
             <div class="row">
                 <div class="col-9 container-dishes-restaurant">
-                        <div v-for="(dish, index) in dishes" :key="index" class="col-4">
-                            <div class="dish_card">
-                                <div>
-                                    <img
-                                        src="../../images/1647950091675.png"
-                                        alt="image"
-                                    />
-                                    <h4 class="">{{ dish.name }}</h4>
-                                    <span class="prezzo">
-                                        &euro; {{ dish.price.toFixed(2) }}</span
-                                    >
-                                    <div class="info">
-                                        <dd
-                                            class="show_plate_info_logo"
-                                            @click="ShowInfo(dish)"
-                                        >
-                                            <i class="fas fa-info-circle"></i>
-                                        </dd>
-                                    </div>
-                                </div>
-                                <button
-                                    class="d-flex justify-content-center align-items-center button is-success"
-                                    @click="addItem(dish)"
+                    <div
+                        v-for="(dish, index) in dishes"
+                        :key="index"
+                        class="col-4"
+                    >
+                        <div class="dish_card">
+                            <div>
+                                <img
+                                    src="../../images/1647950091675.png"
+                                    alt="image"
+                                />
+                                <h4 class="">{{ dish.name }}</h4>
+                                <span class="prezzo">
+                                    &euro; {{ dish.price.toFixed(2) }}</span
                                 >
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                                <div class="info">
+                                    <dd
+                                        class="show_plate_info_logo"
+                                        @click="ShowInfo(dish)"
+                                    >
+                                        <i class="fas fa-info-circle"></i>
+                                    </dd>
+                                </div>
                             </div>
+                            <button
+                                class="d-flex justify-content-center align-items-center button is-success"
+                                @click="addItem(dish)"
+                            >
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
+                    </div>
                 </div>
                 <Cart
                     :cart="cart"
@@ -160,11 +166,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-dishes-restaurant{
+.container-dishes-restaurant {
     display: flex;
     flex-wrap: wrap;
 }
-.user-name-restaurant{
+.user-name-restaurant {
     padding: 0.5rem;
     border-radius: 5px 5px 20px 20px !important;
 }
@@ -181,13 +187,13 @@ export default {
 }
 
 .dish_card {
-        margin-top: 15px;
-        min-height: 230px;
-        width: 360px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        object-fit: cover;
-    }
+    margin-top: 15px;
+    min-height: 230px;
+    width: 360px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+
     h4 {
         color: #d6833a;
         border: px solid rgba(0, 0, 0, 0.125);
