@@ -31,6 +31,7 @@ let store = {
             state.cart.splice(index, 1)
         },
         CLEAR_CART(state){
+            localStorage.clear()
             state.cart = []
         }
     },
