@@ -23,25 +23,38 @@ class UserController extends Controller
         ]);
     }
 
-    public function search(Request $request)
+    public function searchCheckbox(Request $request)
     {
         $data = $request->all();
 
         $users = User::where('id', '>=', 1);
 
         if (array_key_exists('categories', $data)) {
-                $users->whereHas('categories', function (Builder $query) use ($data) {
-                    $query->whereIn('name', $data['categories']);
-                });
-            
+            $users->whereHas('categories', function (Builder $query) use ($data) {
+                $query->whereIn('name', $data['categories']);
+            });
         }
-
-        $users = $users->with(['categories'])->get();
 
         return response()->json([
             'response' => true,
             'results' => [
-                'data' => $users,
+                'data' => $users->with(['categories'])->get(),
+            ],
+        ]);
+    }
+
+    public function searchInput(Request $request)
+    {
+        $data = $request->all();
+
+        $users = User::where('id', '>=', 1);
+
+
+
+        return response()->json([
+            'response' => true,
+            'results' => [
+                'data' => $users->get()
             ],
         ]);
     }

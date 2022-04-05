@@ -17,6 +17,7 @@
                         name="search-bar"
                         id="search-bar"
                         placeholder="Cerca ristorante"
+                        @keyup="searchRestaurants"
                     />
                 </div>
 
@@ -39,7 +40,7 @@
                                     v-model="form.categories"
                                     @change.prevent="
                                         getRestaurants(
-                                            `${url}restaurants/search`,
+                                            `${url}restaurants/searchCheck`,
                                             form
                                         )
                                     "
@@ -67,7 +68,7 @@
 
                 <Main
                     v-else
-                    :restaurants="searchProducts"
+                    :restaurants="restaurants"
                     :pages="pages"
                     :inputText="inputText"
                     @changePage="changePage($event)"
@@ -111,19 +112,19 @@ export default {
             this.getRestaurants(`${this.url}restaurants`, null);
         }, 200);
     },
-    computed: {
-        searchProducts() {
-            if (this.inputText != "") {
-                return this.restaurants.filter((restaurant) => {
-                    return (
-                        restaurant.name.toLowerCase().indexOf(this.inputText.toLowerCase()) != -1
-                    );
-                });
-            } else {
-                return this.restaurants;
-            }
-        },
-    },
+    // computed: {
+    //     searchProducts() {
+    //         if (this.inputText != "") {
+    //             return this.restaurants.filter((restaurant) => {
+    //                 return (
+    //                     restaurant.name.toLowerCase().indexOf(this.inputText.toLowerCase()) != -1
+    //                 );
+    //             });
+    //         } else {
+    //             return this.restaurants;
+    //         }
+    //     },
+    // },
     methods: {
         getCategories(url) {
             Axios.get(url)
@@ -143,6 +144,25 @@ export default {
                         result.data.results.next_page_url;
                     this.pages.prev_page_url =
                         result.data.results.prev_page_url;
+                    this.loading = false;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        searchRestaurants() {
+            this.loading = true;
+            Axios.get(`${this.url}/search`)
+                .then((result) => {
+                    this.restaurants = result.data.results.data;
+
+
+
+
+                    // this.pages.next_page_url =
+                    //     result.data.results.next_page_url;
+                    // this.pages.prev_page_url =
+                    //     result.data.results.prev_page_url;
                     this.loading = false;
                 })
                 .catch((error) => {
