@@ -1,10 +1,10 @@
 <template>
-    <main class="my_bg-dark">
+    <main class="bg-light">
         <div class="container">
             <div class="row">
                 <div class="col my-3">
                     <img
-                        class="img-fluid"
+                        class="img-fluid image-home"
                         src="../../images/home-background-hero-scaled.jpg"
                         alt=""
                     />
@@ -16,21 +16,21 @@
                         type="text"
                         name="search-bar"
                         id="search-bar"
-                        placeholder="Cerca ristorante"
+                        placeholder=" Cerca il tuo ristorante preferito"
                     />
                 </div>
 
                 <div class="col-12 my-3">
-                    <h4 class="text-white">Filtra per categorie</h4>
+                    <h4>Filtra per categorie</h4>
                     <div class="row">
                         <div
-                            class="col-12 d-flex align-items-center justify-content-between"
+                            class="col-12 d-flex justify-content-start"
                             style="flex-wrap: wrap"
                         >
                             <div
                                 v-for="(category, index) in categories"
                                 :key="`category-${index}`"
-                                class="d-flex align-items-center justify-content-center mx-4 my-3 checkbox-category"
+                                class="shadow p-3 mb-2 rounded d-flex align-items-center justify-content-center mx-2 my-1 checkbox-category"
                             >
                                 <input
                                     type="checkbox"
@@ -44,7 +44,7 @@
                                         )
                                     "
                                 />
-                                <label :for="category.name">{{
+                                <label class="category-name" :for="category.name">{{
                                     category.name
                                 }}</label>
                             </div>
@@ -52,9 +52,9 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-2 d-flex">
+                        <div class="col-2 d-flex mt-3">
                             <input
-                                class="btn btn-danger"
+                                class="btn btn-danger reset-button"
                                 type="button"
                                 value="Resetta filtri"
                                 @click.prevent="resetFilters"
@@ -167,12 +167,18 @@ export default {
 </script>
 
 <style scoped>
+.image-home{
+    border-radius: 50px 20px;
+}
+
 #search-bar {
     width: 100%;
-    height: 30px;
+    height: 50px;
     margin: 15px 0;
     padding-left: 5px;
     outline: none;
+    border-radius: 50px 20px;
+    background-color: rgb(255, 193, 8, 0.2);
 }
 
 .checkbox-category {
@@ -180,6 +186,18 @@ export default {
     height: 50px;
     font-size: 1.2em;
     background-color: #ffc108;
-    border-radius: 10px;
+    border-radius: 50px 20px !important;
+}
+
+.category-name{
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.reset-button{
+    border-radius: 25px;
+    padding: 10px;
+    margin: 1rem 0;
+    border-radius: 50px 20px;
 }
 </style>
