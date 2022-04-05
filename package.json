@@ -36,6 +36,6 @@
         "lottie-web": "^5.9.1",
         "sweetalert": "^2.1.2",
         "vue-router": "^3.5.3",
-        "vuex": "^3.0.1"
+        "vuex": "^3.6.2"
     }
 }
