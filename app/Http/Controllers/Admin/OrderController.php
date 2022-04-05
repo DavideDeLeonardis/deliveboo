@@ -18,7 +18,7 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $orders = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
             ->select('orders.id', 'orders.name', 'orders.lastname', 'orders.email', 'orders.address', 'orders.price_total', 'orders.date', 'orders.time')
             ->distinct()
@@ -61,7 +61,6 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         return view('admin.orders.show', compact('order'));
-        
     }
 
     /**

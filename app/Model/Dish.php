@@ -4,10 +4,12 @@ namespace App\Model;
 
 use Hamcrest\Description;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Dish extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'name',
         'slug',
@@ -20,6 +22,8 @@ class Dish extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function user()
     {
@@ -51,5 +55,4 @@ class Dish extends Model
 
         return (empty($newSlug)) ? $slug : $newSlug;
     }
-
 }
