@@ -112,9 +112,6 @@ export default {
             this.$store.dispatch("addItem", dish);
             this.cart = this.$store.state["cart"];
             localStorage.setItem("cart", JSON.stringify(this.cart));
-            // console.log(localStorage)
-            // console.log(this.$store.state)
-            console.log(dish.quantity);
         },
         subtractItem(dish) {
             this.$store.dispatch("subtractItem", dish);

@@ -32,20 +32,12 @@ export default {
             },
         },
     },
-    data() {
-        return {};
-    },
     methods: {
-        addQuantity(value) {
-            value["quantity"] += 1;
-            console.log(value);
-        },
-        removeQuantity(value) {
-            if (value["quantity"] != 1) {
-                value["quantity"] -= 1;
-            }
-            console.log("sottratto", value);
-        },
+        // showQuantity(dish) {
+        //     let found = this.$store.state.cart.find(product => product.id == dish.id);
+        //     dish.quantity == found.quantity
+        //     return dish.quantity
+        //   }
     },
 };
 </script>
