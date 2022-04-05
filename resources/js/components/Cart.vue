@@ -14,6 +14,9 @@
                 </button>
             </div>
         </div>
+        <div>
+            TOTALE: <span>{{ this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0) }}</span>
+        </div>
         <button class="mt-4" @click="$emit('clearCart')">
             Svuota carrello
         </button>

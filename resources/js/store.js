@@ -1,6 +1,5 @@
 let cart = window.localStorage.getItem('cart');
 
-
 let store = {
     state: {
         data: 'prova',
@@ -32,6 +31,7 @@ let store = {
             state.cart.splice(index, 1)
         },
         CLEAR_CART(state){
+            localStorage.clear()
             state.cart = []
         }
     },
