@@ -48,5 +48,6 @@ export default {
 <style lang="scss" scoped>
  .my_bg-green  {
      background-color: #198754;
+     border-radius: 50px 20px;
  }
 </style>
