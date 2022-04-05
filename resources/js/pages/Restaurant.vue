@@ -76,7 +76,7 @@ export default {
             event.returnValue = "";
         });
     },
-    beforeRouteLeave(to, from, next) {
+    beforeRouteLeave(next) {
         if (this.cart != []) {
             if (
                 !window.confirm(
@@ -155,16 +155,12 @@ export default {
             this.cart = myObj_deserialized;
         }
 
-        // console.log(localStorage)
-        // console.log(window.location)
-        // localStorage.setItem("location", JSON.stringify(window.location));
-        // let location_deserialized = JSON.parse(localStorage.getItem("location"));
-        // if (location_deserialized) {
-        //     if (location_deserialized != window.location) {
-        //         localStorage.clear();
-        //         console.log(localStorage)
-        //     }
-        // }
+        // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        // // prompt('Stai lasciando la pagina')
+        // // };
+        window.onbeforeunload = function () {
+            alert("prova");
+        };
     },
 };
 </script>
@@ -177,7 +173,6 @@ export default {
 .my_bg-green {
     background-color: #198754;
 }
-
 .my_bg-dark {
     background-color: #121212;
 }
@@ -185,7 +180,7 @@ export default {
 .dish_card {
     margin: 15px;
     min-height: 230px;
-    // width: 360px;
+    width: 360px;
     z-index: 9;
     border-radius: 10px;
     box-shadow: 0 0 10px #dddddd;
@@ -279,6 +274,7 @@ export default {
             place-items: center;
         }
     }
+
     img {
         height: 345px;
         width: 700px;
@@ -286,6 +282,7 @@ export default {
         border-top-right-radius: 10px;
         object-fit: cover;
     }
+
     h4 {
         font-size: 28px;
         margin-top: 15px;

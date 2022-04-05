@@ -17,6 +17,7 @@
                         name="search-bar"
                         id="search-bar"
                         placeholder="Cerca ristorante"
+                        @keyup="searchRestaurants"
                     />
                 </div>
 
@@ -39,7 +40,7 @@
                                     v-model="form.categories"
                                     @change.prevent="
                                         getRestaurants(
-                                            `${url}restaurants/search`,
+                                            `${url}restaurants/searchCheck`,
                                             form
                                         )
                                     "
@@ -67,7 +68,7 @@
 
                 <Main
                     v-else
-                    :restaurants="searchProducts"
+                    :restaurants="searchRestaurants"
                     :pages="pages"
                     :inputText="inputText"
                     @changePage="changePage($event)"
@@ -116,7 +117,7 @@ export default {
         localStorage.clear();
     },
     computed: {
-        searchProducts() {
+        searchRestaurants() {
             if (this.inputText != "") {
                 return this.restaurants.filter((restaurant) => {
                     return (
@@ -153,6 +154,25 @@ export default {
                     console.log(error);
                 });
         },
+        // searchRestaurants() {
+        //     this.loading = true;
+        //     Axios.get(`${this.url}/search`)
+        //         .then((result) => {
+        //             this.restaurants = result.data.results.data;
+
+
+
+
+        //             // this.pages.next_page_url =
+        //             //     result.data.results.next_page_url;
+        //             // this.pages.prev_page_url =
+        //             //     result.data.results.prev_page_url;
+        //             this.loading = false;
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //         });
+        // },
         changePage(varChangePage) {
             if (this.pages[varChangePage]) {
                 this.getRestaurants(this.pages[varChangePage]);

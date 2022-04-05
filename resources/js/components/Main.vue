@@ -1,10 +1,14 @@
 <template>
     <div class="container mt-2">
         <div v-if="inputText != '' && restaurants && restaurants.length != 0">
-            <h4 class="text-white text-center mb-2">I risultati della tua ricerca per {{ inputText }}</h4>
+            <h4 class="text-white text-center mb-2">
+                I risultati della tua ricerca per {{ inputText }}
+            </h4>
         </div>
         <div v-if="restaurants && restaurants.length == 0">
-            <h4 class="text-white text-center mb-4">Non ci sono risultati corrispondenti alla tua ricarca</h4>
+            <h4 class="text-white text-center mb-4">
+                Non ci sono risultati corrispondenti alla tua ricarca
+            </h4>
         </div>
 
         <ChangePage :pages="pages" @changePage="changePage($event)" />
@@ -13,6 +17,13 @@
             <div
                 v-for="(restaurant, index) in restaurants"
                 :key="`restaurant-${index}`"
+                v-show="
+                    restaurant.name != 'Ristorante da Davide' &&
+                    restaurant.name != 'Ristorante da Manuel' &&
+                    restaurant.name != 'Ristorante da Semola' &&
+                    restaurant.name != 'Ristorante da Christian' &&
+                    restaurant.name != 'Ristorante da Dario'
+                "
                 class="col mb-5"
             >
                 <div class="card my_bg-dark">
@@ -23,12 +34,17 @@
                     />
 
                     <div class="card-body my_bg-orange rounded mt-1">
-                        <h5 class="card-title text-center">{{ restaurant.name }}</h5>
+                        <h5 class="card-title text-center">
+                            {{ restaurant.name }}
+                        </h5>
                     </div>
 
                     <router-link
                         class="btn my_bg-green mt-2"
-                        :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
+                        :to="{
+                            name: 'restaurant',
+                            params: { slug: restaurant.slug },
+                        }"
                         >View</router-link
                     >
                 </div>
@@ -68,17 +84,17 @@ export default {
     methods: {
         changePage(varChangePage) {
             this.$emit("changePage", varChangePage);
-        }
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.my_bg-orange  {
+.my_bg-orange {
     background-color: #d6833a;
 }
 
-.my_bg-green  {
+.my_bg-green {
     background-color: #198754;
 }
 </style>
