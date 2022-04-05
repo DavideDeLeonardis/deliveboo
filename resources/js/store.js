@@ -1,6 +1,5 @@
 let cart = window.localStorage.getItem('cart');
 
-
 let store = {
     state: {
         data: 'prova',
