@@ -2,14 +2,22 @@
     <div class="container">
         
         <!-- Riepilogo ordine -->
-        <div></div>
+        <div>
+            <h1>Riepilogo Ordine</h1>
+            <ul>
+                <li  v-for="(dish, index) in cart" :key="index">
+                    {{ dish.name }} X{{ dish.quantity }}, &euro;{{ dish.price * dish.quantity }}
+                </li>
+                <li> TOTALE: {{ this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0) }} &euro;</li>
+            </ul>
+        </div>
         <!-- Riepilogo ordine -->
 
         <!-- Form dati ordine -->
         <div></div>
         <!-- Form dati ordine -->
 
-        <span> {{ this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0) }} &euro;</span>
+
         <v-braintree 
             authorization="sandbox_ykrby94x_4sjx493rm6vt8q2c"
             @success="onSuccess"
