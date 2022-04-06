@@ -103,8 +103,6 @@
                                             {{ $category->name }}
                                         </label>
                                     </div>
-                                    
-                                    <div id="error" ></div>
                                 @endforeach
                             @else
                                 @foreach ($categories as $category)
@@ -116,9 +114,8 @@
                                             {{ $category->name }}
                                         </label>
                                     </div>
-                                    
-                                    <div id="error" ></div>
-                                @endforeach
+                                @endforeach    
+                                <div id="error" ></div>
                             @endif
                         </fieldset>
 
@@ -148,7 +145,7 @@
                     })
                     if(!checkedBox){
                         event.preventDefault();
-                        return message.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
+                        return error.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
                     }
                 });
         // }
