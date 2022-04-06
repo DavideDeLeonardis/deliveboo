@@ -40,7 +40,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
     <!-- includes the Braintree JS client SDK -->
+<<<<<<< HEAD
+<script src="https://js.braintreegateway.com/web/dropin/1.33.0/js/dropin.min.js"></script>
+=======
     <script src="https://js.braintreegateway.com/web/dropin/1.33.0/js/dropin.min.js"></script>
+>>>>>>> develop
 
     <!-- includes jQuery -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>

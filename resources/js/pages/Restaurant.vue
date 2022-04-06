@@ -217,7 +217,6 @@ export default {
             }
         }
     }
-}
 
 @media all and (max-width: 885px) {
     .container-card-dish-restaurant{
@@ -236,4 +235,5 @@ export default {
 //         width: 100%;
 //     }
 // }
+}
 </style>

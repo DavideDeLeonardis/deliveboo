@@ -37,6 +37,6 @@
         "sweetalert": "^2.1.2",
         "vue-braintree": "^2.1.0",
         "vue-router": "^3.5.3",
-        "vuex": "^3.0.1"
+        "vuex": "^3.6.2"
     }
 }
