@@ -13,11 +13,13 @@
                             <div class="card-body body-card-dish">
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
                                 <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
-                                <p class="card-text">&euro; {{ dish.price.toFixed(2) }}</p>
-                                <div class="info">
-                                    <dd class="show_plate_info_logo" @click="ShowInfo(dish)">
-                                        <i class="fas fa-info-circle"></i>
-                                    </dd>
+                                <div class="container-price-info">
+                                    <div class="info">
+                                        <dd class="show_plate_info_logo" @click="ShowInfo(dish)">
+                                            <i class="fas fa-info-circle"></i>
+                                        </dd>
+                                    </div>
+                                    <p class="card-text">&euro; {{ dish.price.toFixed(2) }}</p>
                                 </div>
                                 <button
                                 class="btn btn-primary button-plus-dish"
@@ -25,12 +27,6 @@
                                 <i class="fas fa-plus"></i>
                                 </button>
                             </div>
-                            <button
-                                class="d-flex justify-content-center align-items-center button is-success"
-                                @click="addItem(dish)"
-                            >
-                                <i class="fas fa-plus"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -165,24 +161,36 @@ export default {
     padding: 0;
     .restaurant-name-top{
         color: white;
-        padding: 2rem;
-        background-image: linear-gradient(to top, #38c172 , #000000);
+        text-shadow: 3px 3px 3px rgb(223, 222, 222);
+        padding: 2rem 0 0.5rem 1rem;
+        background-image: linear-gradient(to top, #ffc245 , #ffffff);
         border-radius: 0 0 20px 20px !important;
         width: 100%;
     }
 }
 .container-card-dish-restaurant{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     .card-dish-restaurant{
         border: none;
-        margin: 1rem 0;
+        margin: 1rem;
         .body-card-dish{
             padding: 0;
             .title-dish-card{
                 text-align: center;
+                align-items: center;
                 color: white;
                 padding: 0.5rem;
                 background-color: #ffc245;
                 border-radius: 20px 20px 5px 5px !important;
+                min-height: 4rem;
+            }
+            .container-price-info{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 1rem;
             }
             .button-plus-dish{
                 background-color: #38c172;
@@ -193,4 +201,22 @@ export default {
         }
     }
 }
+
+@media all and (max-width: 885px) {
+    .container-card-dish-restaurant{
+        width: 60%;
+        .card-dish-restaurant {
+            width: 11rem !important;
+            .title-dish-card{
+                    min-height: 6rem !important;
+                }
+        }
+    }
+}
+
+// @media all and (max-width: 733px) {
+//     .container-card-dish-restaurant{
+//         width: 100%;
+//     }
+// }
 </style>
