@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     public function generate(PaymentRequest $request, Gateway $gateway) {
-        
+
         $token = $gateway->clientToken()->generate();
 
         $data = [
@@ -28,7 +28,7 @@ class PaymentController extends Controller
         $dish = Dish::find($request->dish);
 
         $result = $gateway->transaction()->sale([
-            'amount' => $dish->price,
+            'amount' => '10.00',
             'paymentMethodNonce' => $request->token,
             // 'options' => [
             //     'submitForSettlment' => true
@@ -49,6 +49,6 @@ class PaymentController extends Controller
                 'message' => 'Transazione Fallita'
             ];
             return response()->json($data, 404);
-        }   
+        }
     }
 }

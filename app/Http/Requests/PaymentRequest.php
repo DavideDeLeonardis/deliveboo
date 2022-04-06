@@ -26,10 +26,10 @@ class PaymentRequest extends FormRequest
     {
         return [
             'token' => 'required',
-            'dish' => [
-                'required',
-                new ValidDish(),
-                ]
+            // 'dish' => [
+            //     'required',
+            //     new ValidDish(),
+            //     ]
         ];
     }
 }
