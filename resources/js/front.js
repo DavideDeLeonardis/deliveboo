@@ -10,9 +10,11 @@ import Restaurant from "./pages/Restaurant";
 
 
 import VueRouter from "vue-router";
+import VueBraintree from 'vue-braintree'
 import Vuex from 'vuex'
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use(VueBraintree);
 
 const router = new VueRouter({
     mode: "history",

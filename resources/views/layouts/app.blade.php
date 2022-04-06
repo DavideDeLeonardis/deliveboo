@@ -4,6 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- scrollbar --}}
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #ffc108;
+            border-radius: 5px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffc108;
+        }
+
+    </style>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -13,7 +38,15 @@
     <!-- Scripts -->
     @yield('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<<<<<<< HEAD
+    <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
+=======
+    <!-- includes the Braintree JS client SDK -->
+<script src="https://js.braintreegateway.com/web/dropin/1.33.0/js/dropin.min.js"></script>
+>>>>>>> semola
 
+<!-- includes jQuery -->
+<script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

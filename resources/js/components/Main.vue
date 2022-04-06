@@ -13,6 +13,13 @@
             <div
                 v-for="(restaurant, index) in restaurants"
                 :key="`restaurant-${index}`"
+                v-show="
+                    restaurant.name != 'Ristorante da Davide' &&
+                    restaurant.name != 'Ristorante da Manuel' &&
+                    restaurant.name != 'Ristorante da Semola' &&
+                    restaurant.name != 'Ristorante da Christian' &&
+                    restaurant.name != 'Ristorante da Dario'
+                "
                 class="col mb-5 container-card-restaurant"
             >
                 <div class="card bg-light card-restaurant">
@@ -72,7 +79,7 @@ export default {
     methods: {
         changePage(varChangePage) {
             this.$emit("changePage", varChangePage);
-        }
+        },
     },
 };
 </script>

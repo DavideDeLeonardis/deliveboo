@@ -1,37 +1,34 @@
 <template>
     <div>
         <div v-if="user" class="container-fluid">
-            <h1 class="bg-warning rounded user-name-restaurant">{{ user.name }}</h1>
             <div class="row">
-                <div class="col-9 container-dishes-restaurant">
-                        <div v-for="(dish, index) in dishes" :key="index" class="col-4">
-                            <div class="dish_card">
-                                <div>
-                                    <img
-                                        src="../../images/1647950091675.png"
-                                        alt="image"
-                                    />
-                                    <h4 class="">{{ dish.name }}</h4>
-                                    <span class="prezzo">
-                                        &euro; {{ dish.price.toFixed(2) }}</span
-                                    >
+                <div class="col col-restaurant-name-top">
+                    <h1 class="restaurant-name-top">{{ user.name }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-9 container-card-dish-restaurant">
+                    <div v-for="(dish, index) in dishes" :key="index" class="col">
+                        <div class="card card-dish-restaurant" style="width: 18rem;">
+                            <div class="card-body body-card-dish">
+                                <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
+                                <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
+                                <div class="container-price-info">
                                     <div class="info">
-                                        <dd
-                                            class="show_plate_info_logo"
-                                            @click="ShowInfo(dish)"
-                                        >
+                                        <dd class="show_plate_info_logo" @click="ShowInfo(dish)">
                                             <i class="fas fa-info-circle"></i>
                                         </dd>
                                     </div>
+                                    <p class="card-text">&euro; {{ dish.price.toFixed(2) }}</p>
                                 </div>
                                 <button
-                                    class="d-flex justify-content-center align-items-center button is-success"
-                                    @click="addItem(dish)"
-                                >
-                                    <i class="fas fa-plus"></i>
+                                class="btn btn-primary button-plus-dish"
+                                @click="addItem(dish)">
+                                <i class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
+                    </div>
                 </div>
                 <Cart
                     :cart="cart"
@@ -70,7 +67,7 @@ export default {
             event.returnValue = "";
         });
     },
-    beforeRouteLeave(to, from, next) {
+    beforeRouteLeave(next) {
         if (this.cart != []) {
             if (
                 !window.confirm(
@@ -149,154 +146,76 @@ export default {
             this.cart = myObj_deserialized;
         }
 
-        // console.log(localStorage)
-        // console.log(window.location)
-        // localStorage.setItem("location", JSON.stringify(window.location));
-        // let location_deserialized = JSON.parse(localStorage.getItem("location"));
-        // if (location_deserialized) {
-        //     if (location_deserialized != window.location) {
-        //         localStorage.clear();
-        //         console.log(localStorage)
-        //     }
-        // }
+        // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        // // prompt('Stai lasciando la pagina')
+        // // };
+        window.onbeforeunload = function () {
+            alert("prova");
+        };
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.container-dishes-restaurant{
-    display: flex;
-    flex-wrap: wrap;
-}
-.user-name-restaurant{
-    padding: 0.5rem;
-    border-radius: 5px 5px 20px 20px !important;
-}
-
-.my_bg-orange {
-    background-color: #d6833a;
-}
-
-.my_bg-green {
-    background-color: #198754;
-}
-
-.my_bg-dark {
-    background-color: #121212;
-}
-
-.dish_card {
-        margin-top: 15px;
-        min-height: 230px;
-        width: 360px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        object-fit: cover;
-    }
-    h4 {
-        color: #d6833a;
-        border: px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
-        margin-top: 15px;
-        font-weight: 700;
-        padding: 15px 10px 0;
-    }
-    .prezzo {
-        color: #198754;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 15px 10px 0;
-    }
-    button {
-        background-color: rgb(0, 160, 130);
-        border-style: none;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        i {
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-        }
-    }
-    button:hover {
-        transform: scale(1.1);
-        background-color: #198754;
-    }
-    .info {
-        i {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 28px;
-            color: #d6833a;
-            background-color: white;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            place-content: center;
-            place-items: center;
-        }
-    }
-
-#dish_info_pop_up {
-    position: fixed;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    box-shadow: 0 0 20px black;
-    outline: 0;
-    min-height: 500px;
-    width: 700px;
-    padding-bottom: 15px;
-    z-index: 10;
-    border-radius: 10px;
-    border-color: transparent;
-    text-align: center;
-
-    .close {
-        i {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            font-size: 28px;
-            color: #d6833a;
-            background-color: white;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            place-content: center;
-            place-items: center;
-        }
-    }
-    img {
-        height: 345px;
-        width: 700px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        object-fit: cover;
-    }
-    h4 {
-        font-size: 28px;
-        margin-top: 15px;
-        font-weight: 700;
-    }
-
-    .show_plate_info {
-        position: absolute;
-        top: 0px;
-        left: 0px;
+.col-restaurant-name-top{
+    padding: 0;
+    .restaurant-name-top{
+        color: white;
+        text-shadow: 3px 3px 3px rgb(223, 222, 222);
+        padding: 2rem 0 0.5rem 1rem;
+        background-image: linear-gradient(to top, #ffc245 , #ffffff);
+        border-radius: 0 0 20px 20px !important;
         width: 100%;
-        height: 100%;
-        color: transparent;
-        background-color: transparent;
-        border-color: transparent;
-        cursor: pointer;
-        outline: 0;
     }
 }
+.container-card-dish-restaurant{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .card-dish-restaurant{
+        border: none;
+        margin: 1rem;
+        .body-card-dish{
+            padding: 0;
+            .title-dish-card{
+                text-align: center;
+                align-items: center;
+                color: white;
+                padding: 0.5rem;
+                background-color: #ffc245;
+                border-radius: 20px 20px 5px 5px !important;
+                min-height: 4rem;
+            }
+            .container-price-info{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 1rem;
+            }
+            .button-plus-dish{
+                background-color: #38c172;
+                border: none;
+                border-radius: 5px 5px 20px 20px !important;
+                width: 100%;
+            }
+        }
+    }
+
+@media all and (max-width: 885px) {
+    .container-card-dish-restaurant{
+        width: 60%;
+        .card-dish-restaurant {
+            width: 11rem !important;
+            .title-dish-card{
+                    min-height: 6rem !important;
+                }
+        }
+    }
+}
+
+// @media all and (max-width: 733px) {
+//     .container-card-dish-restaurant{
+//         width: 100%;
+//     }
+// }
 </style>
