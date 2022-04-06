@@ -2,10 +2,10 @@
     <main class="bg-light">
         <div class="container">
             <div class="row">
-                <div class="col my-3">
+                <div class="col my-3 container-image-home">
                     <img
                         class="img-fluid image-home"
-                        src="../../images/home-background-hero-scaled.jpg"
+                        src="../../images/oliver-sjostrom-QXVxgECGUsA-unsplash.jpg"
                         alt=""
                     />
                 </div>
@@ -185,9 +185,14 @@ export default {
 };
 </script>
 
-<style scoped>
-.image-home{
-    border-radius: 50px 20px;
+<style scoped lang="scss">
+.container-image-home{
+    .image-home{
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50px 20px;
+    }
 }
 
 #search-bar {

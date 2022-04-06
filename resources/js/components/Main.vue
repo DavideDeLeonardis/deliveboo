@@ -31,7 +31,7 @@
 
                     <div>
                         <router-link
-                            class="btn background-restaurant-name mt-2"
+                            class="btn background-restaurant-name"
                             :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"
                             >
                             <h4 class="card-title text-center text-light restaurant-name">{{ restaurant.name }}</h4>
@@ -101,8 +101,16 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px !important;
         background-color: rgba(128, 128, 128, 0.5);
         width: 100%;
+        height: 100%;
+        &:hover{
+            background-color: rgb(255, 193, 8, 0.1);
+        }
     }
 }
 </style>

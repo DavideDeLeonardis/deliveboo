@@ -38,9 +38,6 @@
                 </div>
             </div>
         </div>
-        <button class="mt-4" @click="$emit('clearCart')">
-            Svuota carrello
-        </button>
         <Payment />
     </div>
 </template>
