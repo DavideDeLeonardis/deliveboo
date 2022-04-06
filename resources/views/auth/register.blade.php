@@ -96,19 +96,15 @@
                             <fieldset class="form-group mb-3">
                                 <legend>Scegli una o più categorie</legend>
                                 @foreach ($categories as $category)
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
-                                    name="categories[]" @if (in_array($category->id, old('categories', []))) checked @endif>
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        {{ $category->name }}
-                                    </label>
-                                </div>
-                                @endforeach
-                                @error('categories', '.*')
-                                    <div class="invalid-feedback" role="alert">
-                                        {{ $message }}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
+                                            name="categories[]" @if (in_array($category->id, old('categories', []))) checked @endif>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            {{ $category->name }}
+                                        </label>
                                     </div>
-                                @enderror
+                                @endforeach
+                                <div id="message"></div>
                             </fieldset>
 
                             <div class="form-group row">
@@ -140,7 +136,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary btn-register">
+                                    <button type="submit" id="btn-register" class="btn btn-primary btn-register">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -152,30 +148,26 @@
         </div>
     </div>
 
-    {{-- <script>
-            window.onload = () => {
-                let checkboxes = document.querySelectorAll('input[type=checkbox]');
-                let message = document.getElementById('message');
-                let register = document.getElementById('btn-register');
-
-                checkboxes.forEach(function (checkbox){
-                    checkbox.addEventListener('click', function(){
-                        message.innerHTML = ''; 
-                    });
-                });
-
-                register.addEventListener('click', function (){
-                    let atLeastOneChecked = false; 
+    <script>
+        let checkboxes = document.querySelectorAll('input[type=checkbox]');
+        let error = document.getElementById('error');
+        let btn_register = document.getElementById('btn-register');
+        
+        window.onload = (event) => {
+                    btn_register.addEventListener('click', function (){
+                    let checkedBox = false; 
                     checkboxes.forEach(checkbox => {
                         if(checkbox.checked){
-                            atLeastOneChecked = true;
+                            checkedBox = true;
                         }
                     })
-                    if(!atLeastOneChecked){
+                    if(!checkedBox){
                         event.preventDefault();
-                        return message.innerHTML = <div class="alert alert-danger mt-3" role="alert"> Scelgi almeno una categoria </div>;
+                        return message.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
                     }
                 });
-            }
-    </script> --}}
+        }
+
+        
+    </script>
 @endsection

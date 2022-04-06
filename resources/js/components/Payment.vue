@@ -19,7 +19,7 @@
 
 
         <v-braintree 
-            authorization="sandbox_ykrby94x_4sjx493rm6vt8q2c"
+            authorization="sandbox_8h5ddqng_4sjx493rm6vt8q2c"
             @success="onSuccess"
             @error="onError"
             >
