@@ -19,7 +19,7 @@ export default {
         cart: {
             type: Array,
             default() {
-                return [];
+                return JSON.parse(window.localStorage.getItem('cart'));
             },
         },
     },

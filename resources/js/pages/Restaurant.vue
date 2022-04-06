@@ -60,28 +60,28 @@ export default {
             cart: [],
         };
     },
-    beforeMount() {
-        window.addEventListener("beforeunload", (event) => {
-            if (this.cart == []) return event.preventDefault();
-            // Chrome requires returnValue to be set.
-            event.returnValue = "";
-        });
-    },
-    beforeRouteLeave(next) {
-        if (this.cart != []) {
-            if (
-                !window.confirm(
-                    "Attenzione! Se lasci la pagina, il carrello verrà svuotato!"
-                )
-            ) {
-                return;
-            }
-        }
-        next();
-    },
-    beforeDestroy() {
-        window.removeEventListener("beforeunload", this.preventNav);
-    },
+    // beforeMount() {
+    //     window.addEventListener("beforeunload", (event) => {
+    //         if (this.cart == []) return event.preventDefault();
+    //         // Chrome requires returnValue to be set.
+    //         event.returnValue = "";
+    //     });
+    // },
+    // beforeRouteLeave(next) {
+    //     if (this.cart != []) {
+    //         if (
+    //             !window.confirm(
+    //                 "Attenzione! Se lasci la pagina, il carrello verrà svuotato!"
+    //             )
+    //         ) {
+    //             return;
+    //         }
+    //     }
+    //     next();
+    // },
+    // beforeDestroy() {
+    //     window.removeEventListener("beforeunload", this.preventNav);
+    // },
     methods: {
         preventNav(event) {
             if (this.cart == []) return;
