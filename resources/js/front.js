@@ -7,6 +7,7 @@ import store from './store';
 import App from './views/App';
 import Home from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
+import Payment from "./components/Payment";
 
 
 import VueRouter from "vue-router";
@@ -29,6 +30,11 @@ const router = new VueRouter({
             name: "restaurant",
             props: true,
             component: Restaurant,
+        },
+        {
+            path: "/payment",
+            name: "payment",
+            component: Payment,
         },
     ],
 });

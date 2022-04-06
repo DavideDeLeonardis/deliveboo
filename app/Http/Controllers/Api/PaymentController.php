@@ -13,7 +13,6 @@ class PaymentController extends Controller
     public function generate(PaymentRequest $request, Gateway $gateway) {
 
         $token = $gateway->clientToken()->generate();
-
         $data = [
             'success' => true,
             'token' => $token
@@ -25,15 +24,16 @@ class PaymentController extends Controller
 
     public function makePayment(PaymentRequest $request, Gateway $gateway) {
 
-        $dish = Dish::find($request->dish);
-
+        // dd($request->amount);
         $result = $gateway->transaction()->sale([
-            'amount' => '10.00',
+            'amount' => $request->amount,
             'paymentMethodNonce' => $request->token,
             // 'options' => [
             //     'submitForSettlment' => true
             // ]
         ]);
+
+        
 
         if($result->success){
             $data = [

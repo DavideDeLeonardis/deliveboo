@@ -12,13 +12,11 @@
                         <div class="card card-dish-restaurant" style="width: 18rem;">
                             <div class="card-body body-card-dish">
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
-                                <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
+                                <div class="container-img-description">
+                                    <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
+                                    <p class="description-dish">{{dish.description}}</p>
+                                </div>
                                 <div class="container-price-info">
-                                    <div class="info">
-                                        <dd class="show_plate_info_logo" @click="ShowInfo(dish)">
-                                            <i class="fas fa-info-circle"></i>
-                                        </dd>
-                                    </div>
                                     <p class="card-text">&euro; {{ dish.price.toFixed(2) }}</p>
                                 </div>
                                 <button
@@ -60,28 +58,28 @@ export default {
             cart: [],
         };
     },
-    beforeMount() {
-        window.addEventListener("beforeunload", (event) => {
-            if (this.cart == []) return event.preventDefault();
-            // Chrome requires returnValue to be set.
-            event.returnValue = "";
-        });
-    },
-    beforeRouteLeave(next) {
-        if (this.cart != []) {
-            if (
-                !window.confirm(
-                    "Attenzione! Se lasci la pagina, il carrello verrà svuotato!"
-                )
-            ) {
-                return;
-            }
-        }
-        next();
-    },
-    beforeDestroy() {
-        window.removeEventListener("beforeunload", this.preventNav);
-    },
+    // beforeMount() {
+    //     window.addEventListener("beforeunload", (event) => {
+    //         if (this.cart == []) return event.preventDefault();
+    //         // Chrome requires returnValue to be set.
+    //         event.returnValue = "";
+    //     });
+    // },
+    // beforeRouteLeave(next) {
+    //     if (this.cart != []) {
+    //         if (
+    //             !window.confirm(
+    //                 "Attenzione! Se lasci la pagina, il carrello verrà svuotato!"
+    //             )
+    //         ) {
+    //             return;
+    //         }
+    //     }
+    //     next();
+    // },
+    // beforeDestroy() {
+    //     window.removeEventListener("beforeunload", this.preventNav);
+    // },
     methods: {
         preventNav(event) {
             if (this.cart == []) return;
@@ -186,6 +184,25 @@ export default {
                 background-color: #ffc245;
                 border-radius: 20px 20px 5px 5px !important;
                 min-height: 4rem;
+            }
+            .container-img-description{
+                position: relative;
+                .description-dish{
+                    display: none;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    right: 50%;
+                    transform: translate(50%, -50%);
+                    padding: 1rem;
+                    overflow-y: hidden;
+                    color: white;
+                    :hover > &{
+                        display: block !important;
+                        background-color: rgba(128, 128, 128, 0.8);
+                    }
+                }
             }
             .container-price-info{
                 display: flex;

@@ -21,12 +21,7 @@
                     TOTALE: <span>{{ this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0) }} &euro;</span>
                 </div>
                 <div class="container-pay-trash-cart">
-                    <button class="btn btn-pay">
-                        Paga
-                        <!-- <span v-for="(dish, index) in cart" :key="index">
-                            {{ dish.price * dish.quantity }}
-                        </span> -->
-                    </button>
+                    <router-link to="/payment" class="btn btn-pay">Paga</router-link>
                     <button class="mt-4 trash-dishes" @click="$emit('clearCart')">
                         <lord-icon
                             src="https://cdn.lordicon.com/gsqxdxog.json"
@@ -38,10 +33,6 @@
                 </div>
             </div>
         </div>
-        <button class="mt-4" @click="$emit('clearCart')">
-            Svuota carrello
-        </button>
-        <Payment />
     </div>
 </template>
 
@@ -54,11 +45,11 @@ export default {
     components: {
         Payment,
     },
-    // data(){
-    //     return {
-    //         tokenApi: '',
-    //     }
-    // },
+    data(){
+        return {
+            showPayment: false,
+        }
+    },
     props: {
         cart: {
             type: Array,
@@ -68,7 +59,9 @@ export default {
         },
     },
     methods: {
-        //write something...
+        pay(){
+            this.showPayment = true;
+        }
     },
     mounted() {
         //
