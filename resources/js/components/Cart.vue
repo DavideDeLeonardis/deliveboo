@@ -21,12 +21,24 @@
         <button class="mt-4" @click="$emit('clearCart')">
             Svuota carrello
         </button>
+        <Payment />
     </div>
 </template>
 
 <script>
+import Payment from './Payment.vue'
+import Axios from 'axios'
+
 export default {
     name: "Cart",
+    components: {
+        Payment,
+    },
+    // data(){
+    //     return {
+    //         tokenApi: '',
+    //     }
+    // },
     props: {
         cart: {
             type: Array,
@@ -36,12 +48,11 @@ export default {
         },
     },
     methods: {
-        // showQuantity(dish) {
-        //     let found = this.$store.state.cart.find(product => product.id == dish.id);
-        //     dish.quantity == found.quantity
-        //     return dish.quantity
-        //   }
+        //write something...
     },
+    mounted() {
+        //
+    }
 };
 </script>
 
