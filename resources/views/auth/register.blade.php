@@ -104,7 +104,7 @@
                                         </label>
                                     </div>
                                 @endforeach
-                                <div id="message"></div>
+                                <div id="error"></div>
                             </fieldset>
 
                             <div class="form-group row">
@@ -163,7 +163,7 @@
                     })
                     if(!checkedBox){
                         event.preventDefault();
-                        return message.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
+                        return error.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
                     }
                 });
         }
