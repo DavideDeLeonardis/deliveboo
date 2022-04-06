@@ -116,15 +116,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\boolean\classe49\deliveboo\node_modules\popper.js\dist\popper.js */"./node_modules/popper.js/dist/popper.js");
-=======
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Boolean\PROGETTO\deliveboo\node_modules\popper.js\dist\popper.js */"./node_modules/popper.js/dist/popper.js");
-=======
-module.exports = __webpack_require__(/*! D:\boolean\deliveboo\node_modules\popper.js\dist\popper.js */"./node_modules/popper.js/dist/popper.js");
->>>>>>> semola
->>>>>>> develop
 
 
 /***/ })

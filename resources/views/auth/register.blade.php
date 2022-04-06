@@ -93,24 +93,23 @@
                                 </div>
                             </div>
 
-                            {{-- @error('categories.*')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
-                                </div>
-                            @enderror --}}
                             <fieldset class="form-group mb-3">
                                 <legend>Scegli una o più categorie</legend>
                                 @foreach ($categories as $category)
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
-                                            name="categories[]" @if (in_array($category->id, old('categories', []))) checked @endif>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            {{ $category->name }}
-                                        </label>
-                                    </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
+                                    name="categories[]" @if (in_array($category->id, old('categories', []))) checked @endif>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{ $category->name }}
+                                    </label>
+                                </div>
                                 @endforeach
+                                @error('categories', '.*')
+                                    <div class="invalid-feedback" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </fieldset>
-                                <div class="message"></div>
 
                             <div class="form-group row">
                                 <label for="password"
