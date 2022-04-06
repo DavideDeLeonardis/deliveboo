@@ -1,5 +1,14 @@
 <template>
-    <div>
+    <div class="container">
+        
+        <!-- Riepilogo ordine -->
+        <div></div>
+        <!-- Riepilogo ordine -->
+
+        <!-- Form dati ordine -->
+        <div></div>
+        <!-- Form dati ordine -->
+
         <span> {{ this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0) }} &euro;</span>
         <v-braintree 
             authorization="sandbox_ykrby94x_4sjx493rm6vt8q2c"
