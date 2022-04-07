@@ -1,6 +1,6 @@
 <template>
     <main class="bg-light">
-        <div class="container-fluid">
+        <div class="my-container">
             <div class="container">
                 <div class="row">
                     <div class="col my-3 container-image-home">
@@ -78,16 +78,17 @@
                 </div>
             </div>
             <Job />
+            <Footer />
         </div>
     </main>
 </template>
 
 <script>
 import Axios from "axios";
-
 import Loading from "../components/Loading.vue";
 import Main from "../components/Main.vue";
 import Job from "../components/Job.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
     name: "Home",
@@ -95,6 +96,7 @@ export default {
         Loading,
         Main,
         Job,
+        Footer,
     },
     data() {
         return {
@@ -176,42 +178,45 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container-image-home {
-    .image-home {
-        height: 30rem;
+.my-container {
+    width: 100%;
+    .container-image-home {
+        .image-home {
+            height: 30rem;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50px 20px;
+        }
+    }
+
+    #search-bar {
         width: 100%;
-        object-fit: cover;
+        height: 50px;
+        margin: 15px 0;
+        padding-left: 5px;
+        outline: none;
+        border-radius: 50px 20px;
+        background-color: rgb(255, 193, 8, 0.2);
+    }
+
+    .checkbox-category {
+        width: 150px;
+        height: 50px;
+        font-size: 1.2em;
+        background-color: #ffc108;
+        border-radius: 50px 20px !important;
+    }
+
+    .category-name {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
+
+    .reset-button {
+        border-radius: 25px;
+        padding: 10px;
+        margin: 1rem 0;
         border-radius: 50px 20px;
     }
-}
-
-#search-bar {
-    width: 100%;
-    height: 50px;
-    margin: 15px 0;
-    padding-left: 5px;
-    outline: none;
-    border-radius: 50px 20px;
-    background-color: rgb(255, 193, 8, 0.2);
-}
-
-.checkbox-category {
-    width: 150px;
-    height: 50px;
-    font-size: 1.2em;
-    background-color: #ffc108;
-    border-radius: 50px 20px !important;
-}
-
-.category-name {
-    font-size: 1rem;
-    margin-left: 0.5rem;
-}
-
-.reset-button {
-    border-radius: 25px;
-    padding: 10px;
-    margin: 1rem 0;
-    border-radius: 50px 20px;
 }
 </style>
