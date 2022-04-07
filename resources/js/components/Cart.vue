@@ -1,5 +1,5 @@
 <template>
-    <div class="col-3 container-cart-dishes sticky-top">
+    <div class="col-3 container-cart-dishes">
         <h2 class="text-dark text-center">Il tuo Carrello</h2>
         <div class="container-body-cart" v-if="cart && cart.length != 0">
             <div class="container-top-cart">
