@@ -86,8 +86,8 @@
                         @endif
                     @else
                         <li>
-                            <a class="btn my_bg-green m-2 text-white href=" {{ url('/admin') }}">
-                                Admin
+                            <a class="btn my_bg-green m-2 text-white" href=" {{ url('/admin') }}">
+                                Profilo
                             </a>
                         </li>
                         <li class="nav-item dropdown">
