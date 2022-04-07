@@ -19,7 +19,7 @@
                                     <label for="name" class="form-label">{{ __('Nome') }}</label>
 
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        style="background-color: rgb(56, 193, 114, 0.2)" name="name"
+                                        style="background-color: rgb(255, 194, 69, 0.2)" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
@@ -34,7 +34,7 @@
 
 
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" style="background-color: rgb(56, 193, 114, 0.2)"
+                                        name="email" style="background-color: rgb(255, 194, 69, 0.2)"
                                         value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
@@ -49,7 +49,7 @@
 
                                     <input id="address" type="text"
                                         class="form-control @error('address') is-invalid @enderror" name="address"
-                                        style="background-color: rgb(56, 193, 114, 0.2)" value="{{ old('address') }}"
+                                        style="background-color: rgb(255, 194, 69, 0.2)" value="{{ old('address') }}"
                                         required autocomplete="address">
 
                                     @error('address')
@@ -63,7 +63,7 @@
                                     <label for="phone" class="form-label">{{ __('Telefono') }}</label>
 
                                     <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror"
-                                        name="phone" style="background-color: rgb(56, 193, 114, 0.2)"
+                                        name="phone" style="background-color: rgb(255, 194, 69, 0.2)"
                                         value="{{ old('phone') }}" required autocomplete="phone" min="10" max="11">
 
                                     @error('phone')
@@ -77,7 +77,7 @@
                                     <label for="p_iva" class="form-label">{{ __('P_iva') }}</label>
 
                                     <input id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror"
-                                        name="p_iva" style="background-color: rgb(56, 193, 114, 0.2)"
+                                        name="p_iva" style="background-color: rgb(255, 194, 69, 0.2)"
                                         value="{{ old('p_iva') }}" required autocomplete="p_iva" min="11" min="11">
 
                                     @error('p_iva')
@@ -107,7 +107,7 @@
 
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        style="background-color: rgb(56, 193, 114, 0.2)" required
+                                        style="background-color: rgb(255, 194, 69, 0.2)" required
                                         autocomplete="new-password">
 
                                     @error('password')
@@ -122,16 +122,17 @@
                                         class="form-label">{{ __('Conferma Password') }}</label>
 
                                     <input id="password-confirm" type="password" class="form-control"
-                                        style="background-color: rgb(56, 193, 114, 0.2)" name="password_confirmation"
+                                        style="background-color: rgb(255, 194, 69, 0.2)" name="password_confirmation"
                                         required autocomplete="new-password">
                                 </div>
 
                                 <div class="mt-4">
-                                    <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop"
-                                        colors="primary:#ffc245,secondary:#38c172" style="width:50px;height:50px">
-                                    </lord-icon>
-                                    <button type="submit" id="btn-register" class="btn btn-success text-light p-2 mt-3"
-                                        style="background-color: #38c172">
+                                    <button type="submit" id="btn-register" class="btn btn-success text-light pr-2 mt-3"
+                                        style="background-color: #ffc245; border: none">
+                                        <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop"
+                                            colors="primary:#000000,secondary:#38c172" style="width:40px;height:40px"
+                                            delay="2000">
+                                        </lord-icon>
                                         {{ __('Registrati') }}
                                     </button>
                                 </div>
