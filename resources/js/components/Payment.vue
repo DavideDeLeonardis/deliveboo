@@ -14,7 +14,25 @@
         <!-- Riepilogo ordine -->
 
         <!-- Form dati ordine -->
-        <div></div>
+        <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" v-model="name" maxlength="100" class="form-control" name="name" id="name" placeholder="Inserisci il tuo nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Cognome</label>
+            <input type="text" v-model="surname" maxlength="100" class="form-control" name="surname" id="surname" placeholder="Inserisci il tuo cognome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Indirizzo</label>
+            <input type="text" v-model="address" maxlength="100" class="form-control" name="address" id="address" placeholder="Inserisci il tuo indirizzo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" v-model="email" maxlength="100" class="form-control" name="email" id="email" placeholder="Inserisci la tua email" required>
+        </div>
         <!-- Form dati ordine -->
 
 

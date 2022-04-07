@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Grazie peraver ordinato con noi {{ $user->name }}!</h1>
+    <h1>Riepilogo ordine{{ $user->name }}</h1>
 </body>
 </html>
