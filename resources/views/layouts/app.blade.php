@@ -57,7 +57,9 @@
     <nav class="navbar navbar-expand-md navbar-light shadow-sm">
         <div class="container">
             <div class="w-25 p-2">
-                <img class="img w-25" src="../../images/logo.jpeg" alt="DeliveBoo" />
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img class="w-25" src="../../images/logo.jpeg" alt="DeliveBoo">
+                </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
