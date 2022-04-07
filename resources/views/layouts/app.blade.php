@@ -54,10 +54,12 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm sticky-top">
         <div class="container">
             <div class="w-25 p-2">
-                <img class="img w-25" src="../../images/logo.jpeg" alt="DeliveBoo" />
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img class="w-25" src="../../images/logo.jpeg" alt="DeliveBoo">
+                </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,18 +78,18 @@
                     @guest
                         <li class="nav-item px-2">
                             <a class="nav-link btn btn-success text-white"
-                                href="{{ route('login') }}">{{ 'Login' }}</a>
+                                href="{{ route('login') }}">{{ 'Accedi' }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link btn btn-warning text-white"
-                                    href="{{ route('register') }}">{{ 'Register' }}</a>
+                                    href="{{ route('register') }}">{{ 'Registrati' }}</a>
                             </li>
                         @endif
                     @else
                         <li>
-                            <a class="btn my_bg-green m-2 text-white href=" {{ url('/admin') }}">
-                                Admin
+                            <a class="btn my_bg-green m-2 text-white" href=" {{ url('/admin') }}">
+                                Profilo
                             </a>
                         </li>
                         <li class="nav-item dropdown">
