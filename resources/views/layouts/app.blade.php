@@ -54,7 +54,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm sticky-top">
         <div class="container">
             <div class="w-25 p-2">
                 <a class="navbar-brand" href="{{ url('/') }}">
