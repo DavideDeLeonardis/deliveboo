@@ -188,7 +188,6 @@ export default {
             .container-img-description{
                 position: relative;
                 .description-dish{
-                    display: none;
                     height: 100%;
                     width: 100%;
                     position: absolute;
@@ -198,10 +197,11 @@ export default {
                     padding: 1rem;
                     overflow-y: hidden;
                     color: white;
-                    :hover > &{
-                        display: block !important;
-                        background-color: rgba(128, 128, 128, 0.8);
-                    }
+                    background-color: rgba(128, 128, 128, 0.8);
+                    // :hover > &{
+                    //     display: block !important;
+                    //     background-color: rgba(128, 128, 128, 0.8);
+                    // }
                 }
             }
             .container-price-info{

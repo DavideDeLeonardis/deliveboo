@@ -2,39 +2,41 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 mt-5 mb-5">
+                <div class="card p-5">
+                    <h1>
+                        <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop"
+                            colors="primary:#ffc245,secondary:#38c172" style="width:50px;height:50px" delay="2000">
+                        </lord-icon> Login
+                    </h1>
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
+                    <div class="row">
+                        <div class="col py-3">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
 
-                            <div class="form-group row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">{{ __('E-Mail') }}</label>
 
-                                <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        style="background-color: rgb(255, 194, 69, 0.2)" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
+                                        <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
-                                        </span>
+                                        </div>
                                     @enderror
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">{{ __('Password') }}</label>
 
-                                <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
+                                        style="background-color: rgb(255, 194, 69, 0.2)" required
+                                        autocomplete="current-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -42,10 +44,8 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="mb-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
@@ -55,11 +55,10 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color: #ffc245; border: none">
                                         {{ __('Login') }}
                                     </button>
 
@@ -69,8 +68,8 @@
                                         </a>
                                     @endif
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
