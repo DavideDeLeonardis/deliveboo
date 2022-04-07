@@ -54,7 +54,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm sticky-top">
         <div class="container">
             <div class="w-25 p-2">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -78,12 +78,12 @@
                     @guest
                         <li class="nav-item px-2">
                             <a class="nav-link btn btn-success text-white"
-                                href="{{ route('login') }}">{{ 'Login' }}</a>
+                                href="{{ route('login') }}">{{ 'Accedi' }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link btn btn-warning text-white"
-                                    href="{{ route('register') }}">{{ 'Register' }}</a>
+                                    href="{{ route('register') }}">{{ 'Registrati' }}</a>
                             </li>
                         @endif
                     @else
