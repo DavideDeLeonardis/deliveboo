@@ -153,25 +153,6 @@ export default {
                     console.log(error);
                 });
         },
-        // searchRestaurants() {
-        //     this.loading = true;
-        //     Axios.get(`${this.url}/search`)
-        //         .then((result) => {
-        //             this.restaurants = result.data.results.data;
-
-
-
-
-        //             // this.pages.next_page_url =
-        //             //     result.data.results.next_page_url;
-        //             // this.pages.prev_page_url =
-        //             //     result.data.results.prev_page_url;
-        //             this.loading = false;
-        //         })
-        //         .catch((error) => {
-        //             console.log(error);
-        //         });
-        // },
         changePage(varChangePage) {
             if (this.pages[varChangePage]) {
                 this.getRestaurants(this.pages[varChangePage]);

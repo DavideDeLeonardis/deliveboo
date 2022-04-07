@@ -114,20 +114,42 @@
                                             {{ $category->name }}
                                         </label>
                                     </div>
-                                @endforeach
+                                @endforeach    
+                                <div id="error" ></div>
                             @endif
-                            @error('categories.*')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </fieldset>
 
-                        <button type="submit" class="btn btn-success text-light p-2 mt-3 btn-myedit-user"
+                        <button id="submit" type="submit" class="btn btn-success text-light p-2 mt-3 btn-myedit-user"
                             style="background-color: #38c172">Salva le Modifiche</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        let checkboxes = document.querySelectorAll('input[type=checkbox]');
+        let error = document.getElementById('error');
+        let submit = document.getElementById('submit');
+        
+        // console.log(checkboxes)
+        // console.log(error)
+        // console.log(submit)
+        // window.onload = (event) => {
+                submit.addEventListener('click', function (){
+                    let checkedBox = false; 
+                    checkboxes.forEach(checkbox => {
+                        if(checkbox.checked){
+                            checkedBox = true;
+                        }
+                    })
+                    if(!checkedBox){
+                        event.preventDefault();
+                        return error.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
+                    }
+                });
+        // }
+
+        
+    </script>
 @endsection

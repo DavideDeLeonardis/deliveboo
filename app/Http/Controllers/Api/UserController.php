@@ -43,22 +43,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function searchInput(Request $request)
-    {
-        $data = $request->all();
-
-        $users = User::where('id', '>=', 1);
-
-
-
-        return response()->json([
-            'response' => true,
-            'results' => [
-                'data' => $users->get()
-            ],
-        ]);
-    }
-
     /**
      * Display the specified resource.
      *
