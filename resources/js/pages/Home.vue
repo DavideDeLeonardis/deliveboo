@@ -214,4 +214,14 @@ export default {
     margin: 1rem 0;
     border-radius: 50px 20px;
 }
+
+@media all and (max-width: 379px) {
+    .checkbox-category {
+        width: 120px;
+    }
+
+    .category-name {
+        font-size: 0.8rem;
+    }
+}
 </style>
