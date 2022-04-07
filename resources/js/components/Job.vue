@@ -46,7 +46,7 @@
                         </div>
                         <h3 class="text-dark fw-bold fs-1 mb-3 title-card-job">Ristoranti</h3>
                         <p class="text-center text-card-job">
-                            Diventa partner di Deliveroo e raggiungi sempre più
+                            Diventa partner di Deliveboo e raggiungi sempre più
                             clienti. Ci occupiamo noi della consegna, così che
                             la tua unica preoccupazione sia continuare a
                             preparare il miglior cibo.

@@ -56,9 +56,9 @@
 
     <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm sticky-top">
         <div class="container">
-            <div class="w-25 p-2">
+            <div class="w-25">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="w-25" src="../../images/logo.jpeg" alt="DeliveBoo">
+                    <img class="rounded" src="../../images/logo.jpeg" alt="DeliveBoo" style="width: 4rem;">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
