@@ -27,14 +27,18 @@
             background-color: #38c172;
         }
 
+        .my-btn-warning {
+            background-color: #ffc107;
+        }
+
     </style>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-dark text-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'DeliveBoo') }}
+            <a class="navbar-brand text-white" href="{{ url('/') }}">
+                DeliveBoo
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,12 +58,12 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown mx-4" style="margin-top: 7px;">{{ Auth::user()->name }}</li>
+                        <li class="nav-item dropdown mx-4 fw-bold" style="margin-top: 7px;">{{ Auth::user()->name }}</li>
                         <li class="nav-item dropdown">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input type="submit" value="Logout" class="btn btn-default">
+                                <input type="submit" value="Logout" class="btn my-btn-warning text-white">
                             </form>
                         </li>
                     @endguest
@@ -134,26 +138,6 @@
                                 </a>
                             </li>
                         </ul>
-                        {{-- <hr> --}}
-                        {{-- <div class="dropdown">
-                            <a href="#"
-                                class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ $user->photo }}" alt="" width="32" height="32"
-                                    class="rounded-circle me-2">
-                                <strong>mdo</strong>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" href="#">New project...</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
-                            </ul>
-                        </div> --}}
                     </div>
                 </div>
 

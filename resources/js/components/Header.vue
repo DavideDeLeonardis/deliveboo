@@ -3,7 +3,11 @@
         <div class="row">
             <div class="col-8 text-white container-img-header">
                 <div class="w-25 p-2">
-                    <img class="img" src="../../images/20220322_170706.png" alt="DeliveBoo">
+                    <img
+                        class="img w-100"
+                        src="../../images/logo.jpeg"
+                        alt="DeliveBoo"
+                    />
                 </div>
             </div>
         </div>
@@ -17,9 +21,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-img-header{
+.container-img-header {
     max-height: 5rem;
-    img{
+    img {
         width: 100%;
     }
 }

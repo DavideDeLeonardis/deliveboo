@@ -54,17 +54,13 @@
 
 <body>
 
-    <div id="app">
-        <main>
-            @yield('content')
-        </main>
-    </div>
-
-    <nav class="navbar navbar-expand-md navbar-light my_bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand text-white" href="{{ url('/') }}">
-                {{ config('app.name', 'DeliveBoo') }}
-            </a>
+            <div class="w-25">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img class="rounded" src="../../images/logo.jpeg" alt="DeliveBoo" style="width: 4rem;">
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -77,25 +73,30 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto col-4 p-2 d-flex align-items-center flex-row-reverse my_bg-dark">
+                <ul class="navbar-nav ml-auto col-4 p-2 d-flex align-items-center flex-row-reverse">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item px-2">
                             <a class="nav-link btn btn-success text-white"
-                                href="{{ route('login') }}">{{ 'Login' }}</a>
+                                href="{{ route('login') }}">{{ 'Accedi' }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link btn btn-warning text-white"
-                                    href="{{ route('register') }}">{{ 'Register' }}</a>
+                                    href="{{ route('register') }}">{{ 'Registrati' }}</a>
                             </li>
                         @endif
                     @else
+                        <li>
+                            <a class="btn my_bg-green m-2 text-white" href=" {{ url('/admin') }}">
+                                Profilo
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input type="submit" value="Logout" class="btn btn-warning">
+                                <input type="submit" value="Logout" class="btn btn-warning text-white">
                             </form>
                         </li>
                     @endguest
@@ -103,6 +104,11 @@
             </div>
         </div>
     </nav>
+    <div id="app">
+        <main>
+            @yield('content')
+        </main>
+    </div>
 </body>
 
 </html>
@@ -115,6 +121,10 @@
 
     .my_bg-orange {
         background-color: #d6833a;
+    }
+
+    .my_bg-green {
+        background-color: #198754;
     }
 
 </style>
