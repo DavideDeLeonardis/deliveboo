@@ -1,8 +1,8 @@
 <template>
     <div class="container-footer p-4">
         <div class="container-card">
-            <div class="row">
-                <div class="col p-3 d-flex flex-column">
+            <div class="row row-cols-1 row-cols-md-4">
+                <div class="my-col col-s-12 col-md-3 p-3 d-flex flex-column">
                     <h4 class="text-white fw-bold">Scopri Deliveboo</h4>
                     <a href="/">Investitori</a>
                     <a href="/">Chi siamo</a>
@@ -15,19 +15,19 @@
                     <a href="/">Lavora con noi</a>
                     <a href="/">Diventa nostro partner</a>
                 </div>
-                <div class="col p-3 d-flex flex-column">
+                <div class="my-col col-s-12 col-md-3 p-3 d-flex flex-column">
                     <h4 class="text-white fw-bold">Note legali</h4>
                     <a href="/">Termini e Condizioni</a>
                     <a href="/">Informativa sulla privacy</a>
                     <a href="/">Cookies</a>
                 </div>
-                <div class="col p-3 d-flex flex-column">
+                <div class="my-col col-s-12 col-md-3 p-3 d-flex flex-column">
                     <h4 class="text-white fw-bold">Aiuto</h4>
                     <a href="/">Contatti</a>
                     <a href="/">FAQ</a>
                     <a href="/">Tipi di cucina</a>
                 </div>
-                <div class="col p-3 d-flex flex-column">
+                <div class="my-col col-s-12 col-md-3 p-3 d-flex flex-column">
                     <h4 class="text-white fw-bold">Porta Deliveroo con te</h4>
                     <div class="container-img d-flex flex-column mt-3">
                         <img
@@ -59,9 +59,9 @@ export default {
     .container-card {
         margin: 0 auto;
         width: 95%;
-        .col {
+        .my-col {
             background-color: #434848;
-            margin: 0 0.8em;
+            // margin: 0 0.8em;
             a {
                 text-decoration: none;
                 color: white;
