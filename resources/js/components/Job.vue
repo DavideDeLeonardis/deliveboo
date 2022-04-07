@@ -106,9 +106,6 @@ export default {
             width: 30%;
         }
         .container-card {
-            .title-card-job{
-
-            }
             .text-card-job{
                 width: 15rem;
                 height: 10rem;
@@ -144,6 +141,11 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        .container-img {
+            img{
+                width: 100% !important;
+            }
+        }
         .title-card-job{
             width: 20rem !important;
             font-size: 1.5rem !important;
