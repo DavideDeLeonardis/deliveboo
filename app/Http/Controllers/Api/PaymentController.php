@@ -7,6 +7,9 @@ use Braintree\Gateway;
 use App\Model\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
+use App\Model\Order;
 
 class PaymentController extends Controller
 {
@@ -23,7 +26,17 @@ class PaymentController extends Controller
         return response()->json($data, 200);
     }
 
-    public function makePayment(PaymentRequest $request, Gateway $gateway) {
+    public function makePayment(PaymentRequest $request, Gateway $gateway, Request $my_request) {
+
+        $data = $my_request->all();
+
+        $my_request->validate([
+            'name' => 'required | max:100',
+            'surname' => 'required | max:100',
+            'address' => 'required | max:100',
+            'email' => 'required | email | max:100',
+        ]);
+        // dd($data);
 
         // dd($request->amount);
         $result = $gateway->transaction()->sale([
