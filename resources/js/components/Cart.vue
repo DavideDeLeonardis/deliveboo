@@ -341,12 +341,6 @@ export default {
 }
 
 @media all and (max-width: 674px) {
-    .container-cart-dishes {
-        width: 40%;
-    }
-}
-
-@media all and (max-width: 565px) {
     .container-cart-dishes{
         background-color: none !important;
         border: none !important;

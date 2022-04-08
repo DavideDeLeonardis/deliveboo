@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-9 container-card-dish-restaurant">
-                    <div v-for="(dish, index) in dishes" :key="index" class="col d-flex justify-content-around">
+                    <div v-for="(dish, index) in dishes" :key="index" class="col d-flex flex-start flex-smartphone">
                         <div class="card card-dish-restaurant" style="width: 18rem;">
                             <div class="card-body body-card-dish">
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
@@ -245,18 +245,6 @@ export default {
 
 @media all and (max-width: 674px) {
     .container-card-dish-restaurant{
-        width: 60%;
-        .card-dish-restaurant {
-            width: 17rem !important;
-            .title-dish-card{
-                    min-height: 6rem !important;
-                }
-        }
-    }
-}
-
-@media all and (max-width: 565px) {
-    .container-card-dish-restaurant{
         width: 100%;
         .card-dish-restaurant {
             width: 15rem !important;
@@ -264,6 +252,12 @@ export default {
                     min-height: 6rem !important;
                 }
         }
+    }
+}
+
+@media all and (max-width: 567px) {
+    .flex-smartphone{
+        justify-content: center !important;
     }
 }
 </style>

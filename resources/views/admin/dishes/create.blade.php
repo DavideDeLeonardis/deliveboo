@@ -18,7 +18,7 @@
 
                                 {{-- nome --}}
                                 <div class="mb-3">
-                                    <label for="name" class="form-label ">
+                                    <label for="name" class="form-label">
                                         <h5 class="h5-create-dishes">Nome del Piatto:</h5>
                                     </label>
                                     <input type="text" class="form-control"
