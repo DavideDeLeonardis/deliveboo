@@ -79,7 +79,7 @@ export default {
         onSuccess (payload) {    
         // payload.nonce = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
         let nonce = payload.nonce;
-        let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
+        let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0).toFixed(2)
         //axios call per riempire database e poi parte pagamento?
         Axios.post('http://127.0.0.1:8000/api/order/make/payment?token=fake-valid-nonce&amount=' + amount)
         .then(result => {
@@ -104,7 +104,7 @@ export default {
                     // console.log(JSON.stringify(element))
                     new_cart.push(JSON.stringify(element))
                 });
-                let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
+                let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0).toFixed(2)
 
                 Axios.post('/api/order/save', 
                 {

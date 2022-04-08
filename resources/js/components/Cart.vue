@@ -12,7 +12,7 @@
                         <div class="container-product">
                             <p class="fw-bold">X{{ dish.quantity }}</p>
                             <p class="p-name-dish">{{ dish.name }}</p>
-                            <p>{{ dish.price * dish.quantity }}&euro;</p>
+                            <p>{{ (dish.price * dish.quantity).toFixed(2) }}&euro;</p>
                         </div>
                         <div class="container-button-cart">
                             <button
@@ -45,7 +45,7 @@
                                     (total, dish) =>
                                         total + dish.price * dish.quantity,
                                     0
-                                )
+                                ).toFixed(2)
                             }}
                             &euro;</span
                         >
@@ -119,7 +119,7 @@
                                 <div class="container-product">
                                     <p class="fw-bold">X{{ dish.quantity }}</p>
                                     <p class="p-name-dish">{{ dish.name }}</p>
-                                    <p>{{ dish.price * dish.quantity }}&euro;</p>
+                                    <p>{{ (dish.price * dish.quantity).toFixed(2) }}&euro;</p>
                                 </div>
                                 <div class="container-button-cart">
                                     <button
@@ -152,7 +152,7 @@
                                             (total, dish) =>
                                                 total + dish.price * dish.quantity,
                                             0
-                                        )
+                                        ).toFixed(2)
                                     }}
                                     &euro;</span
                                 >
