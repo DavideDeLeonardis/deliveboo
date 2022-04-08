@@ -58,7 +58,14 @@ class HomeController extends Controller
             ->where('users.id', Auth::user()->id)
             ->pluck('total_price');
 
-        
+        // SELECT SUM(orders.price_total)
+        // FROM `orders`
+        // JOIN dish_order ON dish_order.order_id = orders.id
+        // JOIN dishes ON dish_order.dish_id = dishes.id
+        // JOIN users ON users.id = dishes.user_id
+        // WHERE users.id = 2
+        // GROUP BY date
+        // dd($orders_date, $orders_price);
         $chart = new OrderChart;
         $chart->labels($orders_date->values());
         $chart->dataset('Riepilogo Ordini', 'bar', $orders_price->values())
