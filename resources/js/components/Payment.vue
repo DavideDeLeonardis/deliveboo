@@ -15,11 +15,7 @@
         <!-- Riepilogo ordine -->
 
         <!-- Form dati ordine -->
-<<<<<<< HEAD
-        <form id="payment-form" method="post">
-=======
         <form @submit.prevent="sendForm">
->>>>>>> develop
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" v-model="name" maxlength="100" class="form-control" name="name" id="name" placeholder="Inserisci il tuo nome" required>
@@ -39,12 +35,8 @@
                 <label for="email">Email</label>
                 <input type="email" v-model="email" maxlength="100" class="form-control" name="email" id="email" placeholder="Inserisci la tua email" required>
             </div>
-<<<<<<< HEAD
-=======
             <!-- Form dati ordine -->
 
-
->>>>>>> develop
             <v-braintree 
                 authorization="sandbox_8h5ddqng_4sjx493rm6vt8q2c"
                 @success="onSuccess"
@@ -53,14 +45,8 @@
                 <template #button="slotProps">
                     <v-btn id="v-btn" ref="paymentBtnRef" @click="slotProps.submit"></v-btn>
                 </template>
-<<<<<<< HEAD
             </v-braintree>
                 <input type="submit" @click="beforeBuy()" value="Paga">
-=======
-                </v-braintree>
-                <input type="submit" @click="beforeBuy()" value="Paga">
-            
->>>>>>> develop
         </form>
     </div>
 </template>
@@ -117,8 +103,6 @@ export default {
         beforeBuy(){
             let my_btn = document.getElementById('v-btn')
             my_btn.click()
-<<<<<<< HEAD
-=======
         },
         sendForm(){
             if(this.allDone) {
@@ -139,7 +123,6 @@ export default {
                     console.log(error)
                 )
             }
->>>>>>> develop
         }
     },
 }
