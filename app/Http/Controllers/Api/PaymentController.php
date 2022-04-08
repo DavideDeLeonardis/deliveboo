@@ -7,12 +7,15 @@ use Braintree\Gateway;
 use App\Model\Dish;
 use Carbon\Carbon;
 use App\Model\Order;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendNewMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    public function generate(PaymentRequest $request, Gateway $gateway) {
+    public function generate(PaymentRequest $request, Gateway $gateway)
+    {
 
         dd($gateway);
         $token = $gateway->clientToken()->generate();
@@ -25,7 +28,8 @@ class PaymentController extends Controller
         return response()->json($data, 200);
     }
 
-    public function makePayment(PaymentRequest $request, Gateway $gateway) {
+    public function makePayment(PaymentRequest $request, Gateway $gateway)
+    {
 
         // dd($request->amount);
         $result = $gateway->transaction()->sale([
@@ -36,17 +40,16 @@ class PaymentController extends Controller
             // ]
         ]);
 
-        
 
-        if($result->success){
+
+        if ($result->success) {
             $data = [
                 'success' => true,
                 'message' => 'Transazione eseguita con successo!',
             ];
 
             return response()->json($data, 200);
-        }
-        else {
+        } else {
             $data = [
                 'success' => false,
                 'message' => 'Transazione Fallita'
@@ -55,7 +58,8 @@ class PaymentController extends Controller
         }
     }
 
-    public function order(Request $request) {
+    public function order(Request $request)
+    {
 
         $request->validate([
             'name' => 'required | max:100',
@@ -67,6 +71,7 @@ class PaymentController extends Controller
         ]);
 
         $data = $request->all();
+        $to = $data['email'];
         $cart = $data['cart'];
         // $cart = json_decode()
         // dd(json_decode(request('cart')));
@@ -84,16 +89,11 @@ class PaymentController extends Controller
         $newOrder->time = Carbon::now()
             ->format('H:m');
         $newOrder->price_total = $data['amount'];
-
-        
         $newOrder->save();
-        
-        // dd($data);
         foreach ($cart as $dish) {
 
             $newOrder->dishes()->attach(json_decode($dish)->id, ['quantity' => json_decode($dish)->quantity]);
-                
         }
-
+        Mail::to($to)->send(new SendNewMail($data['name']));
     }
 }
