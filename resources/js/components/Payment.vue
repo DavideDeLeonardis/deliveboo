@@ -28,7 +28,7 @@
                                     }}
                                 </li>
                                 <hr />
-                                <li>
+                                <li class="fw-bold fs-3">
                                     TOTALE:
                                     {{
                                         this.cart.reduce(
@@ -295,6 +295,7 @@ export default {
 }
 .card-braintree {
     border: 1px solid #38c172;
+    background-color: rgb(56, 193, 114, 0.2);
     border-radius: 20px 20px 50px 50px !important;
     padding: 0 2rem;
 }
