@@ -347,6 +347,12 @@ export default {
 }
 
 @media all and (max-width: 565px) {
+    .container-cart-dishes{
+        background-color: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
     .desktop{
         display: none;
     }
