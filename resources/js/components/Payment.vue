@@ -81,81 +81,92 @@
 </template>
 
 <script>
-import Axios from 'axios'
-
+import Axios from "axios";
+import Checkout from "./Checkout.vue";
 export default {
-    name: 'Payment',
-    data(){
+    name: "Payment",
+    data() {
         return {
-            name: '',
-            lastname: '',
-            address: '',
-            email: '',
+            name: "",
+            lastname: "",
+            address: "",
+            email: "",
             allDone: false,
-            cart: JSON.parse(window.localStorage.getItem('cart')),
-        }
+            show: false,
+            cart: JSON.parse(window.localStorage.getItem("cart")),
+        };
+    },
+    components: {
+        Checkout,
     },
     props: {
         cart: {
             type: Array,
             default() {
-                return JSON.parse(window.localStorage.getItem('cart'));
+                return JSON.parse(window.localStorage.getItem("cart"));
             },
         },
     },
     methods: {
-        onSuccess (payload) {    
-        // payload.nonce = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
-        let nonce = payload.nonce;
-        let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0).toFixed(2)
-        //axios call per riempire database e poi parte pagamento?
-        Axios.post('http://127.0.0.1:8000/api/order/make/payment?token=fake-valid-nonce&amount=' + amount)
-        .then(result => {
-            this.allDone = true
-            // console.log(result)
-            this.sendForm();
-        })
+        onSuccess(payload) {
+            // payload.nonce = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
+            let nonce = payload.nonce;
+            let amount = this.cart
+                .reduce((total, dish) => total + dish.price * dish.quantity, 0)
+                .toFixed(2);
+            //axios call per riempire database e poi parte pagamento?
+            Axios.post(
+                "http://127.0.0.1:8000/api/order/make/payment?token=fake-valid-nonce&amount=" +
+                    amount
+            ).then((result) => {
+                this.allDone = true;
+                // console.log(result)
+                this.sendForm();
+            });
         },
-        onError (error) {
-        let message = error.message;
-        // Whoops, an error has occured while trying to get the nonce
+        onError(error) {
+            let message = error.message;
+            // Whoops, an error has occured while trying to get the nonce
         },
-        beforeBuy(){
-            let my_btn = document.getElementById('v-btn')
-            my_btn.click()
+        beforeBuy() {
+            let my_btn = document.getElementById("v-btn");
+            my_btn.click();
+            this.show = true;
         },
-        sendForm(){
-            if(this.allDone) {
-                let new_cart = [] 
-                this.cart.forEach(element => {
+        sendForm() {
+            if (this.allDone) {
+                let new_cart = [];
+                this.cart.forEach((element) => {
                     // console.log(Object.values(element))
                     // console.log(JSON.stringify(element))
-                    new_cart.push(JSON.stringify(element))
+                    new_cart.push(JSON.stringify(element));
                 });
-                let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0).toFixed(2)
+                let amount = this.cart
+                    .reduce(
+                        (total, dish) => total + dish.price * dish.quantity,
+                        0
+                    )
+                    .toFixed(2);
 
-                Axios.post('/api/order/save', 
-                {
-                    'name': this.name,
-                    'lastname': this.lastname,
-                    'address': this.address,
-                    'email': this.email,
-                    'cart': new_cart,
-                    'amount' : amount,
-                }
-                )
-                .then((result)=>
-                    //console.log(result.data.cart),
-                    // console.log(result.data)
-                    '',
-                )
-                .catch((error) =>
-                    console.log(error)
-                )
+                Axios.post("/api/order/save", {
+                    name: this.name,
+                    lastname: this.lastname,
+                    address: this.address,
+                    email: this.email,
+                    cart: new_cart,
+                    amount: amount,
+                })
+                    .then(
+                        (result) =>
+                            //console.log(result.data.cart),
+                            // console.log(result.data)
+                            ""
+                    )
+                    .catch((error) => console.log(error));
             }
-        }
+        },
     },
-}
+};
 </script>
 
 <style lang="scss">

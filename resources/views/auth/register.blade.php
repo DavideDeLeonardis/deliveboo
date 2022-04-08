@@ -150,6 +150,14 @@
         let btn_register = document.getElementById('btn-register');
 
         window.onload = (event) => {
+
+            checkboxes.forEach(element => {
+                element.addEventListener('click', function() {
+                    checkedBox = true
+                    error.innerHTML = ''
+                })
+            });
+
             btn_register.addEventListener('click', function() {
                 let checkedBox = false;
                 checkboxes.forEach(checkbox => {
