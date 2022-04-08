@@ -1,5 +1,5 @@
 <template>
-    <div class="container-chechkout">
+    <div class="container-chechkout mt-5">
         <h2 class="text-success">Pagamento avvenuto con successo!</h2>
         <h3 class="fs-4">
             Grazie per aver scelto
