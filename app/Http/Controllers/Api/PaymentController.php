@@ -62,15 +62,17 @@ class PaymentController extends Controller
             'lastname' => 'required | max:100',
             'address' => 'required | max:100',
             'email' => 'required | email | max:100',
-            'cart' => 'required'
+            'cart' => 'required',
+            'amount' => 'required'
         ]);
 
         $data = $request->all();
-        
+        $cart = $data['cart'];
+        // $cart = json_decode()
         // dd(json_decode(request('cart')));
         // $cart = (array)json_decode($data['cart']);
         // var_dump($data['cart']);
-
+        // $cart = json_decode(request('cart'));
         $newOrder = new Order();
         $newOrder->payment_id = 2;
         $newOrder->name = $data['name'];
@@ -81,17 +83,17 @@ class PaymentController extends Controller
             ->format('Y-m-d');
         $newOrder->time = Carbon::now()
             ->format('H:m');
-        $newOrder->price_total = 100;
+        $newOrder->price_total = $data['amount'];
 
-        foreach ($data['cart'] as $dish) {
-            $newOrder->dishes()->attach($dish, ['quantity' => $dish->quantity]);
-            // $newOrder->dishes()->order_id = $newOrder->id;
-            // $newOrder->dishes()->quantity = $dish->quantity;
-        }
         
         $newOrder->save();
         
-        
+        // dd($data);
+        foreach ($cart as $dish) {
+
+            $newOrder->dishes()->attach(json_decode($dish)->id, ['quantity' => json_decode($dish)->quantity]);
+                
+        }
 
     }
 }

@@ -83,9 +83,8 @@ export default {
         //axios call per riempire database e poi parte pagamento?
         Axios.post('http://127.0.0.1:8000/api/order/make/payment?token=fake-valid-nonce&amount=' + amount)
         .then(result => {
-            // let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
             this.allDone = true
-            console.log(result)
+            // console.log(result)
             this.sendForm();
         })
         },
@@ -99,18 +98,28 @@ export default {
         },
         sendForm(){
             if(this.allDone) {
+                let new_cart = [] 
+                this.cart.forEach(element => {
+                    // console.log(Object.values(element))
+                    // console.log(JSON.stringify(element))
+                    new_cart.push(JSON.stringify(element))
+                });
+                let amount = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)
+
                 Axios.post('/api/order/save', 
                 {
                     'name': this.name,
                     'lastname': this.lastname,
                     'address': this.address,
                     'email': this.email,
-                    'cart': JSON.parse(window.localStorage.getItem('cart'))
+                    'cart': new_cart,
+                    'amount' : amount,
                 }
                 )
                 .then((result)=>
-                    console.log(result.data)
-                    
+                    //console.log(result.data.cart),
+                    // console.log(result.data)
+                    '',
                 )
                 .catch((error) =>
                     console.log(error)
