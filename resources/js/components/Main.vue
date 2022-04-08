@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="container py-3">
+        <div class="container">
             <div
                 v-if="inputText != '' && restaurants && restaurants.length != 0"
             >
@@ -52,8 +52,27 @@
                             </router-link>
                         </div>
 
-                        <div class="card-body my_bg-orange rounded mt-1">
-                            <h5 class="card-title text-center"></h5>
+                        <div class="card-body my_bg-orange rounded mt-1 d-flex justify-content-between align-items-center">
+                            <div>
+                                <lord-icon
+                                    class="like-icon"
+                                    src="https://cdn.lordicon.com/hrqwmuhr.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#38c172"
+                                    style="width:40px;height:40px"
+                                    delay="5000">
+                                </lord-icon>
+                            </div>
+                            <div>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/poblyvkl.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#38c172"
+                                    style="width:40px;height:40px"
+                                    delay="5000">
+                                </lord-icon>
+                                {{randomNumberMin()}} - {{randomNumberMax()}} min.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,6 +112,12 @@ export default {
         changePage(varChangePage) {
             this.$emit("changePage", varChangePage);
         },
+        randomNumberMin(){
+            return Math.floor(Math.random() * (15 - 1 + 1)) + 10;
+        },
+        randomNumberMax(){
+            return Math.floor(Math.random() * (45 - 1 + 1)) + 20;
+        },
     },
 };
 </script>
@@ -124,6 +149,12 @@ export default {
         &:hover {
             background-color: rgb(255, 193, 8, 0.1);
         }
+        .restaurant-name{
+            text-shadow: 1px 1px #6f6f6f;
+        }
     }
+}
+.like-icon{
+    transform: rotate(180deg);
 }
 </style>

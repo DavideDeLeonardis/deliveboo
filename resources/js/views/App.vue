@@ -17,8 +17,8 @@ export default {
 
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap";
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
 * {
-    font-family: "Nunito", sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 </style>

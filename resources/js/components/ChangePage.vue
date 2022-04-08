@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="pages.prev_page_url || pages.next_page_url"
-        class="row mt-3"
+        class="row"
     >
         <ul class="list-inline">
             <li class="list-inline-item">
