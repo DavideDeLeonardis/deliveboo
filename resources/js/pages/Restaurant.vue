@@ -130,16 +130,16 @@ export default {
         this.getUser("http://127.0.0.1:8000/api/v1/restaurants/" + this.slug);
         localStorage.setItem("location", JSON.stringify(window.location));
         
-        let location_deserialized = JSON.parse(localStorage.getItem("location"));
-        console.log(location_deserialized.href)
-        if (this.$store.state['location'].href) {
-            if (this.$store.state['location'].href != location_deserialized.href) {
-                localStorage.clear();
-                this.$store.state.cart = [];
-                // localStorage.setItem("location", JSON.stringify(window.location))
-                console.log(localStorage)
-            }
-        }
+        // let location_deserialized = JSON.parse(localStorage.getItem("location"));
+        // console.log(location_deserialized.href)
+        // if (this.$store.state['location'].href) {
+        //     if (this.$store.state['location'].href != location_deserialized.href) {
+        //         localStorage.clear();
+        //         this.$store.state.cart = [];
+        //         // localStorage.setItem("location", JSON.stringify(window.location))
+        //         console.log(localStorage)
+        //     }
+        // }
 
         let myObj_deserialized = JSON.parse(localStorage.getItem("cart"));
         if (myObj_deserialized) {
