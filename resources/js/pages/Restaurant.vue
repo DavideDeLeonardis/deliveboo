@@ -159,9 +159,9 @@ export default {
     padding: 0;
     .restaurant-name-top{
         color: white;
-        text-shadow: 3px 3px 3px rgb(223, 222, 222);
+        text-shadow: 3px 3px 10px #6f6f6f4e;
         padding: 2rem 0 0.5rem 1rem;
-        background-image: linear-gradient(to top, #ffc245 , #ffffff);
+        background-color: #ffc245;
         border-radius: 0 0 20px 20px !important;
         width: 100%;
     }
@@ -210,6 +210,7 @@ export default {
                 padding: 0 1rem;
             }
             .button-plus-dish{
+                color: black;
                 background-color: #38c172;
                 border: none;
                 border-radius: 5px 5px 20px 20px !important;

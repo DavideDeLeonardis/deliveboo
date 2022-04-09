@@ -7,13 +7,13 @@
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="3000">
-                                    <img class="image-home" src="../../images/tangerine-newt-RgT22Ixcq4Y-unsplash1.jpg" alt="...">
+                                    <img class="image-home" src="../../images/slider3.png" alt="...">
                                 </div>
                                 <div class="carousel-item" data-bs-interval="3000">
-                                    <img class="image-home" src="../../images/tangerine-newt-chqGAM2HueY-unsplash2.jpg" alt="...">
+                                    <img class="image-home" src="../../images/slider2.png" alt="...">
                                 </div>
                                 <div class="carousel-item" data-bs-interval="3000">
-                                    <img class="image-home" src="../../images/tangerine-newt-0ZKbqmaEO04-unsplash3.jpg" alt="...">
+                                    <img class="image-home" src="../../images/slider1.png" alt="...">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -29,6 +29,7 @@
 
                     <div class="col-12">
                         <input
+                            class="shadow p-3 mb-2"
                             v-model="inputText"
                             type="text"
                             name="search-bar"
@@ -73,7 +74,7 @@
                         <div class="row">
                             <div class="col-2 d-flex mt-3">
                                 <input
-                                    class="btn btn-danger reset-button"
+                                    class="btn btn-danger reset-button shadow"
                                     type="button"
                                     value="Resetta filtri"
                                     @click.prevent="resetFilters"
@@ -231,7 +232,7 @@ export default {
     .reset-button {
         border-radius: 25px;
         padding: 10px;
-        margin: 1rem 0;
+        margin-top: 1rem;
         border-radius: 50px 20px;
     }
 }
