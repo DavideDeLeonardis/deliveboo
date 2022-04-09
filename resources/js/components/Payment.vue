@@ -215,14 +215,6 @@ export default {
             },
         },
     },
-    data() {
-        return {
-            name: null,
-            lastname: null,
-            address: null,
-            email: null,
-        };
-    },
     methods: {
         onSuccess(payload) {
             // payload.nonce = this.cart.reduce((total, dish) => total + dish.price * dish.quantity, 0)

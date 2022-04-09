@@ -18,9 +18,9 @@ class SendNewMail extends Mailable
      *
      * @return void
      */
-    public function __construct($dataUser)
+    public function __construct($_user)
     {
-        $this->dataUser = $dataUser;
+        $this->user = $_user;
     }
 
     /**
