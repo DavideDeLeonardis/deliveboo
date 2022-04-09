@@ -13,7 +13,8 @@
                             <div class="card-body body-card-dish">
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
                                 <div class="container-img-description">
-                                    <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
+                                    <img :src="'/storage/'+dish.image" class="card-img-top" alt="image">
+                                    <p v-if="dish.description" class="info-image">i</p>
                                     <p v-if="dish.description" class="description-dish">{{dish.description}}</p>
                                 </div>
                                 <div class="container-price-plus">
@@ -188,9 +189,20 @@ export default {
                 position: relative;
                 display: flex;
                 justify-content: center;
+                min-height: 15rem;
+                overflow: hidden;
                 img{
-                    width: 13rem;
+                    height: 100%;
                     transition: transform .2s;
+                }
+                .info-image{
+                    color: white;
+                    background-color: gray;
+                    position: absolute;
+                    top: 0;
+                    left: 1rem;
+                    padding: 0 0.6rem;
+                    border-radius: 25px;
                 }
                 .description-dish{
                     display: none;

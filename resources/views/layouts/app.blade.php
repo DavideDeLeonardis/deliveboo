@@ -88,7 +88,7 @@
                         @endif
                     @else
                         <li>
-                            <a class="btn my_bg-green m-2 text-white" href=" {{ url('/admin') }}">
+                            <a class="btn my_bg-green m-2 text-white" href=" {{ url('/admin/user') }}">
                                 Profilo
                             </a>
                         </li>
