@@ -114,8 +114,8 @@
                                             {{ $category->name }}
                                         </label>
                                     </div>
-                                @endforeach    
-                                <div id="error" ></div>
+                                @endforeach
+                                <div id="error"></div>
                             @endif
                         </fieldset>
 
@@ -131,25 +131,31 @@
         let checkboxes = document.querySelectorAll('input[type=checkbox]');
         let error = document.getElementById('error');
         let submit = document.getElementById('submit');
-        
+
         // console.log(checkboxes)
         // console.log(error)
         // console.log(submit)
         // window.onload = (event) => {
-                submit.addEventListener('click', function (){
-                    let checkedBox = false; 
-                    checkboxes.forEach(checkbox => {
-                        if(checkbox.checked){
-                            checkedBox = true;
-                        }
-                    })
-                    if(!checkedBox){
-                        event.preventDefault();
-                        return error.innerHTML = `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
-                    }
-                });
-        // }
+        checkboxes.forEach(element => {
+            element.addEventListener('click', function() {
+                checkedBox = true
+                error.innerHTML = ''
+            })
+        });
 
-        
+        submit.addEventListener('click', function() {
+            let checkedBox = false;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkedBox = true;
+                }
+            })
+            if (!checkedBox) {
+                event.preventDefault();
+                return error.innerHTML =
+                    `<div class="alert alert-warning mt-3" role="alert"> Selezionare almeno una categoria </div>`;
+            }
+        });
+        // }
     </script>
 @endsection

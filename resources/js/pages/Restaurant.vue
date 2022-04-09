@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-9 container-card-dish-restaurant">
-                    <div v-for="(dish, index) in dishes" :key="index" class="col">
+                    <div v-for="(dish, index) in dishes" :key="index" class="col d-flex flex-start flex-smartphone">
                         <div class="card card-dish-restaurant" style="width: 18rem;">
                             <div class="card-body body-card-dish">
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
@@ -195,7 +195,7 @@ export default {
                     right: 50%;
                     transform: translate(50%, -50%);
                     padding: 1rem;
-                    overflow-y: hidden;
+                    overflow-y: auto;
                     color: white;
                     background-color: rgba(128, 128, 128, 0.8);
                     // :hover > &{
@@ -217,12 +217,13 @@ export default {
             }
         }
     }
+}
 
 @media all and (max-width: 885px) {
     .container-card-dish-restaurant{
         width: 60%;
         .card-dish-restaurant {
-            width: 11rem !important;
+            width: 12rem !important;
             .title-dish-card{
                     min-height: 6rem !important;
                 }
@@ -230,10 +231,33 @@ export default {
     }
 }
 
-// @media all and (max-width: 733px) {
-//     .container-card-dish-restaurant{
-//         width: 100%;
-//     }
-// }
+@media all and (max-width: 786px) {
+    .container-card-dish-restaurant{
+        width: 70%;
+        .card-dish-restaurant {
+            width: 12rem !important;
+            .title-dish-card{
+                    min-height: 6rem !important;
+                }
+        }
+    }
+}
+
+@media all and (max-width: 674px) {
+    .container-card-dish-restaurant{
+        width: 100%;
+        .card-dish-restaurant {
+            width: 15rem !important;
+            .title-dish-card{
+                    min-height: 6rem !important;
+                }
+        }
+    }
+}
+
+@media all and (max-width: 567px) {
+    .flex-smartphone{
+        justify-content: center !important;
+    }
 }
 </style>

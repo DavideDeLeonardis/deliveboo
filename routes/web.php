@@ -25,7 +25,6 @@ Route::middleware('auth')
             ->name('my_edit');
         Route::resource('orders', 'OrderController');
     });
-
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where('any', '.*');
