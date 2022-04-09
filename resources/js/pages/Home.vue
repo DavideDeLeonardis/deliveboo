@@ -29,6 +29,7 @@
 
                     <div class="col-12">
                         <input
+                            class="shadow p-3 mb-2"
                             v-model="inputText"
                             type="text"
                             name="search-bar"
@@ -73,7 +74,7 @@
                         <div class="row">
                             <div class="col-2 d-flex mt-3">
                                 <input
-                                    class="btn btn-danger reset-button"
+                                    class="btn btn-danger reset-button shadow"
                                     type="button"
                                     value="Resetta filtri"
                                     @click.prevent="resetFilters"

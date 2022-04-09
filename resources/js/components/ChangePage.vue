@@ -7,7 +7,7 @@
             <li class="list-inline-item">
                 <button
                     v-if="pages.prev_page_url"
-                    class="btn my_bg-green text-white"
+                    class="btn my_bg-green text-white shadow"
                     @click="changePage('prev_page_url')"
                 >
                     Prev
@@ -16,7 +16,7 @@
             <li class="list-inline-item d-flex justify-content-end">
                 <button
                     v-if="pages.next_page_url"
-                    class="btn my_bg-green text-white"
+                    class="btn my_bg-green text-white shadow"
                     @click="changePage('next_page_url')"
                 >
                     Next
