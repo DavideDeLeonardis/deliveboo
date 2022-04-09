@@ -14,16 +14,16 @@
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
                                 <div class="container-img-description">
                                     <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
+                                </div>
                                     <p class="description-dish">{{dish.description}}</p>
+                                <div class="container-price-plus">
+                                    <p class="card-text mb-0">&euro; {{ dish.price.toFixed(2) }}</p>
+                                    <button
+                                    class="btn btn-primary button-plus-dish"
+                                    @click="addItem(dish)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
                                 </div>
-                                <div class="container-price-info">
-                                    <p class="card-text">&euro; {{ dish.price.toFixed(2) }}</p>
-                                </div>
-                                <button
-                                class="btn btn-primary button-plus-dish"
-                                @click="addItem(dish)">
-                                <i class="fas fa-plus"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -172,16 +172,15 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
     .card-dish-restaurant{
-        border: none;
+        border-radius: 20px !important;
         margin: 1rem;
         .body-card-dish{
             padding: 0;
             .title-dish-card{
                 text-align: center;
                 align-items: center;
-                color: white;
+                color: black;
                 padding: 0.5rem;
-                background-color: #ffc245;
                 border-radius: 20px 20px 5px 5px !important;
                 min-height: 4rem;
             }
@@ -204,17 +203,22 @@ export default {
                     // }
                 }
             }
-            .container-price-info{
+            .container-price-plus{
                 display: flex;
                 justify-content: space-between;
-                padding: 0 1rem;
-            }
-            .button-plus-dish{
-                color: black;
-                background-color: #38c172;
-                border: none;
-                border-radius: 5px 5px 20px 20px !important;
-                width: 100%;
+                align-items: center !important;
+                padding: 1rem;
+                .button-plus-dish{
+                    color: black;
+                    background-color: rgb(56, 193, 114, 0.2);
+                    color: #38c172;
+                    border-radius: 20px;
+                    border: none;
+                    &:hover{
+                        background-color: #38c172;
+                        color: white;
+                    }
+                }
             }
         }
     }
