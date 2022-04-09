@@ -14,8 +14,8 @@
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
                                 <div class="container-img-description">
                                     <img src="../../images/1647950091675.png" class="card-img-top" alt="image">
+                                    <p v-if="dish.description" class="description-dish">{{dish.description}}</p>
                                 </div>
-                                    <p class="description-dish">{{dish.description}}</p>
                                 <div class="container-price-plus">
                                     <p class="card-text mb-0">&euro; {{ dish.price.toFixed(2) }}</p>
                                     <button
@@ -186,7 +186,14 @@ export default {
             }
             .container-img-description{
                 position: relative;
+                display: flex;
+                justify-content: center;
+                img{
+                    width: 13rem;
+                    transition: transform .2s;
+                }
                 .description-dish{
+                    display: none;
                     height: 100%;
                     width: 100%;
                     position: absolute;
@@ -197,10 +204,16 @@ export default {
                     overflow-y: auto;
                     color: white;
                     background-color: rgba(128, 128, 128, 0.8);
-                    // :hover > &{
-                    //     display: block !important;
-                    //     background-color: rgba(128, 128, 128, 0.8);
-                    // }
+                    border-radius: 20px !important;
+                }
+                &:hover{
+                    img{
+                        transform: scale(1.2);
+                    }
+                    .description-dish{
+                        display: block !important;
+                        background-color: rgba(128, 128, 128, 0.8);
+                    }
                 }
             }
             .container-price-plus{
