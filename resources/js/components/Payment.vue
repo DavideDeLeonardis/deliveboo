@@ -174,6 +174,7 @@
                                 class="input-pay"
                                 type="submit"
                                 @click="beforeBuy()"
+                                @keyup.enter="beforeBuy()"
                                 value="Paga"
                             />
                         </div>

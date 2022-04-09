@@ -129,6 +129,7 @@ export default {
 
 <style lang="scss" scoped>
 .card-restaurant {
+    border-radius: 20px 20px 5px 5px !important;
     border: none;
     position: relative;
     overflow: hidden !important;

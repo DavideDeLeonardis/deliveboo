@@ -18,5 +18,3 @@ Route::get('v1/dishes', 'Api\DishController@index');
 Route::get('/order/generate', 'Api\PaymentController@generate');
 Route::post('/order/make/payment', 'Api\PaymentController@makePayment');
 Route::post('/order/save', 'Api\PaymentController@order');
-
-
