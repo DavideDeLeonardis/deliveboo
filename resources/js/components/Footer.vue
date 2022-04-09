@@ -32,12 +32,12 @@
                     <div class="container-img d-flex flex-column mt-3">
                         <img
                             class="w-50 mb-4"
-                            src="../../images/download-button-ios.svg"
+                            src="../../images/app-store-badge-200x67.png"
                             alt=""
                         />
                         <img
-                            class="w-50 bg-dark"
-                            src="../../images/download-button-android.svg"
+                            class="w-50"
+                            src="../../images/play-store-badge-200x67.png"
                             alt=""
                         />
                     </div>
