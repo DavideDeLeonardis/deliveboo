@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <div class="container-chechkout mt-5">
+    {{-- <div class="container-chechkout mt-5">
             <h1 class="text-success">Ciao {{ $user->name }}, il tuo è ordine confermato e arriverà a breve!</h1>
         <h3 class="fs-4">
             Grazie per aver scelto
@@ -69,7 +71,9 @@
                     <img class="img w-100" src="../../images/logo.jpeg" alt="DeliveBoo"/>
                 </a>
             </div>
-        </div>
+        </div> --}}
+    <h1>Ordine confermato</h1>
     </div>
 </body>
+
 </html>
