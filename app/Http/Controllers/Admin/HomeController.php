@@ -71,6 +71,6 @@ class HomeController extends Controller
         $chart->dataset('Riepilogo Ordini', 'bar', $orders_price->values())
         ->backgroundColor('#2871cc');
 
-        return view('admin.stats', ['chart' => $chart]);
+        return view('admin.stats', ['chart' => $chart, 'orders_date' => $orders_date]);
     }
 }

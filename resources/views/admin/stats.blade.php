@@ -3,7 +3,7 @@
 @section('content')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
-
+{{-- @dd(($orders_date), array_values(json_decode(json_encode($orders_date), true))) --}}
     <div class="container">
         <div class="row mt-5">
             <div class="col">
@@ -13,11 +13,16 @@
                 {!! $chart->script() !!} --}}
                 <canvas id="myChart" width="100%" height="100%"></canvas>
 <script>
+
+let dates = '<?php echo json_encode($orders_date, true) ?>';
+let labels = dates.split(" ")
+console.log(JSON.parse(labels))
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: JSON.parse(labels),
+        
         datasets: [{
             label: 'Guadagni Mensili',
             data: [12, 19, 3, 5, 2, 3],
