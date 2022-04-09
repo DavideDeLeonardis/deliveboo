@@ -100,7 +100,7 @@ class PaymentController extends Controller
             'lastname' => $request->lastname,
             'address' => $request->address,
             'email' => $request->email,
-            'amount' => $request->total_price,
+            'amount' => $request->price_total,
         ];
 
         Mail::to($to)->send(new SendNewMail($order));
