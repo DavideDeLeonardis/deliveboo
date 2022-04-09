@@ -24,19 +24,21 @@
                                 <li v-for="(dish, index) in cart" :key="index">
                                     X{{ dish.quantity }}
                                     {{ dish.name }} &euro;{{
-                                        dish.price * dish.quantity
+                                        (dish.price * dish.quantity).toFixed(2)
                                     }}
                                 </li>
                                 <hr />
                                 <li class="fw-bold fs-3">
                                     TOTALE:
                                     {{
-                                        this.cart.reduce(
-                                            (total, dish) =>
-                                                total +
-                                                dish.price * dish.quantity,
-                                            0
-                                        )
+                                        this.cart
+                                            .reduce(
+                                                (total, dish) =>
+                                                    total +
+                                                    dish.price * dish.quantity,
+                                                0
+                                            )
+                                            .toFixed(2)
                                     }}
                                     &euro;
                                 </li>
@@ -219,7 +221,7 @@ export default {
             lastname: null,
             address: null,
             email: null,
-        }
+        };
     },
     methods: {
         onSuccess(payload) {
