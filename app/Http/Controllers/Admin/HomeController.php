@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Order;
+use Carbon\Carbon;
 use App\Charts\OrderChart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -50,6 +52,14 @@ class HomeController extends Controller
             ->join('users', 'dishes.user_id', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
             ->pluck('orders.date');
+        // $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
+        //     ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
+        //     ->join('users', 'dishes.user_id', '=', 'users.id')
+        //     ->where('users.id', Auth::user()->id)
+        //     ->groupBy('orders.date')
+        //     ->select(DB::raw('SUM(DISTINCT orders.price_total) as total_price'), 'orders.date')
+        //     ->get();
+
         $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
             ->select(Order::raw('dishes.price * dish_order.quantity as total_price'))
             ->distinct()
@@ -71,6 +81,6 @@ class HomeController extends Controller
         $chart->dataset('Riepilogo Ordini', 'bar', $orders_price->values())
         ->backgroundColor('#2871cc');
 
-        return view('admin.stats', ['chart' => $chart, 'orders_date' => $orders_date]);
+        return view('admin.stats', ['chart' => $chart,'orders_date' => $orders_date, 'orders_price' => $orders_price]);
     }
 }
