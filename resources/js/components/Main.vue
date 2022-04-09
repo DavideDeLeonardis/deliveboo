@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="container py-3">
+        <div class="container">
             <div
                 v-if="inputText != '' && restaurants && restaurants.length != 0"
             >
@@ -51,9 +51,30 @@
                                 </h4>
                             </router-link>
                         </div>
-
-                        <div class="card-body my_bg-orange rounded mt-1">
-                            <h5 class="card-title text-center"></h5>
+                    </div>
+                    <div class="bottom-card-restaurant">
+                        <div class="card-body my_bg-orange rounded mt-1 d-flex justify-content-between align-items-center">
+                            <div>
+                                <lord-icon
+                                    class="like-icon"
+                                    src="https://cdn.lordicon.com/hrqwmuhr.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#38c172"
+                                    style="width:40px;height:40px"
+                                    delay="5000">
+                                </lord-icon>
+                                {{randomNumberLike()}}%
+                            </div>
+                            <div>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/poblyvkl.json"
+                                    trigger="loop"
+                                    colors="primary:#121331,secondary:#38c172"
+                                    style="width:40px;height:40px"
+                                    delay="5000">
+                                </lord-icon>
+                                {{randomNumberMin()}} - {{randomNumberMax()}} min.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,20 +114,32 @@ export default {
         changePage(varChangePage) {
             this.$emit("changePage", varChangePage);
         },
+        randomNumberMin(){
+            return Math.floor(Math.random() * (15 - 10) + 10);
+        },
+        randomNumberMax(){
+            return Math.floor(Math.random() * (45 - 20) + 20);
+        },
+        randomNumberLike(){
+            return Math.floor(Math.random() * (100 - 85) + 85);
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.img-restaurant {
-    border-radius: 20px 20px 5px 5px !important;
-}
 .card-restaurant {
     border: none;
     position: relative;
-    .my_bg-orange {
-        border-radius: 5px 5px 20px 20px !important;
-        background-color: #ffc108;
+    overflow: hidden !important;
+    &:hover {
+        .img-restaurant{
+            transform: scale(1.2);
+        }
+    }
+    .img-restaurant {
+        border-radius: 20px 20px 5px 5px !important;
+        transition: transform .2s;
     }
     .background-restaurant-name {
         position: absolute;
@@ -117,12 +150,40 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 20px !important;
+        border-radius: 20px 20px 5px 5px !important;
         background-color: rgba(128, 128, 128, 0.5);
         width: 100%;
         height: 100%;
         &:hover {
-            background-color: rgb(255, 193, 8, 0.1);
+        background-color: rgb(255, 193, 8, 0.1);
+        }
+        .restaurant-name{
+            text-shadow: 1px 1px #6f6f6f;
+        }
+    }
+}
+.bottom-card-restaurant{
+    .my_bg-orange {
+        border-radius: 5px 5px 20px 20px !important;
+        background-color: #ffc245;
+        div{
+            font-size: 0.9rem;
+        }
+    }
+}
+.like-icon{
+    transform: rotate(180deg);
+    transform: scaleY(-1); 
+}
+
+@media (min-width:768px) and (max-width:991px)  {
+    .my_bg-orange{
+        div{
+            font-size: 0.7rem;
+            lord-icon{
+                width: 25px !important;
+                height: 25px !important;
+            }
         }
     }
 }

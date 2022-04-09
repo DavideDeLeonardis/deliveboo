@@ -11,7 +11,7 @@ class SendNewMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    protected $dataUser;
 
     /**
      * Create a new message instance.
@@ -30,6 +30,6 @@ class SendNewMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.summary');
+        return $this->view('emails.order-confirm');
     }
 }
