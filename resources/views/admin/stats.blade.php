@@ -17,17 +17,17 @@
         $start->addDay();
     }
     
-    // echo '<pre>', print_r($dates), '</pre>';
+    echo '<pre>', print_r($dates), '</pre>';
     ?>
 
     <div class="container">
         <div class="row mt-5">
             <div class="col">
 
-                {!! $chart->container() !!}
+                {{-- {!! $chart->container() !!}
 
-                {!! $chart->script() !!}
-                {{-- <canvas id="myChart" width="100%" height="100%"></canvas>
+                {!! $chart->script() !!} --}}
+                <canvas id="myChart" width="100%" height="100%"></canvas>
                 <script>
                     let my_dates = '<?php echo json_encode($orders_date, true); ?>';
                     let dates = my_dates.split(" ");
@@ -47,8 +47,8 @@
                     // console.log("Guadagni :" + amount);
                     // console.log(prova)
 
-                    // let supp = [];
-                    // console.log(supp.length, 'supp')
+                    let supp = [];
+                    console.log(supp.length, 'supp')
                     // JSON.parse(month).forEach((day, index) => {
                     //     console.log(JSON.parse(month).length)
                     //     if (prova[index]) {
@@ -59,40 +59,44 @@
                     //         supp.push(0)
                     //     }
                     // })
-
-                    // for (let i = 0; i < JSON.parse(month).length; i++) {
-                    //     // let element = JSON.parse(month)[i];
-                    //     if (prova[i]) {
-                    //         JSON.parse(month).forEach(element => {
-                    //             if (prova[i].date == JSON.parse(month)) {
-                    //                 supp.push(prova[i].total_price)
-                    //             }
-                    //         });
-                    //     } else {
-                    //         supp.push(0)
-                    //     }
-                        // let x = '';
-                        // if (prova[i]){
-                        //     let x = prova[i].date
-                        //     console.log(x)
-                        //     console.log(element)
-                        //     console.log(x == element)
-                        //     // console.log(x)
-                        //     // console.log(element, 'console.log prima di entreare in if x==element')
-                        //     // console.log(prova[i].date, 'data vera nostra')
-                        //     if(x == element){
-                        //         console.log(prova[i].date, 'data nostra')
-                        //         console.log(element, 'data sua')
-                        //         supp.push(prova[i].total_price)
-                        //     }
-                        //     else {
-                        //         supp.push(0)
-                        //     }
-                        // } 
-                        // else {
+                    
+                    for (let i = 0; i < JSON.parse(month).length; i++) {
+                        let element = JSON.parse(month)[i];
+                        // if(prova[i]){
+                        //     JSON.parse(month).forEach(element => {
+                        //         if (prova[i].date == JSON.parse(month)[i]) {
+                        //             supp.push(prova[i].total_price)
+                        //         }
+                        //         else {
+                        //             supp.push(0)
+                        //         }
+                        //     });
+                        // } else {
                         //     supp.push(0)
                         // }
-                    // }
+                        let x = '';
+                        if (prova[i]){
+                            console.log(prova)
+                            let x = prova[i].date
+                            console.log(x, 'la mia data')
+                            console.log(element, 'month[i]')
+                            console.log(x == element, 'vediamo se sono uguali')
+                            // console.log(x)
+                            // console.log(element, 'console.log prima di entreare in if x==element')
+                            // console.log(prova[i].date, 'data vera nostra')
+                            if(x == element){
+                                console.log(prova[i].date, 'data nostra')
+                                console.log(element, 'data sua')
+                                supp.push(prova[i].total_price)
+                            }
+                            else {
+                                supp.push(0)
+                            }
+                        } 
+                        else {
+                            supp.push(0)
+                        }
+                    }
 
                     console.log(supp, 'supp')
                     const ctx = document.getElementById('myChart').getContext('2d');
@@ -131,7 +135,7 @@
                             }
                         }
                     });
-                </script> --}}
+                </script>
             </div>
         </div>
     </div>

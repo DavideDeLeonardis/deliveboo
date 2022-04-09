@@ -52,21 +52,21 @@ class HomeController extends Controller
             ->join('users', 'dishes.user_id', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
             ->pluck('orders.date');
-        // $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
-        //     ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
-        //     ->join('users', 'dishes.user_id', '=', 'users.id')
-        //     ->where('users.id', Auth::user()->id)
-        //     ->groupBy('orders.date')
-        //     ->select(DB::raw('SUM(DISTINCT orders.price_total) as total_price'), 'orders.date')
-        //     ->get();
-
         $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
-            ->select(Order::raw('dishes.price * dish_order.quantity as total_price'))
-            ->distinct()
             ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
             ->join('users', 'dishes.user_id', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
-            ->pluck('total_price');
+            ->groupBy('orders.date')
+            ->select(DB::raw('SUM(DISTINCT orders.price_total) as total_price'), 'orders.date')
+            ->get();
+
+        // $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
+        //     ->select(Order::raw('dishes.price * dish_order.quantity as total_price'))
+        //     ->distinct()
+        //     ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
+        //     ->join('users', 'dishes.user_id', '=', 'users.id')
+        //     ->where('users.id', Auth::user()->id)
+        //     ->pluck('total_price');
 
         // SELECT SUM(orders.price_total)
         // FROM `orders`
