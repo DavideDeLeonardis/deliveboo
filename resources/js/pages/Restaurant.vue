@@ -151,7 +151,7 @@ export default {
         }
 
         $(window).bind('beforeunload', function(){
-            if (myObj_deserialized) {
+            if (JSON.parse(localStorage.getItem("cart"))) {
                 return 'alert';
             }
         });
