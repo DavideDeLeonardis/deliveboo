@@ -11,16 +11,16 @@ class SendNewMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $dataUser;
+    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_user)
+    public function __construct($_data)
     {
-        $this->user = $_user;
+        $this->data = $_data;
     }
 
     /**
@@ -30,6 +30,6 @@ class SendNewMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.order-confirm');
+        return $this->view('emails.order-confirm', ['data' => $this->data]);
     }
 }
