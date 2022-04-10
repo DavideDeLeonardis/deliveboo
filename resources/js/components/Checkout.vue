@@ -1,6 +1,27 @@
 <template>
     <div class="container-chechkout mt-5">
-        <h2 class="text-success">Pagamento avvenuto con successo!</h2>
+        <h2 class="text-success">
+            Pagamento avvenuto con successo!
+            <lord-icon
+                src="https://cdn.lordicon.com/lupuorrc.json"
+                trigger="loop"
+                colors="primary:#121331,secondary:#ffc245"
+                style="width:50px;height:50px">
+            </lord-icon>
+        </h2>
+
+        <div class="animation-food">
+            <h4>Il tuo ordine sta arrivando</h4>
+            <lord-icon
+                src="https://cdn.lordicon.com/poblyvkl.json"
+                trigger="loop"
+                colors="primary:#000000,secondary:#38c172"
+                style="width:80px;height:80px"
+                axis-y="65">
+            </lord-icon>
+            <hr>
+        </div>
+
         <h3 class="fs-4">
             Grazie per aver scelto
             <span
@@ -97,4 +118,20 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.animation-food{
+    hr{
+        border-top: 5px dashed #ffc245;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+    lord-icon{
+        animation: mymove 10s forwards;
+    }
+}
+@keyframes mymove {
+  0% {left: 0;}
+  50% {left: 40%;}
+  100% {left: 90%;}
+}
+</style>

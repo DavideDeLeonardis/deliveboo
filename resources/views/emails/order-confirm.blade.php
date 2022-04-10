@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container-chechkout mt-5">
-            <h1 class="text-success">Ciao {{ $order->name }}, il tuo è ordine confermato e arriverà a breve!</h1>
+            <h1 class="text-success">Ciao {{ $order->name }}, il tuo ordine confermato e arriverà a breve!</h1>
         <h3 class="fs-4">
             Grazie per aver scelto
             <span class="fw-bold text-uppercase text-success bg-warning rounded-pill p-1">Deli<span class="fw-bold text-uppercase bg-success text-warning rounded-pill">veboo</span>
@@ -47,6 +49,8 @@
                 </a>
             </div>
         </div>
+    <h1>Ordine confermato</h1>
     </div>
 </body>
+
 </html>

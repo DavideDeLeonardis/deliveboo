@@ -62,13 +62,16 @@ export default {
         .my-col {
             background-color: #434848;
             // margin: 0 0.8em;
-            a {
-                text-decoration: none;
-                color: white;
-                font-weight: 200;
-                margin-bottom: 0.5em;
-                &:hover {
-                    color: #198754;
+            .container-col-footer{
+                border: 10px solid #2e3333;
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 200;
+                    margin-bottom: 0.5em;
+                    &:hover {
+                        color: #198754;
+                    }
                 }
             }
         }
@@ -78,6 +81,7 @@ export default {
 @media all and (max-width: 767px) {
     .container-col-footer{
         width: 18rem;
+        border: none !important;
     }
 }
 
