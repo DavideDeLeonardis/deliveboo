@@ -82,9 +82,9 @@ export default {
     //     }
     //     next();
     // },
-    // beforeDestroy() {
-    //     window.removeEventListener("beforeunload", this.preventNav);
-    // },
+    beforeDestroy() {
+        window.removeEventListener("beforeunload", this.preventNav);
+    },
     methods: {
         preventNav(event) {
             if (this.cart == []) return;
@@ -150,12 +150,16 @@ export default {
             this.cart = myObj_deserialized;
         }
 
+        $(window).bind('beforeunload', function(){
+            if (myObj_deserialized) {
+                return 'alert';
+            }
+        });
+
+        // window.confirm('rly???')
         // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
         // // prompt('Stai lasciando la pagina')
         // // };
-        window.onbeforeunload = function () {
-            alert("prova");
-        };
     },
 };
 </script>
