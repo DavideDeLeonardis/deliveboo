@@ -137,9 +137,14 @@ export default {
             this.getRestaurants(`${this.url}restaurants`, null);
         }, 200);
 
+        
         //clear localStorage when back to the home
         this.$store.state["cart"] = [];
         localStorage.clear();
+        // console.log(this.$store.state['location'].href)
+        // if (JSON.parse(localStorage.getItem("location"))) {
+        //     alert('Scegliendo un altro ristorante rispetto al precedente, perderai il carrello')
+        // }
     },
     computed: {
         searchRestaurants() {

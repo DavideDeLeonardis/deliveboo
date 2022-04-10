@@ -111,7 +111,7 @@ export default {
             this.$store.dispatch("subtractItem", dish);
             this.cart = this.$store.state["cart"];
             localStorage.setItem("cart", JSON.stringify(this.cart));
-            console.log(localStorage);
+            // console.log(localStorage);
             // console.log(this.$store.state)
             // console.log(dish.quantity)
         },
@@ -119,7 +119,7 @@ export default {
             this.$store.dispatch("removeItem", dish);
             this.cart = this.$store.state["cart"];
             localStorage.setItem("cart", JSON.stringify(this.cart));
-            console.log(localStorage);
+            // console.log(localStorage);
             // console.log(this.$store.state)
         },
         clearCart() {
@@ -132,14 +132,15 @@ export default {
         console.log(this.$store.state);
 
         this.getUser("http://127.0.0.1:8000/api/v1/restaurants/" + this.slug);
-        console.log(window.location);
-        // localStorage.setItem("location", JSON.stringify(window.location));
+        localStorage.setItem("location", JSON.stringify(window.location));
+        
         // let location_deserialized = JSON.parse(localStorage.getItem("location"));
-        // console.log(location_deserialized)
-        // if (location_deserialized) {
-        //     if (location_deserialized != window.location) {
-        //         console.log(window.location)
+        // console.log(location_deserialized.href)
+        // if (this.$store.state['location'].href) {
+        //     if (this.$store.state['location'].href != location_deserialized.href) {
         //         localStorage.clear();
+        //         this.$store.state.cart = [];
+        //         // localStorage.setItem("location", JSON.stringify(window.location))
         //         console.log(localStorage)
         //     }
         // }
