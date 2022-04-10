@@ -16,7 +16,7 @@
         $dates[] = $start->copy()->format('Y-m-d');
         $start->addDay();
     }
-
+    
     $month_2 = '2022-04';
     $start_2 = Carbon::parse($month_2)->startOfMonth();
     $end_2 = Carbon::parse($month_2)->endOfMonth();
@@ -28,6 +28,7 @@
     }
     
     // echo '<pre>', print_r($dates_2), '</pre>';
+    
     ?>
 
     <div class="container">
@@ -35,11 +36,11 @@
             <div class="col">
 
 
-{{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS, 
+                {{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS, 
     to view this chart decomment $chart in Admin\HomeController.php --}}
                 {{-- {!! $chart->container() !!}
                 {!! $chart->script() !!} --}}
-{{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS --}}
+                {{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS --}}
 
                 <canvas id="myChart" width="100%" height="100%"></canvas>
 
@@ -73,9 +74,9 @@
                     // console.log(supp_price, 'supp_price')
                     for (let i = 0; i < JSON.parse(month).length; i++) {
                         let element = JSON.parse(month)[i];
-                        if(supp_date.includes(element)){
+                        if (supp_date.includes(element)) {
                             Object.entries(data).forEach(my_el => {
-                                if(element == my_el[1].date){
+                                if (element == my_el[1].date) {
                                     supp.push(my_el[1].total_price)
                                 }
                             });
@@ -192,9 +193,9 @@
                     // console.log(supp_price_2, 'supp_price-2')
                     for (let i = 0; i < JSON.parse(month_2).length; i++) {
                         let element = JSON.parse(month_2)[i];
-                        if(supp_date_2.includes(element)){
+                        if (supp_date_2.includes(element)) {
                             Object.entries(data_2).forEach(my_el => {
-                                if(element == my_el[1].date){
+                                if (element == my_el[1].date) {
                                     supp_2.push(my_el[1].total_price)
                                 }
                             });
@@ -292,4 +293,11 @@
             </div>
         </div>
     </div>
+
+    {{-- <style lang="scss">
+            canvas {
+                width: 60rem !important;
+                height: 50rem !important;
+            }
+    </style> --}}
 @endsection
