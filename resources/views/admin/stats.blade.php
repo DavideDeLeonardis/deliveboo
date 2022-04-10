@@ -212,7 +212,7 @@
                             labels: JSON.parse(month_2),
 
                             datasets: [{
-                                label: 'Guadagni Questo Mese',
+                                label: 'Guadagni Mese Corrente',
                                 data: supp_2,
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
