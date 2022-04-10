@@ -24,9 +24,13 @@
         <div class="row mt-5">
             <div class="col">
 
-                {{-- {!! $chart->container() !!}
 
+{{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS, 
+    to view this chart decomment $chart in Admin\HomeController.php --}}
+                {{-- {!! $chart->container() !!}
                 {!! $chart->script() !!} --}}
+{{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS --}}
+
                 <canvas id="myChart" width="100%" height="100%"></canvas>
                 <script>
                     let my_dates = '<?php echo json_encode($orders_date, true); ?>';
@@ -39,61 +43,31 @@
 
                     let my_amount = '<?php echo json_encode($orders_price, true); ?>';
                     let amount = my_amount.split(" ");
-                    let prova = [];
+                    let data = [];
                     JSON.parse(amount).forEach(element => {
-                        // console.log(element.total_price)
-                        prova.push(element)
+                        data.push(element)
                     });
-                    // console.log("Guadagni :" + amount);
-                    // console.log(prova)
 
                     let supp = [];
-                    console.log(supp.length, 'supp')
-                    // JSON.parse(month).forEach((day, index) => {
-                    //     console.log(JSON.parse(month).length)
-                    //     if (prova[index]) {
-                    //         if (day = prova[index].date) {
-                    //             supp.push(prova[index].total_price)
-                    //         }
-                    //     } else {
-                    //         supp.push(0)
-                    //     }
-                    // })
-                    
+                    let supp_date = [];
+                    let supp_pricew = [];
+                    Object.entries(data).forEach(element => {
+                        // console.log(element[1].date)
+                        supp_date.push(element[1].date);
+                        supp_pricew.push(element[1].total_price);
+                    });
+
+                    console.log(supp_date, 'supp_date')
+                    console.log(supp_pricew, 'supp_pricew')
                     for (let i = 0; i < JSON.parse(month).length; i++) {
                         let element = JSON.parse(month)[i];
-                        // if(prova[i]){
-                        //     JSON.parse(month).forEach(element => {
-                        //         if (prova[i].date == JSON.parse(month)[i]) {
-                        //             supp.push(prova[i].total_price)
-                        //         }
-                        //         else {
-                        //             supp.push(0)
-                        //         }
-                        //     });
-                        // } else {
-                        //     supp.push(0)
-                        // }
-                        let x = '';
-                        if (prova[i]){
-                            console.log(prova)
-                            let x = prova[i].date
-                            console.log(x, 'la mia data')
-                            console.log(element, 'month[i]')
-                            console.log(x == element, 'vediamo se sono uguali')
-                            // console.log(x)
-                            // console.log(element, 'console.log prima di entreare in if x==element')
-                            // console.log(prova[i].date, 'data vera nostra')
-                            if(x == element){
-                                console.log(prova[i].date, 'data nostra')
-                                console.log(element, 'data sua')
-                                supp.push(prova[i].total_price)
-                            }
-                            else {
-                                supp.push(0)
-                            }
-                        } 
-                        else {
+                        if(supp_date.includes(element)){
+                            Object.entries(data).forEach(my_el => {
+                                if(element == my_el[1].date){
+                                    supp.push(my_el[1].total_price)
+                                }
+                            });
+                        } else {
                             supp.push(0)
                         }
                     }
