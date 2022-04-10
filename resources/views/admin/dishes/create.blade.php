@@ -24,7 +24,7 @@
                                     <input type="text" class="form-control"
                                         style="background-color: rgb(56, 193, 114, 0.2)" id="name" name="name" required
                                         value="{{ old('name') }}" data-bs-toggle="tooltip" data-bs-placement="right"
-                                        title="Tooltip on right">
+                                        title="Compila questo campo">
                                     @error('name')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
