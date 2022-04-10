@@ -63,8 +63,7 @@
                                 >
                                 </lord-icon>
                                 <strong
-                                    >Inserisci i tuoi dati per concludere il
-                                    pagamento</strong
+                                    >Inserisci i tuoi dati per concludere l'ordine</strong
                                 >
                             </h3>
 

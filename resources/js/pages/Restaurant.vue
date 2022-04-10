@@ -14,16 +14,20 @@
                                 <h5 class="card-title title-dish-card">{{ dish.name }}</h5>
                                 <div class="container-img-description">
                                     <img :src="'/storage/'+dish.image" class="card-img-top" alt="image">
-                                    <p v-if="dish.description" class="info-image">i</p>
-                                    <p v-if="dish.description" class="description-dish">{{dish.description}}</p>
+                                    <p v-if="dish.ingredients" class="info-image">i</p>
+                                    <p v-if="dish.ingredients" class="description-dish">{{dish.ingredients}}</p>
                                 </div>
                                 <div class="container-price-plus">
                                     <p class="card-text mb-0">&euro; {{ dish.price.toFixed(2) }}</p>
                                     <button
+                                    v-if="dish.availability"
                                     class="btn btn-primary button-plus-dish"
                                     @click="addItem(dish)">
                                         <i class="fas fa-plus"></i>
                                     </button>
+                                    <div v-else>
+                                        prodotto non disponibile
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -225,6 +229,9 @@ export default {
                     .description-dish{
                         display: block !important;
                         background-color: rgba(128, 128, 128, 0.8);
+                    }
+                    .info-image{
+                        display: none;
                     }
                 }
             }

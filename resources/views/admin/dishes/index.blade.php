@@ -11,14 +11,14 @@
             <div class="col d-flex flex-wrap container-card-dishes">
                 @foreach ($dishes as $dish)
                     <div class="card m-2 card-dish-index">
-                        <div class="card-body" @if (!$dish->description) style="height: 150px" @endif
+                        <div class="card-body" @if (!$dish->ingredients) style="height: 150px" @endif
                             style="height: 260px">
                             <h5 class="card-title text-uppercase card-title-dishes">{{ $dish->name }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted card-subtitle-dishes">{{ $dish->course }}</h6>
-                            @if ($dish->description)
+                            @if ($dish->ingredients)
                                 <p class="card-text p-3 overflow-auto bg-success text-dark bg-opacity-25 card-text-dishes"
                                     style="height: 50%; max-height: 150px">
-                                    {{ $dish->description }}</p>
+                                    {{ $dish->ingredients }}</p>
                             @endif
                             <div class="btn-group btn-group-index align-items-center btn-group-dishes" role="group"
                                 aria-label="Basic mixed styles example">

@@ -132,6 +132,7 @@ export default {
     border: none;
     position: relative;
     overflow: hidden !important;
+    border-radius: 20px 20px 5px 5px !important;
     &:hover {
         .img-restaurant{
             transform: scale(1.2);
