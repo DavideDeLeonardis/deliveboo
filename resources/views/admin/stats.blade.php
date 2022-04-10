@@ -42,9 +42,9 @@
                 {!! $chart->script() !!} --}}
                 {{-- ***********************SIMPLE CHART WITH LARAVEL CHARTS --}}
 
-                <canvas id="myChart" width="100%" height="100%"></canvas>
+                <canvas id="myChart"></canvas>
 
-                <canvas id="myChart_2" width="100%" height="100%"></canvas>
+                <canvas id="myChart_2"></canvas>
                 <script>
                     let my_dates = '<?php echo json_encode($orders_date, true); ?>';
                     let dates = my_dates.split(" ");
