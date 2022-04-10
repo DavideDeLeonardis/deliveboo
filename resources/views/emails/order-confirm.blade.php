@@ -21,7 +21,6 @@
         <div class="row">
             <div class="col mb-5">
                 <div class="card mt-4">
-                    <h3 class="card-title p-3">Riepilogo ordine</h3>
                     {{-- @foreach ($data['cart'] as $item)
                         <div class="card-header pt-4">
                             <ul class="list-group list-group-flush">
