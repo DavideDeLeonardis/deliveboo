@@ -26,7 +26,7 @@
                                         <i class="fas fa-plus"></i>
                                     </button>
                                     <div v-else>
-                                        prodotto non disponibile
+                                        Non disponibile
                                     </div>
                                 </div>
                             </div>
@@ -201,6 +201,7 @@ export default {
                     transition: transform .2s;
                 }
                 .info-image{
+                    cursor: pointer;
                     color: white;
                     background-color: gray;
                     position: absolute;
@@ -227,6 +228,8 @@ export default {
                     img{
                         transform: scale(1.2);
                     }
+                }
+                &:active{
                     .description-dish{
                         display: block !important;
                         background-color: rgba(128, 128, 128, 0.8);
