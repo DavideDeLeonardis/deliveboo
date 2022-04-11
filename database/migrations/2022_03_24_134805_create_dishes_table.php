@@ -20,7 +20,7 @@ class CreateDishesTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
-                
+
             $table->string('name', 100);
             $table->string('slug')->unique();
             $table->text('description')->nullable();
@@ -29,6 +29,7 @@ class CreateDishesTable extends Migration
             $table->float('price', 5, 2);
             $table->boolean('availability')->default(0);
             $table->string('course', 25);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

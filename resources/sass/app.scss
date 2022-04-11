@@ -1,8 +1,25 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import "dishes/create";
+@import "dishes/edit";
+@import "dishes/index";
+@import "orders/index";
+@import "user/edit";
+@import "user/index";
+@import "admin";
+@import "my_edit";
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
+
+// Fontawesome
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+* {
+    font-family: "Montserrat", sans-serif;
+}

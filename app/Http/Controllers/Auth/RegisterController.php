@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::NEWPLATES;
 
     /**
      * Create a new controller instance.
@@ -120,8 +120,7 @@ class RegisterController extends Controller
             'slug' => createSlug($data['name']),
         ]);
         $user->categories()->sync($data['categories']);
-        
+
         return $user;
-        
     }
 }

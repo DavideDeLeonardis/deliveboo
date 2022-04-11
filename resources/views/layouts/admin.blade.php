@@ -8,9 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Deliverboo') }}</title>
+    <title>{{ config('app.name', 'DeliveBoo') }}</title>
 
     <!-- Scripts -->
+    <script src="https://cdn.lordicon.com/lusqsztk.js" defer></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="{{ asset('js/front.js') }}"></script>
 
@@ -20,13 +22,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style scoped>
+        .nav-pills .nav-link.active {
+            background-color: #38c172;
+        }
+
+        .my-btn-warning {
+            background-color: #ffc107;
+        }
+
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-dark text-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Deliverboo') }}
+            <a class="navbar-brand text-white" href="{{ url('/') }}">
+                DeliveBoo
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,12 +58,12 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown mx-4" style="margin-top: 7px;">Name: {{ Auth::user()->name }}</li>
+                        <li class="nav-item dropdown mx-4 fw-bold" style="margin-top: 7px;">{{ Auth::user()->name }}</li>
                         <li class="nav-item dropdown">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input type="submit" value="Logout" class="btn btn-default">
+                                <input type="submit" value="Logout" class="btn my-btn-warning text-white">
                             </form>
                         </li>
                     @endguest
@@ -60,46 +72,76 @@
         </div>
     </nav>
 
-    <main class="py-4">
-        <div class="container-fluid">
-            <div class="row">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
-
+    <main>
+        <div class="container-fluid" style="margin-top: 3rem">
+            <div class="row" style="width: ">
+                <div class="col-3 p-0 border-end border-light border-4 position-fixed bar-left" id="sticky-sidebar">
+                    <div style="min-height: 100vh;"
+                        class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
+                        <a href="{{ route('admin.home') }}"
+                            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-around">
+                            <img class="bi me-2 w-50" src="{{ asset('images/logo.jpeg') }}" alt="Logo"
+                                class="rounded-circle me-2">
+                        </a>
+                        <hr>
+                        <ul class="nav nav-pills flex-column mb-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dishes.index') }}">
-                                    <i class="bi bi-files"></i>
-                                    Tutti i piatti
+                                <a href="{{ route('admin.dishes.index') }}"
+                                    class="{{ 'admin.dishes.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white"
+                                    aria-current="page">
+                                    <lord-icon class="icon" src="https://cdn.lordicon.com/coqbeapw.json"
+                                        trigger="loop" colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="5000">
+                                    </lord-icon>
+                                    <span class="text-side text-side-admin">Visualizza tutti i piatti</span>
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.categories.index') }}">
-                                    <i class="bi bi-files"></i>
-                                    Tutte le categorie
-                                </a>
-                            </li> --}}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dishes.create') }}">
-                                    <i class="bi bi-files"></i>
-                                    Aggiungi piatto
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.orders.index') }}">
-                                    Vedi i tuoi ordini
+                            {{-- @dd(Route::currentRouteName()) --}}
+                            <li>
+                                <a href="{{ route('admin.dishes.create') }}"
+                                    class="{{ 'admin.dishes.create' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                    <lord-icon class="icon" src="https://cdn.lordicon.com/mecwbjnp.json"
+                                        trigger="loop" colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="7000">
+                                    </lord-icon>
+                                    <span class="text-side text-side-admin">Aggiungi piatto</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.users.index') }}">
-                                    Vedi il tuo profilo
+                            <li>
+                                <a href="{{ route('admin.orders.index') }}"
+                                    class="{{ 'admin.orders.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                    <lord-icon class="icon" src="https://cdn.lordicon.com/cjieiyzp.json"
+                                        trigger="loop" colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="9000">
+                                    </lord-icon>
+                                    <span class="text-side text-side-admin">Vedi i tuoi ordini</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.user.index') }}"
+                                    class="{{ 'admin.user.index' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                    <lord-icon class="icon" src="https://cdn.lordicon.com/dxjqoygy.json"
+                                        trigger="loop" colors="primary:#e8b730,secondary:#08a88a" stroke="60"
+                                        style="width:50px;height:50px" delay="11000">
+                                    </lord-icon>
+                                    <span class="text-side text-side-admin">Vedi il tuo profilo</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.stats') }}"
+                                    class="{{ 'admin.stats' === Route::currentRouteName() ? 'active' : '' }} nav-link text-white">
+                                    <lord-icon class="icon" src="https://cdn.lordicon.com/gqdnbnwt.json"
+                                        trigger="loop" delay="13000" stroke="60"
+                                        colors="primary:#e8b730,secondary:#08a88a" style="width:50px;height:50px">
+                                    </lord-icon>
+                                    <span class="text-side text-side-admin">Visualizza statistiche</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </div>
 
-                <div class="col">
+                <div class="col main">
                     @yield('content')
                 </div>
             </div>
