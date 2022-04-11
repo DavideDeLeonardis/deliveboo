@@ -94,15 +94,6 @@ class PaymentController extends Controller
 
             $newOrder->dishes()->attach(json_decode($dish)->id, ['quantity' => json_decode($dish)->quantity]);
         }
-
-        $order = [
-            'name' => $request->name,
-            'lastname' => $request->lastname,
-            'address' => $request->address,
-            'email' => $request->email,
-            'amount' => $request->price_total,
-        ];
-
-        Mail::to($to)->send(new SendNewMail($order));
+        Mail::to('info@me.com')->send(new SendNewMail($data));
     }
 }

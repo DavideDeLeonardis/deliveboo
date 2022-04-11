@@ -26,7 +26,7 @@
                                         <i class="fas fa-plus"></i>
                                     </button>
                                     <div v-else>
-                                        prodotto non disponibile
+                                        Non disponibile
                                     </div>
                                 </div>
                             </div>
@@ -82,9 +82,9 @@ export default {
     //     }
     //     next();
     // },
-    // beforeDestroy() {
-    //     window.removeEventListener("beforeunload", this.preventNav);
-    // },
+    beforeDestroy() {
+        window.removeEventListener("beforeunload", this.preventNav);
+    },
     methods: {
         preventNav(event) {
             if (this.cart == []) return;
@@ -150,12 +150,16 @@ export default {
             this.cart = myObj_deserialized;
         }
 
+        $(window).bind('beforeunload', function(){
+            if (JSON.parse(localStorage.getItem("cart"))) {
+                return 'alert';
+            }
+        });
+
+        // window.confirm('rly???')
         // // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
         // // prompt('Stai lasciando la pagina')
         // // };
-        window.onbeforeunload = function () {
-            alert("prova");
-        };
     },
 };
 </script>
@@ -201,6 +205,7 @@ export default {
                     transition: transform .2s;
                 }
                 .info-image{
+                    cursor: pointer;
                     color: white;
                     background-color: gray;
                     position: absolute;
@@ -227,6 +232,8 @@ export default {
                     img{
                         transform: scale(1.2);
                     }
+                }
+                &:active{
                     .description-dish{
                         display: block !important;
                         background-color: rgba(128, 128, 128, 0.8);

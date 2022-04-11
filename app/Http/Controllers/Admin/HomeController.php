@@ -52,6 +52,7 @@ class HomeController extends Controller
             ->join('users', 'dishes.user_id', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
             ->pluck('orders.date');
+
         $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
             ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
             ->join('users', 'dishes.user_id', '=', 'users.id')
@@ -60,27 +61,12 @@ class HomeController extends Controller
             ->select(DB::raw('SUM(DISTINCT orders.price_total) as total_price'), 'orders.date')
             ->get();
 
-        // $orders_price = Order::join('dish_order', 'dish_order.order_id', '=', 'orders.id')
-        //     ->select(Order::raw('dishes.price * dish_order.quantity as total_price'))
-        //     ->distinct()
-        //     ->join('dishes', 'dish_order.dish_id', '=', 'dishes.id')
-        //     ->join('users', 'dishes.user_id', '=', 'users.id')
-        //     ->where('users.id', Auth::user()->id)
-        //     ->pluck('total_price');
+        // $chart = new OrderChart;
+        // $chart->labels($orders_date->values());
+        // $chart->dataset('Riepilogo Ordini', 'bar', $orders_price->values())
+        // ->backgroundColor('#2871cc');
+        // ['chart' => $chart]
 
-        // SELECT SUM(orders.price_total)
-        // FROM `orders`
-        // JOIN dish_order ON dish_order.order_id = orders.id
-        // JOIN dishes ON dish_order.dish_id = dishes.id
-        // JOIN users ON users.id = dishes.user_id
-        // WHERE users.id = 2
-        // GROUP BY date
-        // dd($orders_date, $orders_price);
-        $chart = new OrderChart;
-        $chart->labels($orders_date->values());
-        $chart->dataset('Riepilogo Ordini', 'bar', $orders_price->values())
-        ->backgroundColor('#2871cc');
-
-        return view('admin.stats', ['chart' => $chart,'orders_date' => $orders_date, 'orders_price' => $orders_price]);
+        return view('admin.stats', ['orders_date' => $orders_date, 'orders_price' => $orders_price]);
     }
 }
