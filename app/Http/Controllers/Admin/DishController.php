@@ -177,6 +177,23 @@ class DishController extends Controller
     public function destroy(Dish $dish)
     {
         // $dish->orders()->detach();
+        $my_slug = 'deleted';
+        $oldSlug = Dish::onlyTrashed()->where('slug', $my_slug)->first();
+        $counter = 0;
+        while($oldSlug){
+            $newSlug = $my_slug . '-' . $counter;
+            $oldSlug = Dish::onlyTrashed()->where('slug', $newSlug)->first();
+            $counter++;
+        }
+
+        if ($oldSlug) {
+            $dish->slug = $my_slug;
+        } else {
+            $dish->slug = $newSlug;   
+        }
+
+        $dish->update();
+
         $dish->delete();
         return redirect()
             ->route('admin.dishes.index')
