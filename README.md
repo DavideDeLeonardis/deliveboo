@@ -47,5 +47,4 @@ php artisan serve
 <br><br>
 <img src="./resources/images/admin.png">
 <br><br>
-<img src="./resources/images/responsive-cart.png">
 <img src="./resources/images/responsive-cart-open.png">
