@@ -11,7 +11,12 @@
 
 ```
 composer install
+composer self-update
+composer update
+composer install
+
 npm install
+
 php artisan key:generate
 php artisan storage:link
 php artisan cache:clear
