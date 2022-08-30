@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +15,7 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
         foreach (config('users') as $user) {
             $newUser = new User();
             $newUser->photo = $user['photo'];
