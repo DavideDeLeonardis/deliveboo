@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-md-8 mt-5 mb-5">
-                <div class="card p-5">
+                <div class="card p-5 mb-4">
                     <h1>
                         <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="loop"
                             colors="primary:#ffc245,secondary:#38c172" style="width:50px;height:50px" delay="2000">
@@ -19,7 +19,8 @@
                                 <div class="mb-3">
                                     <label for="email" class="form-label">{{ __('E-Mail') }}</label>
 
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror"
                                         style="background-color: rgb(255, 194, 69, 0.2)" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -71,6 +72,12 @@
                             </form>
                         </div>
                     </div>
+                </div>
+
+                <div class="ms-3 me-4">
+                    <span>CREDENTIALS</span>
+                    <div class="ms-3"><u>Email:</u> &nbsp; piccinni28@gmail.com</div>
+                    <div class="ms-3"><u>Password:</u> &nbsp; 12345678</div>
                 </div>
             </div>
         </div>
