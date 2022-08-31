@@ -40,7 +40,7 @@
                             class="card-img-top rounded img-restaurant"
                         />
                         <div>
-                            <router-link
+                            <div
                                 class="btn background-restaurant-name"
                                 :to="{
                                     name: 'restaurant',
@@ -52,7 +52,7 @@
                                 >
                                     {{ restaurant.name }}
                                 </h4>
-                            </router-link>
+                            </div>
                         </div>
                     </div>
                     <div class="bottom-card-restaurant">
