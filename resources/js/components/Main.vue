@@ -40,13 +40,19 @@
                             class="card-img-top rounded img-restaurant"
                         />
                         <div>
-                            <div class="btn background-restaurant-name">
+                            <router-link
+                                class="btn background-restaurant-name"
+                                :to="{
+                                    name: 'restaurant',
+                                    params: { slug: restaurant.slug },
+                                }"
+                            >
                                 <h4
                                     class="card-title text-center text-light restaurant-name"
                                 >
                                     {{ restaurant.name }}
                                 </h4>
-                            </div>
+                            </router-link>
                         </div>
                     </div>
                     <div class="bottom-card-restaurant">
