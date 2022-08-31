@@ -6,17 +6,15 @@
 
 ## Setup
 
--   Duplicate .env.example and rename it .env. <br>
--   Create database and insert info in .env (database name, port, mailer, ...)
+-   Start MAMP <br>
+-   Create database <br>
+-   Duplicate .env.example and rename it .env , insert info in .env (database name, port, mailer, ...)
+
+<br>
 
 ```
 composer install
-composer self-update
-composer update
-composer install
-
 npm install
-
 php artisan key:generate
 php artisan storage:link
 php artisan cache:clear
