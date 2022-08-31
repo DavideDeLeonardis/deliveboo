@@ -39,14 +39,12 @@
                             :alt="restaurant.name"
                             class="card-img-top rounded img-restaurant"
                         />
-
-                        <div>
-                            <h4
-                                class="card-title text-center text-light restaurant-name"
-                            >
-                                {{ restaurant.name }}
-                            </h4>
-                        </div>
+                        <h4
+                            class="card-title text-center text-light restaurant-name"
+                            style="color: #000000"
+                        >
+                            {{ restaurant.name }}
+                        </h4>
                     </div>
                     <div class="bottom-card-restaurant">
                         <div
