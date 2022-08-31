@@ -76,8 +76,20 @@
 
                 <div class="ms-3 me-4">
                     <span>CREDENTIALS</span>
-                    <div class="ms-3"><u>Email:</u> &nbsp; piccinni28@gmail.com</div>
-                    <div class="ms-3"><u>Password:</u> &nbsp; 12345678</div>
+                    <div class="d-flex">
+                        <div>
+                            <div class="ms-3"><u>Email:</u> &nbsp; pasticceriafloro@gmail.com</div>
+                            <div class="ms-3"><u>Password:</u> &nbsp; 12345678</div>
+                        </div>
+                        <div>
+                            <div class="ms-3"><u>Email:</u> &nbsp; botta@gmail.com</div>
+                            <div class="ms-3"><u>Password:</u> &nbsp; 12345678</div>
+                        </div>
+                        <div>
+                            <div class="ms-3"><u>Email:</u> &nbsp; 44gattibistrot@gmail.com</div>
+                            <div class="ms-3"><u>Password:</u> &nbsp; 12345678</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
