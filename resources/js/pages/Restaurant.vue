@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="container-price-plus">
                                     <p class="card-text mb-0">
-                                        &euro; {{ dish.price.toFixed(2) }}
+                                        &euro; {{ dish.price }}
                                     </p>
                                     <button
                                         v-if="dish.availability"
