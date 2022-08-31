@@ -228,7 +228,7 @@ export default {
                 .toFixed(2);
             //axios call per riempire database e poi parte pagamento?
             Axios.post(
-                "https://lit-atoll-37130.herokuapp.com/api/order/make/payment?token=fake-valid-nonce&amount=" +
+                "http://127.0.0.1:8000/api/order/make/payment?token=fake-valid-nonce&amount=" +
                     amount
             ).then((result) => {
                 this.allDone = true;

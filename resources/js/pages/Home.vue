@@ -159,7 +159,7 @@ export default {
     data() {
         return {
             loading: false,
-            url: "https://lit-atoll-37130.herokuapp.com/api/v1/",
+            url: "http://127.0.0.1:8000/api/v1/",
             restaurants: null,
             categories: [],
             pages: {

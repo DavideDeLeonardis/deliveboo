@@ -160,10 +160,7 @@ export default {
     created() {
         console.log(this.$store.state);
 
-        this.getUser(
-            "https://lit-atoll-37130.herokuapp.com/api/v1/restaurants/" +
-                this.slug
-        );
+        this.getUser("http://127.0.0.1:8000/api/v1/restaurants/" + this.slug);
         localStorage.setItem("location", JSON.stringify(window.location));
 
         // let location_deserialized = JSON.parse(localStorage.getItem("location"));

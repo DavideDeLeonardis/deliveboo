@@ -15,7 +15,7 @@
                         @endif
                         @if ($dish->image)
                             <img class="img-fluid" style="max-width: 20rem"
-                                src="{{ secure_asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
+                                src="{{ asset('storage/' . $dish->image) }}" alt="{{ $dish->name }}">
                         @endif
                         <p class="card-text"><strong>Prezzo:</strong> {{ $dish->price }} &euro;</p>
                         <p class="card-text"><strong>Disponibilità:</strong>
