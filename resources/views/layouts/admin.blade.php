@@ -14,14 +14,14 @@
     <script src="https://cdn.lordicon.com/lusqsztk.js" defer></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-    <script src="{{ asset('js/front.js') }}"></script>
+    <script src="{{ secure_asset('js/front.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <style scoped>
         .nav-pills .nav-link.active {
             background-color: #38c172;
@@ -80,7 +80,7 @@
                         class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-100">
                         <a href="{{ route('admin.home') }}"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none justify-content-around">
-                            <img class="bi me-2 w-50" src="{{ asset('images/logo.jpeg') }}" alt="Logo"
+                            <img class="bi me-2 w-50" src="{{ secure_asset('images/logo.jpeg') }}" alt="Logo"
                                 class="rounded-circle me-2">
                         </a>
                         <hr>

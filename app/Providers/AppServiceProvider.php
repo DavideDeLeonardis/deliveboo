@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Braintree\Gateway;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (env('APP_ENV') === 'production') {
+            URL::forceScheme('https');
+        }
+
         Paginator::useBootstrap();
 
         $this->app->singleton(Gateway::class, function($app){
