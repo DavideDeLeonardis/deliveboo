@@ -45,8 +45,6 @@
                                         &euro;
                                         {{
                                             dish.price
-                                                ? dish.price.toFixed(2)
-                                                : dish.price
                                         }}
                                     </p>
                                     <button
