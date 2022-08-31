@@ -203,7 +203,7 @@ export default {
     },
     methods: {
         getCategories(url) {
-            Axios.get(url)
+            Axios.get(url, { mode: "cors" })
                 .then((result) => {
                     this.categories = result.data.results.data;
                 })
@@ -213,7 +213,7 @@ export default {
         },
         getRestaurants(url, param) {
             this.loading = true;
-            Axios.get(url, { params: param })
+            Axios.get(url, { mode: "cors", params: param })
                 .then((result) => {
                     this.restaurants = result.data.results.data;
                     this.pages.next_page_url =
