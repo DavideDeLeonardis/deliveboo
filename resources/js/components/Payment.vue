@@ -180,6 +180,10 @@
                             />
                         </div>
                     </form>
+
+                    <div style="text-align: center">
+                        <span>(Non ti scaliamo nulla, tranquillo!)</span>
+                    </div>
                 </div>
             </div>
         </div>
