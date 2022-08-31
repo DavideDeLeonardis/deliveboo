@@ -69,12 +69,12 @@
                             </li>
                             <br />
                             <li class="list-group-item">
-                                Prezzo singolo: {{ dish.price.toFixed(2) }} &euro;
+                                Prezzo singolo: {{ dish.price }} &euro;
                             </li>
                             <br />
                             <li class="list-group-item">
                                 Somma piatti:
-                                {{ (dish.price * dish["quantity"]).toFixed(2) }} &euro;
+                                {{ (dish.price * dish["quantity"]) }} &euro;
                             </li>
                         </ul>
                     </div>
@@ -88,7 +88,6 @@
                                             total + dish.price * dish.quantity,
                                         0
                                     )
-                                    .toFixed(2)
                             }}
                             &euro;
                         </h3>
