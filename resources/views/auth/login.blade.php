@@ -76,7 +76,7 @@
 
                 <div class="ms-3 me-4">
                     <span>CREDENTIALS</span>
-                    <div class="d-flex">
+                    <div class="d-flex flex-wrap">
                         <div class="mx-4">
                             <div><u>Email:</u> &nbsp; pasticceriafloro@gmail.com</div>
                             <div><u>Password:</u> &nbsp; 12345678</div>
