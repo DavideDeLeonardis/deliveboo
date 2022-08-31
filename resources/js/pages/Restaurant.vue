@@ -22,10 +22,15 @@
                                     {{ dish.name }}
                                 </h5>
                                 <div class="container-img-description">
-                                    <img
+                                    <!-- <img
                                         :src="'/storage/' + dish.image"
                                         class="card-img-top"
-                                        alt="image"
+                                        :alt="`${dish.name} image`"
+                                    /> -->
+                                    <img
+                                        class="card-img-top"
+                                        src="../../images/cibo.jpeg"
+                                        :alt="`${dish.name} image`"
                                     />
                                     <p
                                         v-if="dish.ingredients"
@@ -42,10 +47,7 @@
                                 </div>
                                 <div class="container-price-plus">
                                     <p class="card-text mb-0">
-                                        &euro;
-                                        {{
-                                            dish.price
-                                        }}
+                                        &euro; {{ dish.price }}
                                     </p>
                                     <button
                                         v-if="dish.availability"
