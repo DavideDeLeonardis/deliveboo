@@ -179,17 +179,19 @@ class DishController extends Controller
         // $dish->orders()->detach();
         $my_slug = 'deleted';
         $oldSlug = Dish::onlyTrashed()->where('slug', $my_slug)->first();
+
         $counter = 0;
         while($oldSlug){
             $newSlug = $my_slug . '-' . $counter;
             $oldSlug = Dish::onlyTrashed()->where('slug', $newSlug)->first();
-            $counter++;
-        }
 
-        if ($oldSlug) {
-            $dish->slug = $my_slug;
-        } else {
-            $dish->slug = $newSlug;   
+            if ($oldSlug) {
+                $dish->slug = $my_slug;
+            } else {
+                $dish->slug = $newSlug;
+            }
+
+            $counter++;
         }
 
         $dish->update();
