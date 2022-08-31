@@ -39,10 +39,6 @@
                         <div>
                             <router-link
                                 class="btn background-restaurant-name"
-                                :to="{
-                                    name: 'restaurant',
-                                    params: { slug: restaurant.slug },
-                                }"
                             >
                                 <h4
                                     class="card-title text-center text-light restaurant-name"
@@ -174,7 +170,7 @@ export default {
 }
 .like-icon{
     transform: rotate(180deg);
-    transform: scaleY(-1); 
+    transform: scaleY(-1);
 }
 
 @media (min-width:768px) and (max-width:991px)  {
