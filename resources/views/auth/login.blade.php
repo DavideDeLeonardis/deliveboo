@@ -81,12 +81,8 @@
                             <div><u>Email:</u> &nbsp; pasticceriafloro@gmail.com</div>
                             <div><u>Password:</u> &nbsp; 12345678</div>
                         </div>
-                        <div class="me-4">
+                        <div class="mx-4">
                             <div><u>Email:</u> &nbsp; botta@gmail.com</div>
-                            <div><u>Password:</u> &nbsp; 12345678</div>
-                        </div>
-                        <div>
-                            <div><u>Email:</u> &nbsp; 44gattibistrot@gmail.com</div>
                             <div><u>Password:</u> &nbsp; 12345678</div>
                         </div>
                     </div>
